@@ -1,1625 +1,2979 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0d2f68">
-  <title>Morena · Mis 15 Años</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at top, #dcecff 0%, #9fc5ee 28%, #3975b8 65%, #102f61 100%);
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    body.locked {
-      overflow: hidden;
-    }
-
-    section {
-      position: relative;
-      min-height: 100vh;
-      padding: 70px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    /* =========================
-       BRILLOS
-    ========================== */
-
-    .sparkle {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background: white;
-      border-radius: 50%;
-      box-shadow:
-        0 0 6px white,
-        0 0 12px #dcecff,
-        0 0 20px #fff;
-      animation: sparkle 2.5s infinite ease-in-out;
-      opacity: .8;
-      z-index: 2;
-    }
-
-    @keyframes sparkle {
-      0%, 100% {
-        transform: scale(.4);
-        opacity: .2;
-      }
-
-      50% {
-        transform: scale(1.5);
-        opacity: 1;
-      }
-    }
-
-    /* =========================
-       MARIPOSAS
-    ========================== */
-
-    .butterfly {
-      position: absolute;
-      width: 80px;
-      height: 70px;
-      z-index: 3;
-      pointer-events: none;
-      animation: floatButterfly 7s ease-in-out infinite;
-      filter:
-        drop-shadow(0 0 5px rgba(255,255,255,.9))
-        drop-shadow(0 0 14px rgba(190,220,255,.8));
-    }
-
-    .butterfly.small {
-      width: 48px;
-      height: 42px;
-    }
-
-    .butterfly.big {
-      width: 110px;
-      height: 95px;
-    }
-
-    .butterfly svg {
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-    }
-
-    @keyframes floatButterfly {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(-4deg);
-      }
-
-      25% {
-        transform: translate3d(12px, -18px, 0) rotate(4deg);
-      }
-
-      50% {
-        transform: translate3d(-10px, -30px, 0) rotate(-2deg);
-      }
-
-      75% {
-        transform: translate3d(15px, -12px, 0) rotate(5deg);
-      }
-    }
-
-    .b1 { top: 8%; left: 4%; animation-delay: 0s; }
-    .b2 { top: 18%; right: 4%; animation-delay: 1s; }
-    .b3 { top: 38%; left: 2%; animation-delay: 2s; }
-    .b4 { top: 52%; right: 2%; animation-delay: 3s; }
-    .b5 { bottom: 15%; left: 5%; animation-delay: 1.5s; }
-    .b6 { bottom: 8%; right: 7%; animation-delay: 2.5s; }
-    .b7 { top: 65%; left: 18%; animation-delay: .5s; }
-    .b8 { top: 73%; right: 17%; animation-delay: 3.5s; }
-
-    /* =========================
-       PORTADA
-    ========================== */
-
-    #opening {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at 50% 25%, #eaf5ff 0%, #a9d0f4 30%, #4b83c4 65%, #102e60 100%);
-      text-align: center;
-      transition: opacity 1s ease, visibility 1s ease;
-    }
-
-    #opening.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .opening-content {
-      position: relative;
-      z-index: 10;
-      width: min(92%, 650px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .crown {
-      font-size: 48px;
-      margin-bottom: 12px;
-      filter: drop-shadow(0 0 10px #fff);
-      animation: crownGlow 2s infinite ease-in-out;
-    }
-
-    @keyframes crownGlow {
-      0%, 100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 5px #fff);
-      }
-
-      50% {
-        transform: scale(1.08);
-        filter: drop-shadow(0 0 20px #fff);
-      }
-    }
-
-    .opening-small {
-      font-size: 15px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-      color: #fff;
-      text-shadow: 0 0 10px rgba(255,255,255,.8);
-    }
-
-    .opening-name {
-      font-size: clamp(65px, 18vw, 125px);
-      line-height: .9;
-      font-style: italic;
-      font-weight: normal;
-      color: #fff;
-      text-shadow:
-        0 0 5px #fff,
-        0 0 15px #d7eaff,
-        0 0 30px #8ab8e8;
-      margin-bottom: 20px;
-    }
-
-    .opening-title {
-      font-size: clamp(28px, 7vw, 48px);
-      letter-spacing: 7px;
-      font-weight: bold;
-      color: #fff;
-      text-shadow: 0 0 15px rgba(255,255,255,.9);
-      margin-bottom: 38px;
-    }
-
-    .open-btn {
-      border: 1px solid rgba(255,255,255,.8);
-      background: linear-gradient(
-        135deg,
-        rgba(255,255,255,.25),
-        rgba(255,255,255,.08)
-      );
-      color: white;
-      padding: 16px 35px;
-      border-radius: 50px;
-      font-family: inherit;
-      font-size: 17px;
-      letter-spacing: 2px;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      box-shadow:
-        0 0 15px rgba(255,255,255,.3),
-        inset 0 0 15px rgba(255,255,255,.1);
-      transition: .3s ease;
-    }
-
-    .open-btn:hover {
-      transform: scale(1.05);
-      box-shadow:
-        0 0 30px rgba(255,255,255,.65),
-        inset 0 0 20px rgba(255,255,255,.2);
-    }
-
-    /* =========================
-       HERO
-    ========================== */
-
-    #hero {
-      min-height: 100vh;
-      text-align: center;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(255,255,255,.32), transparent 25%),
-        linear-gradient(160deg, #dbeeff 0%, #77aee2 45%, #173d77 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 5;
-      max-width: 850px;
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .hero-name {
-      font-size: clamp(70px, 18vw, 145px);
-      font-style: italic;
-      font-weight: normal;
-      line-height: .9;
-      text-shadow:
-        0 0 7px white,
-        0 0 20px #b9d9ff,
-        0 0 45px rgba(255,255,255,.8);
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-size: clamp(32px, 7vw, 60px);
-      letter-spacing: 8px;
-      margin-bottom: 25px;
-      text-shadow: 0 0 15px white;
-    }
-
-    .hero-date {
-      font-size: 21px;
-      letter-spacing: 4px;
-    }
-
-    /* =========================
-       TITULOS
-    ========================== */
-
-    .section-title {
-      position: relative;
-      z-index: 5;
-      font-size: clamp(32px, 8vw, 55px);
-      text-align: center;
-      margin-bottom: 30px;
-      color: #fff;
-      text-shadow:
-        0 0 8px white,
-        0 0 20px rgba(180,220,255,.8);
-    }
-
-    .section-subtitle {
-      position: relative;
-      z-index: 5;
-      max-width: 800px;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    /* =========================
-       HISTORIA
-    ========================== */
-
-    #story {
-      background:
-        linear-gradient(
-          rgba(22,65,119,.45),
-          rgba(10,36,76,.8)
-        );
-    }
-
-    .story-box {
-      position: relative;
-      z-index: 5;
-      max-width: 850px;
-      padding: 40px 28px;
-      border: 1px solid rgba(255,255,255,.45);
-      background: rgba(255,255,255,.09);
-      backdrop-filter: blur(7px);
-      border-radius: 25px;
-      box-shadow:
-        0 0 30px rgba(255,255,255,.08),
-        inset 0 0 20px rgba(255,255,255,.05);
-    }
-
-    .story-box p {
-      font-size: 19px;
-      line-height: 1.9;
-      text-align: center;
-    }
-
-    /* =========================
-       GALERIA
-    ========================== */
-
-    #gallery {
-      background:
-        radial-gradient(circle at center, #7fb3e7, #234e87 70%, #102e5c);
-    }
-
-    .gallery {
-      position: relative;
-      z-index: 5;
-      width: min(100%, 900px);
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 35px;
-    }
-
-    .photo-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 300px;
-    }
-
-    .photo-wrap img {
-      width: 100%;
-      max-height: 650px;
-      object-fit: contain;
-      display: block;
-      border-radius: 12px;
-      filter:
-        drop-shadow(0 15px 30px rgba(0,0,0,.35))
-        drop-shadow(0 0 18px rgba(255,255,255,.2));
-    }
-
-    .photo-wrap .butterfly {
-      z-index: 6;
-    }
-
-    /* =========================
-       EVENTO
-    ========================== */
-
-    #event {
-      background:
-        linear-gradient(
-          145deg,
-          #dceeff 0%,
-          #75a9dc 40%,
-          #1c4d8c 100%
-        );
-      text-align: center;
-    }
-
-    .event-card {
-      position: relative;
-      z-index: 5;
-      width: min(100%, 800px);
-      padding: 40px 25px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,.5);
-      background: rgba(255,255,255,.1);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,.2);
-    }
-
-    .event-item {
-      margin: 25px 0;
-    }
-
-    .event-item strong {
-      display: block;
-      font-size: 25px;
-      margin-bottom: 8px;
-    }
-
-    .event-item span {
-      font-size: 19px;
-      line-height: 1.7;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
-
-    .location-btn {
-      text-decoration: none;
-      color: white;
-      padding: 13px 24px;
-      border-radius: 40px;
-      border: 1px solid rgba(255,255,255,.65);
-      background: rgba(255,255,255,.12);
-      transition: .3s ease;
-    }
-
-    .location-btn:hover {
-      transform: translateY(-3px);
-      background: rgba(255,255,255,.2);
-    }
-
-    /* =========================
-       DOMINGO
-    ========================== */
-
-    #sunday {
-      background:
-        radial-gradient(circle at center, #a8d2f5, #3978b9 65%, #102e60);
-      text-align: center;
-    }
-
-    .sunday-card {
-      position: relative;
-      z-index: 5;
-      max-width: 760px;
-      padding: 45px 25px;
-      border-radius: 28px;
-      background: rgba(255,255,255,.11);
-      border: 1px solid rgba(255,255,255,.45);
-      backdrop-filter: blur(8px);
-    }
-
-    .sunday-card p {
-      font-size: 21px;
-      line-height: 1.8;
-    }
-
-    .sunday-time {
-      margin-top: 15px;
-      font-size: 28px !important;
-      font-weight: bold;
-    }
-
-    /* =========================
-       IMPORTANTE
-    ========================== */
-
-    #important {
-      background:
-        linear-gradient(
-          160deg,
-          #dceeff,
-          #77a9dc 45%,
-          #224d89
-        );
-      text-align: center;
-    }
-
-    .important-card {
-      position: relative;
-      z-index: 5;
-      max-width: 750px;
-      padding: 45px 25px;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,.5);
-      background: rgba(255,255,255,.12);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,.15);
-    }
-
-    .important-crown {
-      font-size: 55px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 15px white);
-    }
-
-    .important-card p {
-      font-size: 24px;
-      line-height: 1.6;
-      font-weight: bold;
-      text-shadow: 0 0 10px rgba(255,255,255,.5);
-    }
-
-    /* =========================
-       CODIGO DE VESTIMENTA
-    ========================== */
-
-    #dresscode {
-      background:
-        radial-gradient(circle at center, #b9dcfa, #4f87c4 55%, #163b72);
-      text-align: center;
-    }
-
-    .dress-card {
-      position: relative;
-      z-index: 5;
-      max-width: 750px;
-      padding: 45px 25px;
-      border-radius: 28px;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.5);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,.18);
-    }
-
-    .dress-title {
-      font-size: clamp(30px, 7vw, 48px);
-      margin-bottom: 18px;
-      text-shadow:
-        0 0 8px white,
-        0 0 18px rgba(255,255,255,.7);
-    }
-
-    .dress-main {
-      font-size: clamp(30px, 7vw, 48px);
-      font-style: italic;
-      font-weight: bold;
-      margin-bottom: 28px;
-      color: #fff;
-      text-shadow:
-        0 0 7px white,
-        0 0 18px #cce5ff;
-    }
-
-    .dress-info {
-      font-size: 19px;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .dress-important {
-      font-size: 19px;
-      line-height: 1.7;
-      font-weight: bold;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,.35);
-    }
-
-    /* =========================
-       COUNTDOWN
-    ========================== */
-
-    #countdown-section {
-      min-height: 70vh;
-      background:
-        linear-gradient(
-          135deg,
-          #d8ecff,
-          #5b91ca 45%,
-          #16396e
-        );
-      text-align: center;
-    }
-
-    .countdown {
-      position: relative;
-      z-index: 5;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      width: min(100%, 800px);
-      margin-top: 20px;
-    }
-
-    .count-box {
-      padding: 22px 10px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.4);
-      backdrop-filter: blur(6px);
-    }
-
-    .count-box strong {
-      display: block;
-      font-size: 35px;
-      margin-bottom: 5px;
-    }
-
-    .count-box span {
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* =========================
-       ALIAS
-    ========================== */
-
-    #gift {
-      background:
-        radial-gradient(circle at center, #a8d3f7, #417cbb 65%, #122f60);
-      text-align: center;
-    }
-
-    .gift-card {
-      position: relative;
-      z-index: 5;
-      max-width: 700px;
-      padding: 45px 25px;
-      border-radius: 28px;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.45);
-      backdrop-filter: blur(8px);
-    }
-
-    .alias {
-      margin: 20px auto;
-      padding: 18px;
-      border-radius: 15px;
-      background: rgba(255,255,255,.12);
-      font-size: 24px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      word-break: break-word;
-    }
-
-    .copy-btn {
-      border: 1px solid rgba(255,255,255,.7);
-      background: rgba(255,255,255,.12);
-      color: #fff;
-      border-radius: 40px;
-      padding: 13px 25px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 16px;
-    }
-
-    /* =========================
-       RSVP
-    ========================== */
-
-    #rsvp {
-      background:
-        linear-gradient(
-          145deg,
-          #dceeff,
-          #6ea5da 45%,
-          #173b72
-        );
-      text-align: center;
-    }
-
-    .rsvp-card {
-      position: relative;
-      z-index: 5;
-      max-width: 750px;
-      padding: 45px 25px;
-      border-radius: 28px;
-      background: rgba(255,255,255,.11);
-      border: 1px solid rgba(255,255,255,.45);
-      backdrop-filter: blur(8px);
-    }
-
-    .rsvp-card p {
-      font-size: 20px;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
-
-    .whatsapp-btn {
-      display: inline-block;
-      text-decoration: none;
-      color: #fff;
-      padding: 15px 30px;
-      border-radius: 50px;
-      border: 1px solid rgba(255,255,255,.7);
-      background: rgba(255,255,255,.15);
-      font-size: 17px;
-      transition: .3s ease;
-    }
-
-    .whatsapp-btn:hover {
-      transform: scale(1.04);
-      background: rgba(255,255,255,.22);
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      position: relative;
-      z-index: 5;
-      text-align: center;
-      padding: 35px 20px;
-      background: #102c58;
-      color: rgba(255,255,255,.9);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    footer strong {
-      display: block;
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-
-    /* =========================
-       MUSICA
-    ========================== */
-
-    .music-btn {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 999;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.7);
-      background: rgba(20,60,110,.65);
-      color: white;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 15px rgba(255,255,255,.25);
-      font-size: 20px;
-    }
-
-    /* =========================
-       ANIMACION SCROLL
-    ========================== */
-
-    .fade {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .fade.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media (max-width: 700px) {
-
-      section {
-        padding: 60px 17px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-
-      .photo-wrap {
-        min-height: auto;
-      }
-
-      .photo-wrap img {
-        max-height: 600px;
-      }
-
-      .countdown {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-
-      .count-box strong {
-        font-size: 30px;
-      }
-
-      .story-box,
-      .event-card,
-      .sunday-card,
-      .important-card,
-      .dress-card,
-      .gift-card,
-      .rsvp-card {
-        padding: 35px 20px;
-      }
-
-      .butterfly {
-        width: 60px;
-        height: 53px;
-      }
-
-      .butterfly.small {
-        width: 38px;
-        height: 34px;
-      }
-
-      .butterfly.big {
-        width: 82px;
-        height: 72px;
-      }
-    }
-  </style>
-</head>
-
-<body class="locked">
-
-  <!-- ==================================================
-       MARIPOSA SVG REUTILIZABLE
-  =================================================== -->
-
-  <svg width="0" height="0" style="position:absolute">
-    <defs>
-      <linearGradient id="blueWing" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="25%" stop-color="#9ed0ff"/>
-        <stop offset="65%" stop-color="#3984d6"/>
-        <stop offset="100%" stop-color="#0d4c9a"/>
-      </linearGradient>
-
-      <linearGradient id="silverWing" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="45%" stop-color="#dcecff"/>
-        <stop offset="100%" stop-color="#9caec5"/>
-      </linearGradient>
-    </defs>
-  </svg>
-
-  <!-- ==================================================
-       PORTADA
-  =================================================== -->
-
-  <div id="opening">
-
-    <div class="butterfly b1 big">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z"
-              fill="url(#blueWing)" stroke="white" stroke-width="1.5"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z"
-              fill="url(#silverWing)" stroke="white" stroke-width="1.5"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z"
-              fill="#1a5596" stroke="white" stroke-width="1"/>
-      </svg>
-    </div>
-
-    <div class="butterfly b2">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z"
-              fill="url(#blueWing)" stroke="white" stroke-width="1.5"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z"
-              fill="url(#silverWing)" stroke="white" stroke-width="1.5"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z"
-              fill="#1a5596" stroke="white" stroke-width="1"/>
-      </svg>
-    </div>
-
-    <div class="butterfly b3 small">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z"
-              fill="url(#blueWing)" stroke="white" stroke-width="1.5"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z"
-              fill="url(#silverWing)" stroke="white" stroke-width="1.5"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z"
-              fill="#1a5596" stroke="white" stroke-width="1"/>
-      </svg>
-    </div>
-
-    <div class="butterfly b4">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z"
-              fill="url(#blueWing)" stroke="white" stroke-width="1.5"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z"
-              fill="url(#silverWing)" stroke="white" stroke-width="1.5"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z"
-              fill="#1a5596" stroke="white" stroke-width="1"/>
-      </svg>
-    </div>
-
-    <div class="opening-content">
-
-      <div class="crown">♛</div>
-
-      <div class="opening-small">
-        Una noche para recordar
-      </div>
-
-      <div class="opening-name">
-        Morena
-      </div>
-
-      <div class="opening-title">
-        MIS 15 AÑOS
-      </div>
-
-      <button class="open-btn" id="openInvitation">
-        ABRIR INVITACIÓN
-      </button>
-
-    </div>
-
-    <span class="sparkle" style="top:15%;left:25%;"></span>
-    <span class="sparkle" style="top:28%;right:20%;animation-delay:.7s;"></span>
-    <span class="sparkle" style="top:55%;left:12%;animation-delay:1.2s;"></span>
-    <span class="sparkle" style="top:72%;right:28%;animation-delay:1.8s;"></span>
-    <span class="sparkle" style="bottom:12%;left:38%;animation-delay:2.2s;"></span>
-
-  </div>
-
-
-  <!-- ==================================================
-       HERO
-  =================================================== -->
-
-  <section id="hero">
-
-    <div class="butterfly b1 big">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <div class="butterfly b2">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <div class="hero-content fade">
-
-      <div class="hero-subtitle">
-        Con mucha ilusión quiero compartir
-      </div>
-
-      <div class="hero-title">
-        MIS 15 AÑOS
-      </div>
-
-      <div class="hero-name">
-        Morena
-      </div>
-
-      <div class="hero-date">
-        SÁBADO 14 DE NOVIEMBRE · 2026
-      </div>
-
-    </div>
-
-    <span class="sparkle" style="top:20%;left:30%;"></span>
-    <span class="sparkle" style="top:32%;right:20%;animation-delay:.8s;"></span>
-    <span class="sparkle" style="bottom:25%;left:18%;animation-delay:1.4s;"></span>
-    <span class="sparkle" style="bottom:18%;right:30%;animation-delay:2s;"></span>
-
-  </section>
-
-
-  <!-- ==================================================
-       HISTORIA
-  =================================================== -->
-
-  <section id="story">
-
-    <div class="butterfly b3 small">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <div class="butterfly b6">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <h2 class="section-title fade">
-      Érase una vez...
-    </h2>
-
-    <div class="story-box fade">
-
-      <p>
-        Érase una vez una pequeña princesa que llegó a nuestras vidas
-        para enseñarnos el significado del amor más puro.
-        Han pasado quince años llenos de momentos, sonrisas,
-        aprendizajes y sueños...
-        <br><br>
-        Y hoy aquella niña abre las puertas de una nueva etapa,
-        llevando en su corazón todos los recuerdos que la han
-        convertido en quien es.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       GALERIA
-  =================================================== -->
-
-  <section id="gallery">
-
-    <div class="butterfly b1">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <div class="butterfly b4 small">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <h2 class="section-title fade">
-      Un poquito de mí
-    </h2>
-
-    <div class="gallery">
-
-      <div class="photo-wrap fade">
-
-        <img
-          src="morena1.jpg"
-          alt="Morena"
-        >
-
-        <div class="butterfly small" style="top:5%;left:-10%;">
-          <svg viewBox="0 0 100 90">
-            <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-            <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-            <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-          </svg>
-        </div>
-
-        <div class="butterfly small" style="bottom:4%;right:-10%;">
-          <svg viewBox="0 0 100 90">
-            <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-            <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-            <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-          </svg>
-        </div>
-
-      </div>
-
-
-      <div class="photo-wrap fade">
-
-        <img
-          src="morena2.jpg"
-          alt="Morena"
-        >
-
-        <div class="butterfly small" style="top:10%;right:-10%;">
-          <svg viewBox="0 0 100 90">
-            <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-            <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-            <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-          </svg>
-        </div>
-
-        <div class="butterfly small" style="bottom:6%;left:-10%;">
-          <svg viewBox="0 0 100 90">
-            <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-            <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-            <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-          </svg>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       EVENTO
-  =================================================== -->
-
-  <section id="event">
-
-    <div class="butterfly b2 big">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <h2 class="section-title fade">
-      La celebración
-    </h2>
-
-    <div class="event-card fade">
-
-      <div class="event-item">
-        <strong>📅 Sábado 14 de noviembre</strong>
-        <span>21:00 hs</span>
-      </div>
-
-      <div class="event-item">
-        <strong>📍 Lugar</strong>
-        <span>
-          Juan Mantovani e/ 1439 y 1443<br>
-          "La Querencia"<br>
-          Villa Brown, Florencio Varela
-        </span>
-      </div>
-
-      <div class="buttons">
-
-        <a
-          class="location-btn"
-          href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
-          target="_blank"
-          rel="noopener"
-        >
-          📍 Google Maps
-        </a>
-
-        <a
-          class="location-btn"
-          href="https://waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
-          target="_blank"
-          rel="noopener"
-        >
-          🚗 Waze
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       DOMINGO
-  =================================================== -->
-
-  <section id="sunday">
-
-    <div class="butterfly b5">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <h2 class="section-title fade">
-      Domingo 15
-    </h2>
-
-    <div class="sunday-card fade">
-
-      <p>
-        Si querés, podés quedarte a disfrutar el día siguiente.
-      </p>
-
-      <p class="sunday-time">
-        Hasta las 17:00 hs
-      </p>
-
-      <p style="margin-top:20px;">
-        Lo más importante es compartir este día con vos.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       IMPORTANTE
-  =================================================== -->
-
-  <section id="important">
-
-    <div class="butterfly b8">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <div class="important-card fade">
-
-      <div class="important-crown">
-        ♛
-      </div>
-
-      <p>
-        El color azul está reservado exclusivamente
-        para la cumpleañera.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       CODIGO DE VESTIMENTA
-  =================================================== -->
-
-  <section id="dresscode">
-
-    <div class="butterfly b3">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <div class="butterfly b6 small">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <h2 class="section-title fade">
-      Código de Vestimenta
-    </h2>
-
-    <div class="dress-card fade">
-
-      <div class="dress-main">
-        Guapos y Divinas
-      </div>
-
-      <div class="dress-info">
-        Vení preparado/a para disfrutar de una noche especial
-        y al día siguiente de una tarde al aire libre.
-      </div>
-
-      <div class="dress-important">
-        IMPORTANTE: traer set de mate y traje de baño
-        si te quedás al otro día.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       COUNTDOWN
-  =================================================== -->
-
-  <section id="countdown-section">
-
-    <div class="butterfly b1">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <h2 class="section-title fade">
-      Falta poquito...
-    </h2>
-
-    <div class="countdown fade">
-
-      <div class="count-box">
-        <strong id="days">00</strong>
-        <span>Días</span>
-      </div>
-
-      <div class="count-box">
-        <strong id="hours">00</strong>
-        <span>Horas</span>
-      </div>
-
-      <div class="count-box">
-        <strong id="minutes">00</strong>
-        <span>Minutos</span>
-      </div>
-
-      <div class="count-box">
-        <strong id="seconds">00</strong>
-        <span>Segundos</span>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       REGALO / ALIAS
-  =================================================== -->
-
-  <section id="gift">
-
-    <div class="butterfly b7">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <h2 class="section-title fade">
-      Si querés regalarme algo...
-    </h2>
-
-    <div class="gift-card fade">
-
-      <p style="font-size:19px;line-height:1.7;">
-        Te dejo mi alias para que puedas hacerlo de la manera
-        que te resulte más cómoda.
-      </p>
-
-      <div class="alias">
-        morena0702.mp
-      </div>
-
-      <p style="font-size:17px;margin-bottom:20px;">
-        A nombre de Morena Abril Novillo
-      </p>
-
-      <button class="copy-btn" id="copyAlias">
-        COPIAR ALIAS
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       CONFIRMACION
-  =================================================== -->
-
-  <section id="rsvp">
-
-    <div class="butterfly b2">
-      <svg viewBox="0 0 100 90">
-        <path d="M50 45 C30 5 2 5 8 35 C12 55 30 58 48 48 Z" fill="url(#blueWing)" stroke="white"/>
-        <path d="M50 45 C70 5 98 5 92 35 C88 55 70 58 52 48 Z" fill="url(#silverWing)" stroke="white"/>
-        <path d="M50 42 C44 60 45 75 50 82 C55 75 56 60 50 42Z" fill="#1a5596"/>
-      </svg>
-    </div>
-
-    <h2 class="section-title fade">
-      ¿Venís?
-    </h2>
-
-    <div class="rsvp-card fade">
-
-      <p>
-        Confirmá tu asistencia para que podamos esperarte
-        y compartir juntos esta noche tan especial.
-      </p>
-
-      <a
-        class="whatsapp-btn"
-        href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%99%20Confirmo%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os."
-        target="_blank"
-        rel="noopener"
-      >
-        CONFIRMAR ASISTENCIA
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- ==================================================
-       FOOTER
-  =================================================== -->
-
-  <footer>
-
-    <strong>
-      Ivory Diseños Digitales · @ivory.dd
-    </strong>
-
-    Diseñamos el comienzo de momentos inolvidables.
-
-  </footer>
-
-
-  <!-- ==================================================
-       MUSICA
-  =================================================== -->
-
-  <audio id="music" loop preload="auto">
-    <source src="musica.mp3" type="audio/mpeg">
-  </audio>
-
-  <button
-    class="music-btn"
-    id="musicBtn"
-    aria-label="Activar o pausar música"
-  >
-    ♪
-  </button>
-
-
-  <!-- ==================================================
-       JAVASCRIPT
-  =================================================== -->
-
-  <script>
-
-    /* =========================
-       ABRIR INVITACION + MUSICA
-    ========================== */
-
-    const opening = document.getElementById("opening");
-    const openInvitation = document.getElementById("openInvitation");
-    const music = document.getElementById("music");
-    const musicBtn = document.getElementById("musicBtn");
-
-    openInvitation.addEventListener("click", () => {
-
-      opening.classList.add("hidden");
-
-      document.body.classList.remove("locked");
-
-      music.volume = 0.65;
-
-      music.play()
-        .then(() => {
-          musicBtn.textContent = "♫";
-        })
-        .catch(() => {
-          musicBtn.textContent = "♪";
-        });
-
-    });
-
-
-    /* =========================
-       BOTON MUSICA
-    ========================== */
-
-    musicBtn.addEventListener("click", () => {
-
-      if (music.paused) {
-
-        music.play();
-
-        musicBtn.textContent = "♫";
-
-      } else {
-
-        music.pause();
-
-        musicBtn.textContent = "♪";
-
-      }
-
-    });
-
-
-    /* =========================
-       FADE AL HACER SCROLL
-    ========================== */
-
-    const fadeElements = document.querySelectorAll(".fade");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12
-      }
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06152e">
+
+<title>Morena · Mis 15 años</title>
+
+<style>
+
+/* =====================================================
+   BASE
+===================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #06152e;
+  color: white;
+  overflow-x: hidden;
+}
+
+
+/* =====================================================
+   APERTURA
+===================================================== */
+
+.opening-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(54,111,181,.65),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(213,222,235,.16),
+      transparent 20%
+    ),
+    linear-gradient(
+      145deg,
+      #020a1b 0%,
+      #0b2854 50%,
+      #020a1b 100%
+    );
+}
+
+.opening-content {
+  position: relative;
+  z-index: 100;
+
+  width: 90%;
+  max-width: 650px;
+}
+
+.crown {
+  font-size: 48px;
+
+  color: #edf2f8;
+
+  text-shadow:
+    0 0 5px #fff,
+    0 0 15px #d7e0ea,
+    0 0 35px #8ea9c9;
+
+  animation:
+    crownGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes crownGlow {
+
+  from {
+    transform: scale(1);
+    filter: brightness(.9);
+  }
+
+  to {
+    transform: scale(1.08);
+    filter: brightness(1.4);
+  }
+
+}
+
+.opening-small {
+
+  margin-top: 10px;
+
+  font-size: 14px;
+  letter-spacing: 5px;
+
+  color: #dfe7f1;
+
+  text-transform: uppercase;
+}
+
+.opening-name {
+
+  margin-top: 15px;
+
+  font-size: clamp(70px,18vw,135px);
+
+  font-style: italic;
+  font-weight: normal;
+
+  line-height: .9;
+
+  color: white;
+
+  text-shadow:
+    0 0 3px #fff,
+    0 0 9px #fff,
+    0 0 20px #d5dfeb,
+    0 0 40px #7d9fc6;
+}
+
+.opening-title {
+
+  margin-top: 25px;
+
+  font-size: clamp(23px,6vw,40px);
+
+  letter-spacing: 8px;
+
+  color: #e3eaf2;
+
+  text-shadow:
+    0 0 5px white,
+    0 0 15px #b8c9dc;
+}
+
+.open-button {
+
+  margin-top: 38px;
+
+  padding: 15px 35px;
+
+  border: 1px solid rgba(240,245,250,.8);
+  border-radius: 40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.18),
+      rgba(75,117,163,.2)
     );
 
-    fadeElements.forEach(element => {
-      observer.observe(element);
-    });
+  color: white;
+
+  font-family: Georgia, serif;
+
+  font-size: 15px;
+  letter-spacing: 3px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 12px rgba(255,255,255,.25),
+    inset 0 0 15px rgba(255,255,255,.08);
+
+  transition: .4s;
+}
+
+.open-button:hover {
+
+  transform: scale(1.07);
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,.5),
+    0 0 40px rgba(100,150,205,.4);
+}
 
 
-    /* =========================
-       COUNTDOWN
-    ========================== */
+/* =====================================================
+   MARIPOSAS
+===================================================== */
 
-    const eventDate = new Date("2026-11-14T21:00:00-03:00").getTime();
+.butterfly {
 
-    function updateCountdown() {
+  position: absolute;
 
-      const now = new Date().getTime();
+  width: 90px;
+  height: 90px;
 
-      const distance = eventDate - now;
+  z-index: 15;
 
-      if (distance <= 0) {
+  pointer-events: none;
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+  animation:
+    butterflyMove 12s ease-in-out infinite,
+    butterflyGlow 2.8s ease-in-out infinite alternate;
+}
 
-        return;
-      }
+.butterfly svg {
 
-      const days = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.butterfly.small {
+
+  width: 55px;
+  height: 55px;
+}
+
+.butterfly.large {
+
+  width: 125px;
+  height: 125px;
+}
+
+
+/* =====================================================
+   POSICIONES
+===================================================== */
+
+.butterfly-1 {
+
+  left: 4%;
+  top: 10%;
+
+  animation-delay: -2s;
+}
+
+.butterfly-2 {
+
+  right: 7%;
+  top: 12%;
+
+  animation-delay: -7s;
+}
+
+.butterfly-3 {
+
+  left: 13%;
+  top: 42%;
+
+  animation-delay: -4s;
+}
+
+.butterfly-4 {
+
+  right: 10%;
+  top: 38%;
+
+  animation-delay: -9s;
+}
+
+.butterfly-5 {
+
+  left: 3%;
+  bottom: 8%;
+
+  animation-delay: -6s;
+}
+
+.butterfly-6 {
+
+  right: 3%;
+  bottom: 10%;
+
+  animation-delay: -1s;
+}
+
+.butterfly-7 {
+
+  left: 42%;
+  top: 8%;
+
+  animation-delay: -11s;
+}
+
+.butterfly-8 {
+
+  right: 35%;
+  bottom: 7%;
+
+  animation-delay: -5s;
+}
+
+
+/* MÁS MARIPOSAS */
+
+.butterfly-9 {
+
+  left: 25%;
+  top: 20%;
+
+  animation-delay: -3s;
+  transform: scale(.65);
+}
+
+.butterfly-10 {
+
+  right: 25%;
+  top: 30%;
+
+  animation-delay: -8s;
+  transform: scale(.75);
+}
+
+.butterfly-11 {
+
+  left: 32%;
+  bottom: 18%;
+
+  animation-delay: -10s;
+  transform: scale(.55);
+}
+
+.butterfly-12 {
+
+  right: 17%;
+  bottom: 28%;
+
+  animation-delay: -2s;
+  transform: scale(.6);
+}
+
+.butterfly-13 {
+
+  left: 6%;
+  top: 68%;
+
+  animation-delay: -12s;
+  transform: scale(.5);
+}
+
+.butterfly-14 {
+
+  right: 4%;
+  top: 72%;
+
+  animation-delay: -5s;
+  transform: scale(.55);
+}
+
+
+@keyframes butterflyMove {
+
+  0% {
+
+    transform:
+      translate(0,20px)
+      rotate(-8deg);
+
+  }
+
+  25% {
+
+    transform:
+      translate(35px,-30px)
+      rotate(7deg);
+
+  }
+
+  50% {
+
+    transform:
+      translate(-20px,-65px)
+      rotate(-5deg);
+
+  }
+
+  75% {
+
+    transform:
+      translate(40px,-35px)
+      rotate(8deg);
+
+  }
+
+  100% {
+
+    transform:
+      translate(0,20px)
+      rotate(-8deg);
+
+  }
+
+}
+
+
+@keyframes butterflyGlow {
+
+  from {
+
+    filter:
+      drop-shadow(
+        0 0 3px rgba(255,255,255,.5)
+      )
+      drop-shadow(
+        0 0 5px rgba(68,126,190,.4)
       );
 
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+  }
+
+  to {
+
+    filter:
+      drop-shadow(
+        0 0 7px rgba(255,255,255,.95)
+      )
+      drop-shadow(
+        0 0 20px rgba(84,145,214,.85)
       );
 
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-      );
+  }
 
-      const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-      );
-
-      document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
-      document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-      document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-      document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-    }
-
-    updateCountdown();
-
-    setInterval(updateCountdown, 1000);
+}
 
 
-    /* =========================
-       COPIAR ALIAS
-    ========================== */
+/* =====================================================
+   DESTELLOS MÁGICOS
+===================================================== */
 
-    const copyAlias = document.getElementById("copyAlias");
+.sparkle {
 
-    copyAlias.addEventListener("click", async () => {
+  position: absolute;
 
-      const alias = "morena0702.mp";
+  width: 4px;
+  height: 4px;
 
-      try {
+  border-radius: 50%;
 
-        await navigator.clipboard.writeText(alias);
+  background: white;
 
-        copyAlias.textContent = "¡ALIAS COPIADO!";
+  box-shadow:
+    0 0 5px white,
+    0 0 13px #c9d8e8,
+    0 0 22px rgba(120,170,220,.8);
 
-        setTimeout(() => {
-          copyAlias.textContent = "COPIAR ALIAS";
-        }, 2000);
+  animation:
+    sparkle 2s infinite alternate;
 
-      } catch (error) {
+  z-index: 8;
+}
 
-        copyAlias.textContent = alias;
+.sparkle.big {
 
-      }
+  width: 6px;
+  height: 6px;
 
-    });
+  box-shadow:
+    0 0 7px white,
+    0 0 18px #dce8f5,
+    0 0 30px #75a8dc;
+}
 
-  </script>
+.s1 { left:18%; top:25%; }
+.s2 { left:72%; top:25%; animation-delay:.7s; }
+.s3 { left:32%; top:72%; animation-delay:1.2s; }
+.s4 { left:90%; top:70%; animation-delay:.4s; }
+.s5 { left:10%; top:60%; animation-delay:1.7s; }
+.s6 { left:58%; top:15%; animation-delay:.9s; }
+
+@keyframes sparkle {
+
+  from {
+
+    transform: scale(.3);
+    opacity: .2;
+
+  }
+
+  to {
+
+    transform: scale(1.8);
+    opacity: 1;
+
+  }
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      rgba(44,91,148,.7),
+      transparent 45%
+    ),
+
+    linear-gradient(
+      160deg,
+      #06152e,
+      #123967,
+      #06152e
+    );
+}
+
+.hero-content {
+
+  position: relative;
+
+  z-index: 30;
+
+  padding: 30px;
+}
+
+.hero-small {
+
+  font-size: 15px;
+
+  letter-spacing: 6px;
+
+  color: #dbe4ef;
+
+  margin-bottom: 20px;
+}
+
+.hero-name {
+
+  font-size: clamp(75px,20vw,150px);
+
+  font-style: italic;
+  font-weight: normal;
+
+  line-height: .85;
+
+  color: white;
+
+  text-shadow:
+    0 0 3px white,
+    0 0 10px white,
+    0 0 25px #d1dce8,
+    0 0 45px rgba(161,190,222,.8);
+}
+
+.hero-date {
+
+  margin-top: 30px;
+
+  font-size: 17px;
+
+  letter-spacing: 4px;
+
+  color: white;
+}
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+section {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 80px 20px;
+}
+
+.section-inner {
+
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: auto;
+
+  position: relative;
+
+  z-index: 20;
+}
+
+.section-title {
+
+  margin-bottom: 35px;
+
+  text-align: center;
+
+  font-size: 32px;
+
+  font-weight: normal;
+
+  letter-spacing: 4px;
+
+  color: #e3e9f1;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.7),
+    0 0 18px rgba(167,190,215,.7);
+}
+
+.story {
+
+  max-width: 780px;
+
+  margin: auto;
+
+  text-align: center;
+
+  font-size: 18px;
+
+  line-height: 2;
+
+  color: #edf2f7;
+}
+
+
+/* =====================================================
+   GALERÍA
+===================================================== */
+
+.gallery {
+
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 25px;
+
+  max-width: 850px;
+
+  margin: auto;
+}
+
+.photo-frame {
+
+  position: relative;
+
+  min-height: 450px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 18px;
+
+  background: transparent;
+
+  box-shadow: none;
+
+  overflow: visible;
+}
+
+.photo-frame img {
+
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 430px;
+
+  display: block;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  border-radius: 14px;
+
+  background: transparent;
+
+  position: relative;
+
+  z-index: 5;
+
+  filter:
+    drop-shadow(
+      0 8px 20px rgba(0,0,0,.35)
+    );
+}
+
+
+/* MARIPOSAS ALREDEDOR DE LAS FOTOS */
+
+.photo-butterfly {
+
+  position: absolute;
+
+  width: 55px;
+  height: 55px;
+
+  z-index: 10;
+
+  pointer-events: none;
+
+  animation:
+    photoButterfly 8s ease-in-out infinite,
+    butterflyGlow 2.8s ease-in-out infinite alternate;
+}
+
+.photo-butterfly svg {
+
+  width: 100%;
+  height: 100%;
+}
+
+.pb1 {
+  left: -20px;
+  top: 8%;
+}
+
+.pb2 {
+  right: -20px;
+  bottom: 8%;
+  animation-delay: -3s;
+}
+
+.pb3 {
+  right: 4%;
+  top: 5%;
+  width: 45px;
+  height: 45px;
+  animation-delay: -5s;
+}
+
+.pb4 {
+  left: 0;
+  bottom: 5%;
+  width: 42px;
+  height: 42px;
+  animation-delay: -1s;
+}
+
+@keyframes photoButterfly {
+
+  0% {
+    transform: translate(0,0) rotate(-7deg);
+  }
+
+  50% {
+    transform: translate(18px,-25px) rotate(8deg);
+  }
+
+  100% {
+    transform: translate(0,0) rotate(-7deg);
+  }
+
+}
+
+
+/* =====================================================
+   EVENTO
+===================================================== */
+
+.event-card {
+
+  max-width: 720px;
+
+  margin: auto;
+
+  padding: 35px 25px;
+
+  text-align: center;
+
+  border: 1px solid rgba(218,228,239,.4);
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.08),
+      rgba(58,93,130,.12)
+    );
+
+  box-shadow:
+    0 0 30px rgba(109,143,181,.12);
+}
+
+.event-date {
+
+  font-size: 30px;
+
+  color: #f1f4f8;
+
+  margin-bottom: 15px;
+}
+
+.event-time {
+
+  font-size: 21px;
+
+  line-height: 1.8;
+
+  color: #cbd6e4;
+}
+
+.event-place {
+
+  margin-top: 25px;
+
+  font-size: 19px;
+
+  line-height: 1.7;
+
+  color: #eef2f7;
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.buttons {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+.btn {
+
+  display: inline-block;
+
+  padding: 13px 23px;
+
+  border: 1px solid rgba(229,236,244,.7);
+
+  border-radius: 30px;
+
+  color: white;
+
+  background: rgba(255,255,255,.08);
+
+  text-decoration: none;
+
+  letter-spacing: 1px;
+
+  transition: .3s;
+}
+
+.btn:hover {
+
+  transform: translateY(-3px);
+
+  background: rgba(255,255,255,.16);
+
+  box-shadow:
+    0 0 18px rgba(211,225,240,.25);
+}
+
+
+/* =====================================================
+   IMPORTANTE
+===================================================== */
+
+.important-section {
+
+  text-align: center;
+
+  padding-top: 55px;
+  padding-bottom: 65px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(45,92,148,.25),
+      transparent 55%
+    );
+}
+
+.important-crown {
+
+  font-size: 58px;
+
+  color: #f4f7fb;
+
+  margin-bottom: 20px;
+
+  text-shadow:
+    0 0 5px white,
+    0 0 12px #dce5ef,
+    0 0 25px #8daed0,
+    0 0 45px #5d8fc4;
+
+  animation:
+    crownGlow 2s ease-in-out infinite alternate;
+}
+
+.important-title {
+
+  font-size: 14px;
+
+  letter-spacing: 5px;
+
+  color: #d6e0eb;
+
+  margin-bottom: 18px;
+
+  text-transform: uppercase;
+}
+
+.important-text {
+
+  max-width: 650px;
+
+  margin: auto;
+
+  font-size: 20px;
+
+  line-height: 1.7;
+
+  color: white;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.25);
+}
+
+.important-text strong {
+
+  color: #8fc5ff;
+
+  text-shadow:
+    0 0 8px #5c9ddd,
+    0 0 18px rgba(107,168,229,.7);
+}
+
+
+/* =====================================================
+   DRESS CODE
+===================================================== */
+
+.dress {
+
+  max-width: 720px;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+.dress-main {
+
+  margin-bottom: 20px;
+
+  font-size: 25px;
+
+  color: #e6ebf1;
+}
+
+.dress-text {
+
+  font-size: 18px;
+
+  line-height: 1.9;
+
+  color: #e4eaf1;
+}
+
+.mate-important {
+
+  margin-top: 28px;
+
+  padding: 17px 20px;
+
+  border-top: 1px solid rgba(215,226,239,.3);
+
+  border-bottom: 1px solid rgba(215,226,239,.3);
+
+  color: #edf3f9;
+
+  font-size: 18px;
+
+  letter-spacing: .5px;
+}
+
+.mate-important strong {
+
+  color: #fff;
+
+  text-shadow:
+    0 0 7px rgba(255,255,255,.5);
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown {
+
+  display: grid;
+
+  grid-template-columns: repeat(4,1fr);
+
+  gap: 12px;
+
+  max-width: 650px;
+
+  margin: auto;
+}
+
+.count-box {
+
+  padding: 22px 8px;
+
+  border: 1px solid rgba(220,229,239,.35);
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.06);
+
+  text-align: center;
+}
+
+.count-number {
+
+  display: block;
+
+  font-size: 34px;
+
+  color: white;
+}
+
+.count-label {
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  color: #bdc9d8;
+}
+
+
+/* =====================================================
+   ALIAS
+===================================================== */
+
+.alias-box {
+
+  max-width: 600px;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+.alias {
+
+  display: inline-block;
+
+  margin: 25px auto;
+
+  padding: 18px 25px;
+
+  border: 1px solid rgba(226,234,243,.45);
+
+  border-radius: 15px;
+
+  font-size: 22px;
+
+  letter-spacing: 2px;
+
+  color: white;
+
+  background: rgba(255,255,255,.07);
+}
+
+.copy-btn {
+
+  padding: 12px 25px;
+
+  border: 1px solid rgba(229,237,245,.7);
+
+  border-radius: 25px;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: Georgia, serif;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+.copy-btn:hover {
+
+  background: rgba(255,255,255,.12);
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.confirm {
+
+  text-align: center;
+}
+
+.whatsapp {
+
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding: 16px 30px;
+
+  border-radius: 35px;
+
+  border: 1px solid rgba(235,242,249,.6);
+
+  background:
+    linear-gradient(
+      135deg,
+      #183f70,
+      #315f91
+    );
+
+  color: white;
+
+  text-decoration: none;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 0 18px rgba(111,153,199,.25);
+
+  transition: .3s;
+}
+
+.whatsapp:hover {
+
+  transform: scale(1.04);
+}
+
+
+/* =====================================================
+   MÚSICA
+===================================================== */
+
+.music-button {
+
+  position: fixed;
+
+  right: 18px;
+  bottom: 18px;
+
+  z-index: 9000;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.7);
+
+  background: rgba(6,21,46,.85);
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 15px rgba(180,204,229,.3);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+  padding: 45px 20px;
+
+  text-align: center;
+
+  color: #aebdce;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  background: #030d20;
+
+  border-top:
+    1px solid rgba(214,224,235,.12);
+}
+
+
+/* =====================================================
+   FADE
+===================================================== */
+
+.fade {
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  transition: 1s ease;
+}
+
+.fade.show {
+
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:650px) {
+
+  .opening-name {
+    font-size: 75px;
+  }
+
+  .opening-title {
+    letter-spacing: 5px;
+  }
+
+  .butterfly {
+    width: 65px;
+    height: 65px;
+  }
+
+  .butterfly.large {
+    width: 90px;
+    height: 90px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-frame {
+    min-height: 400px;
+  }
+
+  .photo-frame img {
+    min-height: 380px;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .story {
+    font-size: 17px;
+  }
+
+  section {
+    padding: 65px 18px;
+  }
+
+  .important-text {
+    font-size: 18px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     APERTURA
+===================================================== -->
+
+<div
+  class="opening-screen"
+  id="openingScreen">
+
+
+<!-- MARIPOSA SVG -->
+
+<div class="butterfly butterfly-1">
+
+<svg viewBox="0 0 120 120">
+
+<defs>
+
+<linearGradient
+  id="blueWing1"
+  x1="0"
+  y1="0"
+  x2="1"
+  y2="1">
+
+<stop offset="0%" stop-color="#5fa9ff"/>
+<stop offset="35%" stop-color="#1763bd"/>
+<stop offset="70%" stop-color="#0a3471"/>
+<stop offset="100%" stop-color="#041b46"/>
+
+</linearGradient>
+
+</defs>
+
+<path
+d="M58 59
+C43 18 7 7 8 34
+C9 49 22 59 45 67
+C22 56 5 67 16 85
+C26 101 47 87 59 69Z"
+fill="url(#blueWing1)"
+stroke="#e8f0f8"
+stroke-width="2"/>
+
+<path
+d="M62 59
+C77 18 113 7 112 34
+C111 49 98 59 75 67
+C98 56 115 67 104 85
+C94 101 73 87 61 69Z"
+fill="url(#blueWing1)"
+stroke="#e8f0f8"
+stroke-width="2"/>
+
+<path
+d="M22 34 C32 31 42 40 50 57"
+fill="none"
+stroke="#dce7f2"
+stroke-width="4"
+stroke-linecap="round"/>
+
+<path
+d="M98 34 C88 31 78 40 70 57"
+fill="none"
+stroke="#dce7f2"
+stroke-width="4"
+stroke-linecap="round"/>
+
+<circle cx="27" cy="48" r="4" fill="#fff"/>
+<circle cx="93" cy="48" r="4" fill="#fff"/>
+
+<ellipse
+cx="60"
+cy="65"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+<path
+d="M58 44 Q49 31 43 30"
+fill="none"
+stroke="#dfe7ef"
+stroke-width="2"/>
+
+<path
+d="M62 44 Q71 31 77 30"
+fill="none"
+stroke="#dfe7ef"
+stroke-width="2"/>
+
+</svg>
+
+</div>
+
+
+<!-- MARIPOSA 2 -->
+
+<div class="butterfly butterfly-2 large">
+
+<svg viewBox="0 0 120 120">
+
+<defs>
+
+<linearGradient
+id="blueWing2"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop offset="0%" stop-color="#78bdff"/>
+<stop offset="30%" stop-color="#2474d0"/>
+<stop offset="65%" stop-color="#10478c"/>
+<stop offset="100%" stop-color="#051d4b"/>
+
+</linearGradient>
+
+</defs>
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="url(#blueWing2)"
+stroke="#f3f7fb"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="url(#blueWing2)"
+stroke="#f3f7fb"
+stroke-width="2"/>
+
+<path
+d="M22 38 Q37 38 50 58"
+fill="none"
+stroke="#dbe6f1"
+stroke-width="3"/>
+
+<path
+d="M98 38 Q83 38 70 58"
+fill="none"
+stroke="#dbe6f1"
+stroke-width="3"/>
+
+<circle cx="29" cy="53" r="3" fill="#fff"/>
+<circle cx="91" cy="53" r="3" fill="#fff"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#e7edf4"/>
+
+</svg>
+
+</div>
+
+
+<!-- MARIPOSA 3 -->
+
+<div class="butterfly butterfly-3 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#ffffff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#ffffff"
+stroke-width="2"/>
+
+<path
+d="M24 38 Q38 40 50 58"
+fill="none"
+stroke="#dce7f2"
+stroke-width="3"/>
+
+<path
+d="M96 38 Q82 40 70 58"
+fill="none"
+stroke="#dce7f2"
+stroke-width="3"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#e7edf4"/>
+
+</svg>
+
+</div>
+
+
+<!-- MARIPOSA 4 -->
+
+<div class="butterfly butterfly-4">
+
+<svg viewBox="0 0 120 120">
+
+<defs>
+
+<linearGradient
+id="blueWing4"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop offset="0%" stop-color="#6bb4ff"/>
+<stop offset="35%" stop-color="#1765c3"/>
+<stop offset="75%" stop-color="#092e67"/>
+<stop offset="100%" stop-color="#03183b"/>
+
+</linearGradient>
+
+</defs>
+
+<path
+d="M58 59 C40 17 5 10 9 38 C11 53 25 61 46 68 C25 59 10 72 20 88 C31 100 48 87 59 69Z"
+fill="url(#blueWing4)"
+stroke="#eaf1f8"
+stroke-width="2"/>
+
+<path
+d="M62 59 C80 17 115 10 111 38 C109 53 95 61 74 68 C95 59 110 72 100 88 C89 100 72 87 61 69Z"
+fill="url(#blueWing4)"
+stroke="#eaf1f8"
+stroke-width="2"/>
+
+<circle cx="27" cy="47" r="4" fill="#fff"/>
+<circle cx="93" cy="47" r="4" fill="#fff"/>
+
+<path
+d="M22 34 Q37 31 50 55"
+fill="none"
+stroke="#cbd9e8"
+stroke-width="3"/>
+
+<path
+d="M98 34 Q83 31 70 55"
+fill="none"
+stroke="#cbd9e8"
+stroke-width="3"/>
+
+<ellipse
+cx="60"
+cy="65"
+rx="4"
+ry="24"
+fill="#eef3f8"/>
+
+</svg>
+
+</div>
+
+
+<!-- MARIPOSA 5 -->
+
+<div class="butterfly butterfly-5 large">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#1d6dca"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#1d6dca"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M21 36 Q37 32 50 57"
+fill="none"
+stroke="#dce7f2"
+stroke-width="4"/>
+
+<path
+d="M99 36 Q83 32 70 57"
+fill="none"
+stroke="#dce7f2"
+stroke-width="4"/>
+
+<circle cx="28" cy="51" r="4" fill="#fff"/>
+<circle cx="92" cy="51" r="4" fill="#fff"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<!-- MARIPOSA 6 -->
+
+<div class="butterfly butterfly-6 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#317fd4"
+stroke="#f5f8fb"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#317fd4"
+stroke="#f5f8fb"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#eef3f7"/>
+
+</svg>
+
+</div>
+
+
+<!-- MARIPOSA 7 -->
+
+<div class="butterfly butterfly-7 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#206fc9"
+stroke="#ffffff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#206fc9"
+stroke="#ffffff"
+stroke-width="2"/>
+
+<path
+d="M23 38 Q39 37 50 57"
+fill="none"
+stroke="#dce6f0"
+stroke-width="3"/>
+
+<path
+d="M97 38 Q81 37 70 57"
+fill="none"
+stroke="#dce6f0"
+stroke-width="3"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<!-- MARIPOSA 8 -->
+
+<div class="butterfly butterfly-8">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#1d6ac7"
+stroke="#f4f7fa"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#1d6ac7"
+stroke="#f4f7fa"
+stroke-width="2"/>
+
+<circle cx="27" cy="48" r="4" fill="#fff"/>
+<circle cx="93" cy="48" r="4" fill="#fff"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf3f8"/>
+
+</svg>
+
+</div>
+
+
+<!-- MÁS MARIPOSAS -->
+
+<div class="butterfly butterfly-9 small">
+<svg viewBox="0 0 120 120">
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#3988df" stroke="#fff" stroke-width="2"/>
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#3988df" stroke="#fff" stroke-width="2"/>
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+</svg>
+</div>
+
+<div class="butterfly butterfly-10 small">
+<svg viewBox="0 0 120 120">
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#1765c3" stroke="#fff" stroke-width="2"/>
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#1765c3" stroke="#fff" stroke-width="2"/>
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+</svg>
+</div>
+
+<div class="butterfly butterfly-11 small">
+<svg viewBox="0 0 120 120">
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#2474d0" stroke="#fff" stroke-width="2"/>
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#2474d0" stroke="#fff" stroke-width="2"/>
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+</svg>
+</div>
+
+<div class="butterfly butterfly-12 small">
+<svg viewBox="0 0 120 120">
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#317fd4" stroke="#fff" stroke-width="2"/>
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#317fd4" stroke="#fff" stroke-width="2"/>
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+</svg>
+</div>
+
+
+<!-- DESTELLOS -->
+
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s5"></div>
+<div class="sparkle s6"></div>
+
+<div class="sparkle big" style="left:40%;top:35%;"></div>
+<div class="sparkle big" style="left:82%;top:52%;animation-delay:1s;"></div>
+<div class="sparkle big" style="left:22%;top:78%;animation-delay:.5s;"></div>
+
+
+<!-- CONTENIDO -->
+
+<div class="opening-content">
+
+  <div class="crown">
+    ♕
+  </div>
+
+  <div class="opening-small">
+    Una noche para recordar
+  </div>
+
+  <div class="opening-name">
+    Morena
+  </div>
+
+  <div class="opening-title">
+    MIS 15 AÑOS
+  </div>
+
+  <button
+    class="open-button"
+    id="openInvitation">
+
+    ABRIR INVITACIÓN
+
+  </button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     AUDIO
+===================================================== -->
+
+<audio
+  id="backgroundMusic"
+  loop>
+
+  <source
+    src="musica.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<button
+  class="music-button"
+  id="musicButton">
+
+  ♪
+
+</button>
+
+
+<!-- =====================================================
+     INVITACIÓN
+===================================================== -->
+
+<main id="invitation">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+
+<div class="butterfly butterfly-3 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="butterfly butterfly-6 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#317fd4"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#317fd4"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="butterfly butterfly-10 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="sparkle big" style="left:20%;top:20%;"></div>
+<div class="sparkle big" style="right:15%;top:30%;animation-delay:.8s;"></div>
+<div class="sparkle" style="left:75%;bottom:20%;"></div>
+
+
+<div class="hero-content">
+
+  <div class="hero-small">
+    MIS 15 AÑOS
+  </div>
+
+  <div class="hero-name">
+    Morena
+  </div>
+
+  <div class="hero-date">
+    14 · 11 · 2026
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     HISTORIA
+===================================================== -->
+
+<section class="fade">
+
+<div class="section-inner">
+
+<h2 class="section-title">
+  Érase una vez...
+</h2>
+
+<p class="story">
+
+Érase una vez una pequeña princesa que llegó a nuestras vidas
+para enseñarnos el significado del amor más puro.
+
+<br><br>
+
+Han pasado quince años llenos de momentos, sonrisas,
+aprendizajes y sueños... y hoy aquella niña abre las puertas
+de una nueva etapa, llevando en su corazón todos los recuerdos
+que la han convertido en quien es.
+
+<br><br>
+
+Y queremos compartir este momento tan especial con vos.
+
+</p>
+
+</div>
+
+
+<!-- MARIPOSAS -->
+
+<div class="butterfly butterfly-9 small">
+
+<svg viewBox="0 0 120 120">
+
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#3988df" stroke="#fff" stroke-width="2"/>
+
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#3988df" stroke="#fff" stroke-width="2"/>
+
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+<div class="sparkle big" style="left:12%;top:20%;"></div>
+<div class="sparkle" style="right:15%;top:65%;"></div>
+
+</section>
+
+
+<!-- =====================================================
+     GALERÍA
+===================================================== -->
+
+<section class="fade">
+
+<div class="section-inner">
+
+<h2 class="section-title">
+  Momentos de Morena
+</h2>
+
+
+<div class="gallery">
+
+
+<!-- FOTO 1 -->
+
+<div class="photo-frame">
+
+<img
+src="morena1.jpg"
+alt="Morena">
+
+
+<div class="photo-butterfly pb1">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="photo-butterfly pb2">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+</div>
+
+
+<!-- FOTO 2 -->
+
+<div class="photo-frame">
+
+<img
+src="morena2.jpg"
+alt="Morena">
+
+
+<div class="photo-butterfly pb3">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#3988df"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#3988df"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="photo-butterfly pb4">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#206fc9"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#206fc9"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="sparkle big" style="left:18%;top:15%;"></div>
+<div class="sparkle" style="right:18%;bottom:15%;"></div>
+
+</section>
+
+
+<!-- =====================================================
+     EVENTO
+===================================================== -->
+
+<section class="fade">
+
+<div class="section-inner">
+
+<h2 class="section-title">
+  El gran día
+</h2>
+
+<div class="event-card">
+
+<div class="event-date">
+  Sábado 14 de noviembre
+</div>
+
+<div class="event-time">
+  21:00 hs
+</div>
+
+<div class="event-place">
+
+Juan Mantovani e/ 1439 y 1443
+<br>
+
+“La Querencia”
+<br>
+
+Villa Brown · Florencio Varela
+
+</div>
+
+<div class="buttons">
+
+<a
+class="btn"
+href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
+target="_blank">
+
+📍 Google Maps
+
+</a>
+
+<a
+class="btn"
+href="https://www.waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
+target="_blank">
+
+🚗 Waze
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DOMINGO
+===================================================== -->
+
+<section class="fade">
+
+<div class="section-inner">
+
+<h2 class="section-title">
+  Domingo 15
+</h2>
+
+<div class="event-card">
+
+<!-- PRIMERO LA FRASE -->
+
+<div class="event-time">
+
+Si querés, podés quedarte a disfrutar
+el día siguiente.
+
+</div>
+
+<br>
+
+<!-- DESPUÉS EL HORARIO -->
+
+<div class="event-date">
+
+Hasta las 17:00 hs
+
+</div>
+
+</div>
+
+</div>
+
+<div class="butterfly butterfly-11 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     IMPORTANTE
+===================================================== -->
+
+<section class="important-section fade">
+
+<div class="butterfly butterfly-12 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#317fd4"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#317fd4"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="important-crown">
+  ♕
+</div>
+
+<div class="important-title">
+  IMPORTANTE
+</div>
+
+<div class="important-text">
+
+El color
+<strong>azul</strong>
+está reservado exclusivamente
+para la cumpleañera.
+
+</div>
+
+<div class="sparkle big" style="left:25%;top:30%;"></div>
+<div class="sparkle big" style="right:25%;top:30%;animation-delay:.8s;"></div>
+
+</section>
+
+
+<!-- =====================================================
+     DRESS CODE
+===================================================== -->
+
+<section class="fade">
+
+<div class="section-inner">
+
+<h2 class="section-title">
+  Código de Vestimenta
+</h2>
+
+<div class="dress">
+
+<div class="dress-main">
+
+Guapos y Divinas
+
+</div>
+
+<div class="dress-text">
+
+Traer traje de baño y toalla para disfrutar
+de una tarde especial al aire libre.
+
+<br><br>
+
+Lo más importante es compartir este día con vos.
+
+</div>
+
+
+<!-- MATE IMPORTANTE -->
+
+<div class="mate-important">
+
+<strong>
+IMPORTANTE:
+</strong>
+
+<br>
+
+Traer set de mate y traje de baño
+si te quedás al otro día.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="butterfly butterfly-13 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#3988df"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#3988df"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section class="fade">
+
+<div class="section-inner">
+
+<h2 class="section-title">
+  Falta muy poquito
+</h2>
+
+<div class="countdown">
+
+<div class="count-box">
+
+<span
+class="count-number"
+id="days">
+
+00
+
+</span>
+
+<span class="count-label">
+DÍAS
+</span>
+
+</div>
+
+
+<div class="count-box">
+
+<span
+class="count-number"
+id="hours">
+
+00
+
+</span>
+
+<span class="count-label">
+HORAS
+</span>
+
+</div>
+
+
+<div class="count-box">
+
+<span
+class="count-number"
+id="minutes">
+
+00
+
+</span>
+
+<span class="count-label">
+MINUTOS
+</span>
+
+</div>
+
+
+<div class="count-box">
+
+<span
+class="count-number"
+id="seconds">
+
+00
+
+</span>
+
+<span class="count-label">
+SEGUNDOS
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     REGALO
+===================================================== -->
+
+<section class="fade">
+
+<div class="section-inner">
+
+<h2 class="section-title">
+  Si querés regalarme algo...
+</h2>
+
+<div class="alias-box">
+
+<p>
+
+Te dejo mi alias para que puedas hacerlo
+de manera sencilla.
+
+</p>
+
+<div class="alias">
+
+morena0702.mp
+
+</div>
+
+<p>
+
+A nombre de
+<br>
+
+<strong>
+Morena Abril Novillo
+</strong>
+
+</p>
+
+<br>
+
+<button
+class="copy-btn"
+id="copyAlias">
+
+COPIAR ALIAS
+
+</button>
+
+</div>
+
+</div>
+
+<div class="butterfly butterfly-14 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONFIRMACIÓN
+===================================================== -->
+
+<section class="fade">
+
+<div class="section-inner">
+
+<h2 class="section-title">
+  ¿Nos acompañás?
+</h2>
+
+<div class="confirm">
+
+<p>
+
+Confirmá tu asistencia para que podamos esperarte
+y compartir juntos esta noche tan especial.
+
+</p>
+
+<a
+class="whatsapp"
+href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%99%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os."
+target="_blank">
+
+CONFIRMAR POR WHATSAPP
+
+</a>
+
+<p
+style="
+margin-top:18px;
+font-size:14px;
+opacity:.8;
+">
+
+11 5163-4135
+
+</p>
+
+</div>
+
+</div>
+
+<div class="butterfly butterfly-4 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div>
+Ivory Diseños Digitales · @ivory.dd
+</div>
+
+<div>
+Diseñamos el comienzo de momentos inolvidables.
+</div>
+
+</footer>
+
+
+</main>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   APERTURA + MÚSICA
+===================================================== */
+
+const openingScreen =
+document.getElementById("openingScreen");
+
+const openInvitation =
+document.getElementById("openInvitation");
+
+const music =
+document.getElementById("backgroundMusic");
+
+const musicButton =
+document.getElementById("musicButton");
+
+
+openInvitation.addEventListener(
+"click",
+async () => {
+
+try {
+
+await music.play();
+
+musicButton.textContent = "♫";
+
+} catch(error) {
+
+console.log(
+"La música necesita interacción del usuario."
+);
+
+}
+
+openingScreen.style.opacity = "0";
+
+openingScreen.style.transition =
+"opacity 1s ease";
+
+setTimeout(() => {
+
+openingScreen.style.display = "none";
+
+document.body.style.overflow = "auto";
+
+},1000);
+
+});
+
+
+/* =====================================================
+   BOTÓN MÚSICA
+===================================================== */
+
+musicButton.addEventListener(
+"click",
+async () => {
+
+if(music.paused) {
+
+try {
+
+await music.play();
+
+musicButton.textContent = "♫";
+
+} catch(error) {
+
+console.log(error);
+
+}
+
+} else {
+
+music.pause();
+
+musicButton.textContent = "♪";
+
+}
+
+});
+
+
+/* =====================================================
+   ANIMACIÓN SCROLL
+===================================================== */
+
+const fadeElements =
+document.querySelectorAll(".fade");
+
+const observer =
+new IntersectionObserver(
+
+entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting) {
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+threshold:.15
+}
+
+);
+
+fadeElements.forEach(element => {
+
+observer.observe(element);
+
+});
+
+
+/* =====================================================
+   CUENTA REGRESIVA
+===================================================== */
+
+const eventDate =
+new Date(
+"2026-11-14T21:00:00-03:00"
+).getTime();
+
+
+function updateCountdown(){
+
+const now =
+new Date().getTime();
+
+const distance =
+eventDate - now;
+
+
+if(distance <= 0){
+
+document.getElementById("days")
+.textContent="00";
+
+document.getElementById("hours")
+.textContent="00";
+
+document.getElementById("minutes")
+.textContent="00";
+
+document.getElementById("seconds")
+.textContent="00";
+
+return;
+
+}
+
+
+const days =
+Math.floor(
+distance /
+(1000*60*60*24)
+);
+
+
+const hours =
+Math.floor(
+(distance %
+(1000*60*60*24)) /
+(1000*60*60)
+);
+
+
+const minutes =
+Math.floor(
+(distance %
+(1000*60*60)) /
+(1000*60)
+);
+
+
+const seconds =
+Math.floor(
+(distance %
+(1000*60)) /
+1000
+);
+
+
+document.getElementById("days")
+.textContent =
+String(days).padStart(2,"0");
+
+
+document.getElementById("hours")
+.textContent =
+String(hours).padStart(2,"0");
+
+
+document.getElementById("minutes")
+.textContent =
+String(minutes).padStart(2,"0");
+
+
+document.getElementById("seconds")
+.textContent =
+String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+updateCountdown,
+1000
+);
+
+
+/* =====================================================
+   COPIAR ALIAS
+===================================================== */
+
+const copyAlias =
+document.getElementById("copyAlias");
+
+
+copyAlias.addEventListener(
+"click",
+async () => {
+
+try {
+
+await navigator.clipboard.writeText(
+"morena0702.mp"
+);
+
+copyAlias.textContent =
+"ALIAS COPIADO ✓";
+
+
+setTimeout(() => {
+
+copyAlias.textContent =
+"COPIAR ALIAS";
+
+},2000);
+
+
+} catch(error) {
+
+alert(
+"Alias: morena0702.mp"
+);
+
+}
+
+});
+
+
+/* =====================================================
+   BLOQUEAR SCROLL AL INICIO
+===================================================== */
+
+document.body.style.overflow =
+"hidden";
+
+
+</script>
 
 </body>
 </html>

@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,13 +6,487 @@
 
     <title>Morena · Mis 15 años</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f8eef3;
+            color: #543c4a;
+            overflow-x: hidden;
+        }
+
+        section {
+            width: 100%;
+            min-height: 100vh;
+            padding: 70px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* BOTÓN MÚSICA */
+
+        .music-control {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 9999;
+        }
+
+        .music-control button {
+            border: none;
+            background: #76556a;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 30px;
+            font-family: Georgia, serif;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(80, 50, 70, 0.2);
+        }
+
+        /* PORTADA */
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background:
+                linear-gradient(
+                    rgba(248, 238, 243, 0.68),
+                    rgba(248, 238, 243, 0.88)
+                ),
+                url("morena1.jpg") center / cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "🦋";
+            position: absolute;
+            top: 9%;
+            left: 8%;
+            font-size: 45px;
+            opacity: 0.55;
+            transform: rotate(-20deg);
+        }
+
+        .hero::after {
+            content: "🦋";
+            position: absolute;
+            bottom: 12%;
+            right: 8%;
+            font-size: 42px;
+            opacity: 0.45;
+            transform: rotate(20deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 250, 252, 0.68);
+            padding: 45px 25px;
+            border-radius: 30px;
+            max-width: 700px;
+        }
+
+        .small-title {
+            font-size: 16px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #76556a;
+        }
+
+        .hero h1 {
+            font-size: clamp(58px, 13vw, 110px);
+            font-weight: normal;
+            color: #76506a;
+            margin-bottom: 8px;
+        }
+
+        .hero h2 {
+            font-size: clamp(23px, 5vw, 40px);
+            font-weight: normal;
+            letter-spacing: 6px;
+            color: #9a7188;
+        }
+
+        .date {
+            margin-top: 28px;
+            font-size: 21px;
+            letter-spacing: 3px;
+        }
+
+        .open-button,
+        .rsvp-button,
+        .map-button,
+        .copy-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: Georgia, serif;
+        }
+
+        .open-button {
+            border: 1px solid #8e667d;
+            color: #76506a;
+            background: rgba(255,255,255,0.6);
+        }
+
+        .open-button:hover {
+            background: #76506a;
+            color: white;
+        }
+
+        /* TITULOS */
+
+        .decorative-title {
+            font-size: clamp(34px, 7vw, 58px);
+            font-weight: normal;
+            color: #76506a;
+            margin-bottom: 25px;
+        }
+
+        /* HISTORIA */
+
+        .story {
+            background: #fffafd;
+        }
+
+        .story-text {
+            max-width: 720px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 1.9;
+        }
+
+        /* GALERÍA */
+
+        .gallery {
+            background: #f3e1ea;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 820px;
+            margin: 35px auto 0;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: 0 12px 30px rgba(80, 50, 70, 0.16);
+        }
+
+        /* EVENTO */
+
+        .event {
+            background: #fffafd;
+        }
+
+        .event-card {
+            max-width: 650px;
+            margin: auto;
+            padding: 40px 25px;
+            border: 1px solid #dfc6d2;
+            border-radius: 28px;
+            background: rgba(255,255,255,0.6);
+        }
+
+        .event-item {
+            margin: 27px 0;
+        }
+
+        .event-item span {
+            display: block;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #9a7188;
+            margin-bottom: 8px;
+        }
+
+        .event-item strong {
+            display: block;
+            font-size: 23px;
+            font-weight: normal;
+            line-height: 1.5;
+        }
+
+        /* UBICACIÓN */
+
+        .location {
+            background: #f3e1ea;
+        }
+
+        .location-text {
+            font-size: 20px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .map-buttons {
+            margin-top: 20px;
+        }
+
+        .map-button {
+            margin: 10px 5px;
+            background: #76506a;
+            color: white;
+        }
+
+        .map-button:hover {
+            background: #9a7188;
+        }
+
+        /* DRESS CODE */
+
+        .dresscode {
+            background: #fffafd;
+        }
+
+        .dress-box {
+            max-width: 700px;
+            margin: auto;
+            padding: 40px 25px;
+            border-radius: 28px;
+            background: #f5e8ee;
+        }
+
+        .dress-box p {
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .important {
+            margin-top: 25px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* CONTADOR */
+
+        .countdown {
+            background: #ead3df;
+        }
+
+        .countdown-box {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 35px;
+        }
+
+        .time-box {
+            min-width: 95px;
+            padding: 20px 12px;
+            background: rgba(255,255,255,0.68);
+            border-radius: 18px;
+        }
+
+        .time-box strong {
+            display: block;
+            font-size: 32px;
+            font-weight: normal;
+            color: #76506a;
+        }
+
+        .time-box span {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* REGALO */
+
+        .gift {
+            background: #fffafd;
+        }
+
+        .gift-text {
+            max-width: 650px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .alias-box {
+            margin: 30px auto;
+            max-width: 420px;
+            padding: 25px;
+            border: 1px solid #d9bdca;
+            border-radius: 20px;
+            background: #f6e9ef;
+        }
+
+        .alias {
+            font-size: 25px;
+            color: #76506a;
+            margin: 10px 0;
+            word-break: break-word;
+        }
+
+        .copy-button {
+            border: none;
+            background: #76506a;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .copy-button:hover {
+            background: #9a7188;
+        }
+
+        #copyMessage {
+            display: block;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #76506a;
+        }
+
+        /* CONFIRMACIÓN */
+
+        .rsvp {
+            background: #f3e1ea;
+        }
+
+        .rsvp p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .rsvp-button {
+            background: #76506a;
+            color: white;
+            font-size: 17px;
+        }
+
+        .rsvp-button:hover {
+            background: #9a7188;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 45px 20px;
+            text-align: center;
+            background: #76506a;
+            color: white;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        .brand {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* ANIMACIONES */
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 60px 18px;
+            }
+
+            .hero-content {
+                padding: 35px 18px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid img {
+                height: 430px;
+            }
+
+            .story-text,
+            .dress-box p,
+            .gift-text,
+            .rsvp p,
+            .location-text {
+                font-size: 17px;
+            }
+
+            .event-item strong {
+                font-size: 20px;
+            }
+
+            .time-box {
+                min-width: 75px;
+            }
+
+            .time-box strong {
+                font-size: 27px;
+            }
+
+            .map-button {
+                display: block;
+                margin: 12px auto;
+                max-width: 260px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- MÚSICA -->
+    <audio id="backgroundMusic" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control">
+        <button id="musicButton">▶ Música</button>
+    </div>
+
+
     <!-- PORTADA -->
     <section class="hero">
+
         <div class="container hero-content">
 
             <p class="small-title">Mis 15 años</p>
@@ -22,45 +495,64 @@
 
             <h2>15 AÑOS</h2>
 
-            <p class="date">12 · 12 · 2026</p>
+            <p class="date">
+                14 · 11 · 2026
+            </p>
 
             <a href="#historia" class="open-button">
                 Abrir invitación
             </a>
 
         </div>
+
     </section>
 
 
     <!-- HISTORIA -->
     <section id="historia" class="story">
+
         <div class="container fade-in">
 
-            <h2 class="decorative-title">Érase una vez...</h2>
+            <h2 class="decorative-title">
+                Érase una vez...
+            </h2>
 
             <p class="story-text">
+
                 Érase una vez una pequeña princesa que llegó a nuestras vidas
                 para enseñarnos el significado del amor más puro.
+
                 <br><br>
+
                 Han pasado quince años llenos de momentos, sonrisas,
                 aprendizajes y sueños...
+
                 <br><br>
+
                 Y hoy aquella niña abre las puertas de una nueva etapa,
-                llevando en su corazón todos los recuerdos que la
-                acompañaron hasta aquí.
+                llevando en su corazón todos los recuerdos que la han
+                convertido en quien es.
+
                 <br><br>
-                Hoy queremos celebrar junto a vos este momento tan especial.
+
+                Hoy queremos celebrar este momento tan especial
+                y compartirlo con vos.
+
             </p>
 
         </div>
+
     </section>
 
 
     <!-- FOTOS -->
     <section class="gallery">
+
         <div class="container fade-in">
 
-            <h2 class="decorative-title">Un poquito de mí</h2>
+            <h2 class="decorative-title">
+                Morena
+            </h2>
 
             <div class="gallery-grid">
 
@@ -70,45 +562,151 @@
             </div>
 
         </div>
+
     </section>
 
 
-    <!-- INFORMACIÓN -->
-    <section class="info">
+    <!-- INFORMACIÓN DEL EVENTO -->
+    <section class="event">
+
         <div class="container fade-in">
 
-            <h2 class="decorative-title">Te espero</h2>
+            <h2 class="decorative-title">
+                Te esperamos
+            </h2>
 
-            <div class="info-card">
+            <div class="event-card">
 
-                <div class="info-item">
-                    <span>Fecha</span>
-                    <strong>12 de diciembre de 2026</strong>
+                <div class="event-item">
+                    <span>Comenzamos</span>
+                    <strong>
+                        Sábado 14 de noviembre
+                        <br>
+                        21:00 hs
+                    </strong>
                 </div>
 
-                <div class="info-item">
-                    <span>Horario</span>
-                    <strong>21:00 hs</strong>
+                <div class="event-item">
+                    <span>Continuamos</span>
+                    <strong>
+                        Domingo 15 de noviembre
+                        <br>
+                        Hasta las 17:00 hs
+                    </strong>
                 </div>
 
-                <div class="info-item">
-                    <span>Celebramos juntos</span>
-                    <strong>Mis 15 años</strong>
+                <div class="event-item">
+                    <span>Opcional</span>
+                    <strong>
+                        Podés quedarte a disfrutar
+                        del día siguiente.
+                    </strong>
                 </div>
 
             </div>
 
         </div>
+
+    </section>
+
+
+    <!-- UBICACIÓN -->
+    <section class="location">
+
+        <div class="container fade-in">
+
+            <h2 class="decorative-title">
+                ¿Dónde nos encontramos?
+            </h2>
+
+            <p class="location-text">
+
+                <strong>La Querencia</strong>
+
+                <br>
+
+                Juan Mantovani e/ 1439 y 1443
+
+                <br>
+
+                Villa Brown · Florencio Varela
+
+            </p>
+
+            <div class="map-buttons">
+
+                <a
+                    class="map-button"
+                    href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
+                    target="_blank"
+                >
+                    📍 Google Maps
+                </a>
+
+                <a
+                    class="map-button"
+                    href="https://www.waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
+                    target="_blank"
+                >
+                    🚗 Waze
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DRESS CODE -->
+    <section class="dresscode">
+
+        <div class="container fade-in">
+
+            <h2 class="decorative-title">
+                Dress code
+            </h2>
+
+            <div class="dress-box">
+
+                <p>
+                    Te esperamos con un look
+                    <strong>elegante y fresco</strong>,
+                    ideal para disfrutar de una tarde especial
+                    al aire libre.
+                </p>
+
+                <p class="important">
+                    🩱 Traer traje de baño y toalla.
+                    <br><br>
+                    🧉 Si te quedás al otro día,
+                    no olvides traer tu set de mate.
+                </p>
+
+                <p class="important">
+                    Lo más importante es compartir
+                    este día con vos. 🤍
+                </p>
+
+            </div>
+
+        </div>
+
     </section>
 
 
     <!-- CONTADOR -->
     <section class="countdown">
+
         <div class="container fade-in">
 
             <h2 class="decorative-title">
                 Falta cada vez menos...
             </h2>
+
+            <p>
+                Para comenzar a celebrar juntos.
+            </p>
 
             <div class="countdown-box">
 
@@ -135,11 +733,54 @@
             </div>
 
         </div>
+
+    </section>
+
+
+    <!-- REGALO -->
+    <section class="gift">
+
+        <div class="container fade-in">
+
+            <h2 class="decorative-title">
+                Si querés regalarme algo...
+            </h2>
+
+            <p class="gift-text">
+                Tu presencia es el regalo más importante.
+                Pero si querés hacerme un presente,
+                te dejo mi alias:
+            </p>
+
+            <div class="alias-box">
+
+                <p>Alias</p>
+
+                <div class="alias">
+                    morena0702.mp
+                </div>
+
+                <p>
+                    A nombre de
+                    <strong>Morena Abril Novillo</strong>
+                </p>
+
+                <button class="copy-button" id="copyAlias">
+                    Copiar alias
+                </button>
+
+                <span id="copyMessage"></span>
+
+            </div>
+
+        </div>
+
     </section>
 
 
     <!-- CONFIRMACIÓN -->
     <section class="rsvp">
+
         <div class="container fade-in">
 
             <h2 class="decorative-title">
@@ -147,56 +788,33 @@
             </h2>
 
             <p>
-                Tu presencia hará que este día sea todavía más especial.
-                <br>
-                Espero compartir este momento inolvidable con vos.
+                Confirmá tu asistencia para que podamos
+                preparar todo para este día tan especial.
             </p>
 
-            <!--
-            Si después tenés un link de confirmación,
-            reemplazá "#" por el enlace.
-            -->
-
-            <a href="#" class="rsvp-button">
-                Confirmar asistencia
+            <a
+                class="rsvp-button"
+                href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%97%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os.%20"
+                target="_blank"
+            >
+                💬 Confirmar asistencia por WhatsApp
             </a>
 
+            <p style="margin-top:20px; font-size:15px;">
+                WhatsApp: 11 5163-4135
+            </p>
+
         </div>
+
     </section>
 
 
-    <!-- MÚSICA -->
-    <audio id="backgroundMusic" loop>
-        <source src="musica.mp3" type="audio/mpeg">
-    </audio>
-
-    <div style="
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 9999;
-    ">
-        <button
-            id="musicButton"
-            style="
-                border: none;
-                padding: 12px 18px;
-                border-radius: 30px;
-                background: #7a4f68;
-                color: white;
-                cursor: pointer;
-                font-family: Georgia, serif;
-            "
-        >
-            ▶ Música
-        </button>
-    </div>
-
-
-    <!-- PIE -->
+    <!-- FOOTER -->
     <footer>
 
-        <p>Morena · Mis 15 años</p>
+        <p>
+            Morena · Mis 15 años
+        </p>
 
         <p class="brand">
             Diseñamos el comienzo de momentos inolvidables.
@@ -209,9 +827,144 @@
     </footer>
 
 
-    <script src="script.js"></script>
+    <script>
+
+        /* ANIMACIONES */
+
+        const elements = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        elements.forEach(function(element) {
+            observer.observe(element);
+        });
+
+
+        /* CONTADOR */
+
+        const eventDate = new Date(
+            "November 14, 2026 21:00:00"
+        ).getTime();
+
+        function updateCountdown() {
+
+            const now = new Date().getTime();
+
+            const distance = eventDate - now;
+
+            const days = Math.floor(
+                distance / (1000 * 60 * 60 * 24)
+            );
+
+            const hours = Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+            const minutes = Math.floor(
+                (distance % (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+            const seconds = Math.floor(
+                (distance % (1000 * 60)) /
+                1000
+            );
+
+            if (distance > 0) {
+
+                document.getElementById("days").textContent = days;
+                document.getElementById("hours").textContent = hours;
+                document.getElementById("minutes").textContent = minutes;
+                document.getElementById("seconds").textContent = seconds;
+
+            } else {
+
+                document.getElementById("days").textContent = "0";
+                document.getElementById("hours").textContent = "0";
+                document.getElementById("minutes").textContent = "0";
+                document.getElementById("seconds").textContent = "0";
+
+            }
+
+        }
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+
+        /* MÚSICA */
+
+        const music = document.getElementById("backgroundMusic");
+        const musicButton = document.getElementById("musicButton");
+
+        musicButton.addEventListener("click", function() {
+
+            if (music.paused) {
+
+                music.play()
+                    .then(function() {
+                        musicButton.textContent = "🔊 Música";
+                    })
+                    .catch(function() {
+                        musicButton.textContent = "▶ Música";
+                    });
+
+            } else {
+
+                music.pause();
+
+                musicButton.textContent = "🔇 Música";
+
+            }
+
+        });
+
+
+        /* COPIAR ALIAS */
+
+        const copyButton = document.getElementById("copyAlias");
+        const copyMessage = document.getElementById("copyMessage");
+
+        copyButton.addEventListener("click", function() {
+
+            navigator.clipboard.writeText("morena0702.mp")
+                .then(function() {
+
+                    copyMessage.textContent =
+                        "✓ Alias copiado";
+
+                    setTimeout(function() {
+                        copyMessage.textContent = "";
+                    }, 2500);
+
+                })
+                .catch(function() {
+
+                    copyMessage.textContent =
+                        "Alias: morena0702.mp";
+
+                });
+
+        });
+
+    </script>
 
 </body>
 </html>
-```
-

@@ -1,2405 +1,1390 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071A38">
 
 <title>Morena · Mis 15 años</title>
 
 <style>
-
-/* =====================================================
-   BASE
-===================================================== */
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: #071a35;
-    color: #e9edf5;
-    overflow-x: hidden;
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at 50% 20%, #173d72 0%, #0b2348 35%, #06152e 75%, #030c1c 100%);
+  color: #fff;
+  overflow-x: hidden;
 }
 
-:root {
-
-    --azul-profundo: #071a35;
-    --azul-oscuro: #0b2850;
-    --azul: #163f73;
-    --azul-medio: #285b98;
-
-    --plateado: #c9ced8;
-    --plateado-claro: #f7f8fb;
-    --plateado-brillo: #ffffff;
-
-    --texto: #e9edf5;
-}
-
-
-/* =====================================================
-   SECCIONES
-===================================================== */
-
-section {
-
-    width: 100%;
-    min-height: 100vh;
-
-    padding: 85px 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-    overflow: hidden;
-}
-
-.container {
-
-    width: 100%;
-    max-width: 920px;
-
-    margin: auto;
-
-    text-align: center;
-
-    position: relative;
-    z-index: 5;
-}
-
-
-/* =====================================================
-   FONDO DE ESTRELLAS
-===================================================== */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 0;
-
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,.75) 1px, transparent 1px),
-        radial-gradient(circle, rgba(201,206,216,.45) 1px, transparent 1px);
-
-    background-size:
-        95px 95px,
-        145px 145px;
-
-    background-position:
-        10px 20px,
-        50px 80px;
-
-    opacity: .20;
-}
-
-
-/* =====================================================
-   TITULOS
-===================================================== */
-
-.decorative-title {
-
-    font-size: clamp(38px, 7vw, 64px);
-
-    font-weight: normal;
-
-    color: var(--plateado-claro);
-
-    text-shadow:
-        0 0 8px rgba(255,255,255,.35),
-        0 3px 12px rgba(0,0,0,.4);
-
-    margin-bottom: 30px;
-}
-
-.decorative-title::after {
-
-    content: "✦";
-
-    display: block;
-
-    margin-top: 12px;
-
-    color: var(--plateado);
-
-    font-size: 18px;
-
-    text-shadow:
-        0 0 10px white,
-        0 0 20px var(--plateado);
-}
-
-
-/* =====================================================
-   MARIPOSAS
-===================================================== */
-
-.butterfly {
-
-    position: absolute;
-
-    z-index: 2;
-
-    pointer-events: none;
-
-    opacity: .85;
-
-    filter:
-        drop-shadow(0 0 6px rgba(255,255,255,.45))
-        drop-shadow(0 0 12px rgba(201,206,216,.35));
-
-    animation:
-        flyButterfly 9s ease-in-out infinite;
-}
-
-.butterfly.blue {
-    color: #5e91cf;
-}
-
-.butterfly.silver {
-    color: #d9dde5;
-}
-
-.butterfly.white {
-    color: #ffffff;
-}
-
-.bf1 {
-    font-size: 42px;
-    top: 7%;
-    left: 5%;
-    animation-delay: 0s;
-}
-
-.bf2 {
-    font-size: 28px;
-    top: 18%;
-    right: 8%;
-    animation-delay: 1.5s;
-}
-
-.bf3 {
-    font-size: 35px;
-    top: 43%;
-    left: 3%;
-    animation-delay: 3s;
-}
-
-.bf4 {
-    font-size: 45px;
-    bottom: 10%;
-    right: 6%;
-    animation-delay: 2s;
-}
-
-.bf5 {
-    font-size: 25px;
-    bottom: 25%;
-    left: 10%;
-    animation-delay: 4s;
-}
-
-.bf6 {
-    font-size: 30px;
-    top: 65%;
-    right: 3%;
-    animation-delay: 1s;
-}
-
-.bf7 {
-    font-size: 22px;
-    top: 32%;
-    left: 17%;
-    animation-delay: 2.5s;
-}
-
-.bf8 {
-    font-size: 24px;
-    bottom: 40%;
-    right: 16%;
-    animation-delay: 3.5s;
-}
-
-@keyframes flyButterfly {
-
-    0% {
-        transform:
-            translate(0, 0)
-            rotate(-8deg);
-    }
-
-    25% {
-        transform:
-            translate(22px, -30px)
-            rotate(8deg);
-    }
-
-    50% {
-        transform:
-            translate(-12px, -55px)
-            rotate(-5deg);
-    }
-
-    75% {
-        transform:
-            translate(25px, -25px)
-            rotate(10deg);
-    }
-
-    100% {
-        transform:
-            translate(0, 0)
-            rotate(-8deg);
-    }
-}
-
-
-/* =====================================================
-   DESTELLOS
-===================================================== */
-
-.sparkle {
-
-    position: absolute;
-
-    color: white;
-
-    text-shadow:
-        0 0 5px white,
-        0 0 12px #c9ced8,
-        0 0 25px white;
-
-    animation:
-        sparkleAnimation 2.5s ease-in-out infinite;
-
-    z-index: 2;
-}
-
-.sp1 {
-    top: 15%;
-    left: 28%;
-}
-
-.sp2 {
-    top: 30%;
-    right: 23%;
-    animation-delay: .7s;
-}
-
-.sp3 {
-    bottom: 24%;
-    left: 22%;
-    animation-delay: 1.2s;
-}
-
-.sp4 {
-    bottom: 15%;
-    right: 27%;
-    animation-delay: 1.8s;
-}
-
-@keyframes sparkleAnimation {
-
-    0%,100% {
-        opacity: .2;
-        transform: scale(.7);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.5);
-    }
-}
-
-
-/* =====================================================
-   PORTADA
-===================================================== */
-
-.hero {
-
-    min-height: 100vh;
-
-    background:
-
-        radial-gradient(
-            circle at center,
-            rgba(31,72,125,.75),
-            transparent 55%
-        ),
-
-        linear-gradient(
-            135deg,
-            #06152c,
-            #0b2850 50%,
-            #071a35
-        );
-
-    text-align: center;
-}
-
-
-/* brillo central */
-
-.hero::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 650px;
-    height: 650px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.15),
-            transparent 65%
-        );
-
-    filter: blur(10px);
-
-    animation: glow 5s ease-in-out infinite;
-}
-
-@keyframes glow {
-
-    0%,100% {
-        transform: scale(.95);
-        opacity: .7;
-    }
-
-    50% {
-        transform: scale(1.08);
-        opacity: 1;
-    }
-}
-
-
-.hero-content {
-
-    position: relative;
-
-    z-index: 10;
-
-    max-width: 750px;
-
-    padding: 50px 25px;
-}
-
-
-/* corona */
-
-.crown {
-
-    font-size: 34px;
-
-    color: var(--plateado);
-
-    text-shadow:
-        0 0 10px white,
-        0 0 25px #c9ced8;
-
-    margin-bottom: 18px;
-
-    animation:
-        crownGlow 3s infinite ease-in-out;
-}
-
-@keyframes crownGlow {
-
-    0%,100% {
-        transform: scale(1);
-        opacity: .75;
-    }
-
-    50% {
-        transform: scale(1.15);
-        opacity: 1;
-    }
-}
-
-
-.small-title {
-
-    color: #dce2eb;
-
-    font-size: 15px;
-
-    letter-spacing: 7px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 18px;
-}
-
-
-/* NOMBRE */
-
-.hero h1 {
-
-    font-size: clamp(70px, 17vw, 145px);
-
-    font-weight: normal;
-
-    line-height: .9;
-
-    color: #ffffff;
-
-    /*
-    Plateado nítido:
-    sin degradado para evitar efecto borroso.
-    */
-
-    text-shadow:
-
-        0 1px 0 #c9ced8,
-
-        0 2px 0 #aeb5c1,
-
-        0 0 8px rgba(255,255,255,.7),
-
-        0 0 25px rgba(201,206,216,.55),
-
-        0 8px 25px rgba(0,0,0,.45);
-
-    animation:
-        nameAppear 1.8s ease forwards;
-}
-
-@keyframes nameAppear {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-
-.hero h2 {
-
-    margin-top: 20px;
-
-    font-size: clamp(25px, 5vw, 48px);
-
-    letter-spacing: 12px;
-
-    font-weight: normal;
-
-    color: #dce1e9;
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,.35);
-}
-
-
-.hero-date {
-
-    margin-top: 30px;
-
-    font-size: 21px;
-
-    letter-spacing: 5px;
-
-    color: #e9edf5;
-}
-
-
-/* =====================================================
+/* =========================
    APERTURA
-===================================================== */
-
-.open-button {
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 45px;
-
-    padding: 17px 38px;
-
-    border-radius: 50px;
-
-    border: 1px solid #dce2eb;
-
-    color: white;
-
-    text-decoration: none;
-
-    background:
-        linear-gradient(
-            135deg,
-            #163f73,
-            #5e91cf,
-            #163f73
-        );
-
-    box-shadow:
-
-        0 0 10px rgba(255,255,255,.25),
-
-        0 0 25px rgba(94,145,207,.35),
-
-        inset 0 1px 2px rgba(255,255,255,.8);
-
-    transition: .35s;
-
-    position: relative;
-
-    overflow: hidden;
-}
-
-.open-button::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 60%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.65),
-            transparent
-        );
-
-    transform: skewX(-20deg);
-
-    animation:
-        buttonShine 3s infinite;
-}
-
-@keyframes buttonShine {
-
-    0% {
-        left: -100%;
-    }
-
-    55%,100% {
-        left: 140%;
-    }
-}
-
-.open-button:hover {
-
-    transform:
-        translateY(-4px)
-        scale(1.03);
-
-    box-shadow:
-        0 0 20px rgba(255,255,255,.45),
-        0 0 35px rgba(94,145,207,.5);
-}
-
-
-/* =====================================================
-   HISTORIA
-===================================================== */
-
-.story {
-
-    background:
-        linear-gradient(
-            180deg,
-            #0a2344,
-            #0d315e
-        );
-}
-
-.story-box {
-
-    max-width: 760px;
-
-    margin: auto;
-
-    padding: 45px 30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.10),
-            rgba(255,255,255,.04)
-        );
-
-    border: 1px solid rgba(201,206,216,.55);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.2),
-
-        inset 0 1px 0 rgba(255,255,255,.15);
-}
-
-.story-text {
-
-    font-size: 19px;
-
-    line-height: 2;
-
-    color: #eef2f8;
-}
-
-
-/* =====================================================
-   GALERÍA
-===================================================== */
-
-.gallery {
-
-    background:
-        linear-gradient(
-            180deg,
-            #071a35,
-            #0e315d
-        );
-}
-
-.gallery-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 25px;
-
-    max-width: 850px;
-
-    margin: 40px auto 0;
-}
-
-.photo-frame {
-
-    padding: 9px;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffffff,
-            #9ea6b4,
-            #ffffff,
-            #c9ced8,
-            #ffffff
-        );
-
-    box-shadow:
-        0 0 15px rgba(255,255,255,.18),
-        0 15px 40px rgba(0,0,0,.25);
-}
-
-.photo-frame img {
-
-    width: 100%;
-
-    height: 500px;
-
-    /*
-    NO RECORTA LA FOTO
-    */
-
-    object-fit: contain;
-
-    background: #071a35;
-
-    border-radius: 18px;
-
-    display: block;
-}
-
-
-/* =====================================================
-   EVENTO
-===================================================== */
-
-.event {
-
-    background:
-        linear-gradient(
-            180deg,
-            #0d315d,
-            #071a35
-        );
-}
-
-.event-card {
-
-    max-width: 680px;
-
-    margin: auto;
-
-    padding: 45px 25px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border: 1px solid rgba(201,206,216,.55);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.25);
-}
-
-.event-item {
-
-    margin: 28px 0;
-}
-
-.event-item span {
-
-    display: block;
-
-    color: #c9ced8;
-
-    font-size: 13px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 8px;
-}
-
-.event-item strong {
-
-    display: block;
-
-    color: white;
-
-    font-size: 23px;
-
-    line-height: 1.5;
-
-    font-weight: normal;
-}
-
-
-/* =====================================================
-   UBICACIÓN
-===================================================== */
-
-.location {
-
-    background:
-        linear-gradient(
-            135deg,
-            #163f73,
-            #071a35
-        );
-
-    color: white;
-}
-
-.location-name {
-
-    font-size: 32px;
-
-    color: white;
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,.2);
-
-    margin-bottom: 15px;
-}
-
-.location-text {
-
-    font-size: 20px;
-
-    line-height: 1.8;
-
-    color: #edf1f7;
-}
-
-.map-buttons {
-
-    margin-top: 30px;
-}
-
-.map-button {
-
-    display: inline-block;
-
-    margin: 8px;
-
-    padding: 14px 25px;
-
-    border-radius: 50px;
-
-    background: white;
-
-    color: #163f73;
-
-    text-decoration: none;
-
-    transition: .3s;
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.2);
-}
-
-.map-button:hover {
-
-    transform: translateY(-3px);
-}
-
-
-/* =====================================================
-   DRESS CODE
-===================================================== */
-
-.dresscode {
-
-    background:
-        linear-gradient(
-            180deg,
-            #071a35,
-            #0b2850
-        );
-}
-
-.dress-box {
-
-    max-width: 720px;
-
-    margin: auto;
-
-    padding: 45px 30px;
-
-    border-radius: 30px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(201,206,216,.55);
-}
-
-.dress-box p {
-
-    font-size: 19px;
-
-    line-height: 1.9;
-
-    color: #eef2f8;
-}
-
-.dress-important {
-
-    margin-top: 25px;
-
-    color: #dce2eb;
-}
-
-
-/* =====================================================
-   CONTADOR
-===================================================== */
-
-.countdown {
-
-    background:
-        linear-gradient(
-            135deg,
-            #163f73,
-            #285b98,
-            #0b2850
-        );
-}
-
-.countdown-box {
-
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 15px;
-
-    margin-top: 35px;
-}
-
-.time-box {
-
-    min-width: 100px;
-
-    padding: 22px 15px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #d9dde5
-        );
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.18);
-}
-
-.time-box strong {
-
-    display: block;
-
-    font-size: 35px;
-
-    font-weight: normal;
-
-    color: #163f73;
-}
-
-.time-box span {
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    color: #50627a;
-}
-
-
-/* =====================================================
-   REGALO
-===================================================== */
-
-.gift {
-
-    background:
-        linear-gradient(
-            180deg,
-            #0b2850,
-            #071a35
-        );
-}
-
-.gift-text {
-
-    max-width: 650px;
-
-    margin: auto;
-
-    font-size: 19px;
-
-    line-height: 1.8;
-}
-
-.alias-box {
-
-    max-width: 450px;
-
-    margin: 30px auto 0;
-
-    padding: 30px 20px;
-
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid rgba(201,206,216,.55);
-
-    border-radius: 25px;
-}
-
-.alias-label {
-
-    color: #c9ced8;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    font-size: 13px;
-}
-
-.alias {
-
-    font-size: 27px;
-
-    color: white;
-
-    text-shadow:
-        0 0 8px rgba(255,255,255,.4);
-
-    margin: 12px 0;
-}
-
-.copy-button {
-
-    border: 1px solid #dce2eb;
-
-    padding: 13px 25px;
-
-    border-radius: 40px;
-
-    background: #163f73;
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    cursor: pointer;
-}
-
-.copy-message {
-
-    display: block;
-
-    margin-top: 12px;
-
-    color: #dce2eb;
-
-    font-size: 14px;
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-.rsvp {
-
-    background:
-        linear-gradient(
-            180deg,
-            #0e315d,
-            #071a35
-        );
-}
-
-.rsvp-text {
-
-    max-width: 650px;
-
-    margin: auto;
-
-    font-size: 19px;
-
-    line-height: 1.8;
-}
-
-.rsvp-button {
-
-    display: inline-block;
-
-    margin-top: 30px;
-
-    padding: 16px 30px;
-
-    border-radius: 50px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #163f73,
-            #5e91cf
-        );
-
-    border: 1px solid #dce2eb;
-
-    color: white;
-
-    text-decoration: none;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.25);
-}
-
-.rsvp-number {
-
-    margin-top: 15px;
-
-    font-size: 14px;
-
-    color: #b9c4d3;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-
-    padding: 45px 20px;
-
-    background: #040f20;
-
-    color: white;
-
-    text-align: center;
-
-    border-top:
-        1px solid rgba(201,206,216,.35);
-}
-
-footer p {
-
-    margin: 8px 0;
-}
-
-.brand {
-
-    font-size: 13px;
-
-    opacity: .75;
-}
-
-
-/* =====================================================
-   ANIMACIONES AL SCROLL
-===================================================== */
-
-.fade {
-
-    opacity: 0;
-
-    transform:
-        translateY(30px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-}
-
-.fade.visible {
-
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-/* =====================================================
-   MÚSICA
-===================================================== */
-
-.music-control {
-
-    position: fixed;
-
-    right: 18px;
-
-    bottom: 18px;
-
-    z-index: 9999;
-}
-
-.music-control button {
-
-    border:
-        1px solid rgba(255,255,255,.7);
-
-    padding:
-        12px 18px;
-
-    border-radius: 40px;
-
-    background:
-        rgba(7,26,53,.95);
-
-    color: white;
-
-    font-family:
-        Georgia, serif;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 5px 20px rgba(0,0,0,.35);
-}
-
-
-/* =====================================================
-   CELULAR
-===================================================== */
-
-@media(max-width:600px) {
-
-    section {
-        padding: 65px 17px;
-    }
-
-    .hero h2 {
-        letter-spacing: 7px;
-    }
-
-    .hero-date {
-        font-size: 18px;
-    }
-
-    .story-box,
-    .dress-box,
-    .event-card {
-        padding: 35px 20px;
-    }
-
-    .story-text,
-    .dress-box p,
-    .gift-text,
-    .rsvp-text,
-    .location-text {
-        font-size: 17px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .photo-frame img {
-
-        height: auto;
-
-        max-height: 650px;
-
-        object-fit: contain;
-    }
-
-    .event-item strong {
-        font-size: 20px;
-    }
-
-    .time-box {
-        min-width: 75px;
-    }
-
-    .time-box strong {
-        font-size: 28px;
-    }
-
-    .map-button {
-
-        display: block;
-
-        max-width: 270px;
-
-        margin:
-            12px auto;
-    }
-
-    .bf1 {
-        font-size: 30px;
-    }
-
-    .bf4 {
-        font-size: 34px;
-    }
-
-}
-
-
-/* =====================================================
-   PANTALLA DE APERTURA
-===================================================== */
+========================= */
 
 .opening-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
 
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 99999;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #163f73,
-            #071a35 70%
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
-}
-
-.opening-screen.hide {
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
+  background:
+    radial-gradient(circle at center, rgba(53,105,170,.5), transparent 42%),
+    radial-gradient(circle at 20% 30%, rgba(192,202,215,.18), transparent 25%),
+    linear-gradient(145deg, #020b1d, #0b2550 50%, #020b1d);
 }
 
 .opening-content {
-
-    position: relative;
-
-    z-index: 5;
-
-    padding: 30px;
+  position: relative;
+  z-index: 20;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
 }
 
-.opening-crown {
+.crown {
+  font-size: 42px;
+  color: #e8edf5;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 15px #cfd8e5,
+    0 0 30px #8ea5c3;
+  margin-bottom: 15px;
+  animation: crownGlow 2.5s infinite alternate;
+}
 
-    font-size: 48px;
+@keyframes crownGlow {
+  from {
+    transform: scale(1);
+    filter: brightness(.9);
+  }
 
-    color: #dce2eb;
-
-    text-shadow:
-        0 0 12px white,
-        0 0 30px #c9ced8;
-
-    animation:
-        crownGlow 2.5s infinite;
+  to {
+    transform: scale(1.08);
+    filter: brightness(1.4);
+  }
 }
 
 .opening-small {
-
-    margin-top: 20px;
-
-    letter-spacing: 6px;
-
-    color: #dce2eb;
-
-    font-size: 13px;
-
-    text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #dce4ef;
+  margin-bottom: 15px;
 }
 
 .opening-name {
+  font-size: clamp(65px, 18vw, 125px);
+  font-weight: normal;
+  font-style: italic;
+  line-height: .9;
 
-    margin-top: 15px;
+  color: #fff;
 
-    font-size: clamp(65px,15vw,120px);
+  text-shadow:
+    0 0 2px #fff,
+    0 0 8px #fff,
+    0 0 18px #d9e1ec,
+    0 0 35px rgba(176,199,225,.9);
 
-    color: white;
-
-    font-weight: normal;
-
-    text-shadow:
-
-        0 1px 0 #c9ced8,
-
-        0 2px 0 #aeb5c1,
-
-        0 0 12px rgba(255,255,255,.7),
-
-        0 0 30px rgba(201,206,216,.5);
+  margin-bottom: 18px;
 }
 
-.opening-sub {
+.opening-title {
+  font-size: clamp(22px, 6vw, 38px);
+  letter-spacing: 8px;
+  color: #dfe7f1;
 
-    margin-top: 10px;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 15px rgba(201,215,231,.9);
 
-    letter-spacing: 8px;
-
-    color: #c9ced8;
-
-    font-size: 22px;
+  margin-bottom: 35px;
 }
 
-.opening-button {
+.open-button {
+  border: 1px solid rgba(235,241,249,.8);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.15), rgba(113,145,183,.22));
+  color: #fff;
 
-    margin-top: 40px;
+  padding: 15px 35px;
+  border-radius: 40px;
 
-    padding: 17px 40px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 3px;
 
-    border-radius: 50px;
+  cursor: pointer;
 
-    border: 1px solid white;
+  box-shadow:
+    0 0 10px rgba(255,255,255,.25),
+    inset 0 0 15px rgba(255,255,255,.08);
 
-    background:
-        linear-gradient(
-            135deg,
-            #163f73,
-            #5e91cf,
-            #163f73
-        );
-
-    color: white;
-
-    font-family:
-        Georgia, serif;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 0 15px rgba(255,255,255,.3),
-        0 0 35px rgba(94,145,207,.35);
-
-    animation:
-        openingPulse 2.5s infinite;
+  transition: .4s;
 }
 
-@keyframes openingPulse {
-
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.04);
-    }
+.open-button:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 15px rgba(255,255,255,.5),
+    0 0 35px rgba(146,174,208,.35);
 }
 
+/* =========================
+   MARIPOSAS CSS
+========================= */
 
-/* mariposas de apertura */
-
-.opening-butterfly {
-
-    position: absolute;
-
-    font-size: 40px;
-
-    color: #c9ced8;
-
-    filter:
-        drop-shadow(0 0 8px white);
-
-    animation:
-        openingFly 7s ease-in-out infinite;
+.butterfly {
+  position: absolute;
+  width: 38px;
+  height: 30px;
+  z-index: 5;
+  pointer-events: none;
+  animation: butterflyFloat linear infinite;
 }
 
-.ob1 {
-    left: 10%;
-    top: 20%;
+.butterfly::before,
+.butterfly::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  width: 19px;
+  height: 27px;
+  border-radius: 80% 20% 70% 30%;
+  background:
+    radial-gradient(circle at 60% 35%, rgba(255,255,255,.95) 0 5%, transparent 7%),
+    linear-gradient(135deg, #ffffff 0%, #c8d2df 22%, #6f89a8 48%, #173c6b 100%);
+  box-shadow:
+    0 0 6px rgba(255,255,255,.9),
+    0 0 15px rgba(172,197,225,.6);
 }
 
-.ob2 {
-    right: 12%;
-    top: 25%;
-    animation-delay: 1s;
+.butterfly::before {
+  left: 0;
+  transform: rotate(-28deg);
+  transform-origin: right bottom;
 }
 
-.ob3 {
-    left: 15%;
-    bottom: 20%;
-    animation-delay: 2s;
+.butterfly::after {
+  right: 0;
+  transform: scaleX(-1) rotate(-28deg);
+  transform-origin: left bottom;
 }
 
-.ob4 {
-    right: 13%;
-    bottom: 18%;
-    animation-delay: 3s;
+.butterfly span {
+  position: absolute;
+  left: 18px;
+  top: 7px;
+  width: 3px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e9eef5;
+  box-shadow: 0 0 5px #fff;
+  z-index: 3;
 }
 
-@keyframes openingFly {
-
-    0%,100% {
-        transform:
-            translate(0,0)
-            rotate(-10deg);
-    }
-
-    50% {
-        transform:
-            translate(30px,-45px)
-            rotate(12deg);
-    }
+.b1 {
+  left: 8%;
+  top: 15%;
+  transform: scale(.8);
+  animation-duration: 10s;
 }
 
+.b2 {
+  left: 75%;
+  top: 10%;
+  transform: scale(.65);
+  animation-duration: 13s;
+  animation-delay: -3s;
+}
+
+.b3 {
+  left: 88%;
+  top: 32%;
+  transform: scale(1);
+  animation-duration: 12s;
+  animation-delay: -5s;
+}
+
+.b4 {
+  left: 15%;
+  top: 50%;
+  transform: scale(.6);
+  animation-duration: 15s;
+  animation-delay: -7s;
+}
+
+.b5 {
+  left: 80%;
+  top: 60%;
+  transform: scale(.75);
+  animation-duration: 11s;
+  animation-delay: -2s;
+}
+
+.b6 {
+  left: 40%;
+  top: 8%;
+  transform: scale(.45);
+  animation-duration: 14s;
+  animation-delay: -6s;
+}
+
+.b7 {
+  left: 5%;
+  top: 75%;
+  transform: scale(.9);
+  animation-duration: 16s;
+  animation-delay: -9s;
+}
+
+.b8 {
+  left: 65%;
+  top: 80%;
+  transform: scale(.5);
+  animation-duration: 12s;
+  animation-delay: -4s;
+}
+
+@keyframes butterflyFloat {
+
+  0% {
+    transform: translate(0, 20px) rotate(-5deg) scale(var(--scale, 1));
+    opacity: .2;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  45% {
+    transform: translate(35px, -45px) rotate(12deg) scale(var(--scale, 1));
+  }
+
+  70% {
+    transform: translate(-30px, -90px) rotate(-10deg) scale(var(--scale, 1));
+  }
+
+  100% {
+    transform: translate(20px, -150px) rotate(8deg) scale(var(--scale, 1));
+    opacity: 0;
+  }
+}
+
+/* =========================
+   DESTELLOS
+========================= */
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 5px #fff,
+    0 0 12px #c9d5e4;
+  animation: sparkle 2s infinite alternate;
+}
+
+.s1 { left: 18%; top: 25%; animation-delay: .2s; }
+.s2 { left: 72%; top: 25%; animation-delay: .8s; }
+.s3 { left: 32%; top: 72%; animation-delay: 1.3s; }
+.s4 { left: 90%; top: 70%; animation-delay: .5s; }
+.s5 { left: 10%; top: 60%; animation-delay: 1.8s; }
+.s6 { left: 58%; top: 15%; animation-delay: 1s; }
+
+@keyframes sparkle {
+  from {
+    transform: scale(.3);
+    opacity: .2;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 1;
+  }
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+#invitation {
+  display: block;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at center, rgba(44,91,148,.65), transparent 45%),
+    linear-gradient(160deg, #06152e, #123967, #06152e);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 30px;
+}
+
+.hero-small {
+  font-size: 15px;
+  letter-spacing: 6px;
+  color: #dbe4ef;
+  margin-bottom: 20px;
+}
+
+.hero-name {
+  font-size: clamp(75px, 20vw, 150px);
+  font-style: italic;
+  font-weight: normal;
+  color: #fff;
+
+  text-shadow:
+    0 0 3px #fff,
+    0 0 10px #fff,
+    0 0 25px #cdd8e5,
+    0 0 45px rgba(161,190,222,.8);
+
+  line-height: .85;
+}
+
+.hero-title {
+  margin-top: 25px;
+  font-size: clamp(26px, 7vw, 52px);
+  letter-spacing: 10px;
+  color: #e0e7f0;
+
+  text-shadow:
+    0 0 7px #fff,
+    0 0 20px #aebed1;
+}
+
+.hero-date {
+  margin-top: 30px;
+  font-size: 17px;
+  letter-spacing: 4px;
+  color: #fff;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section {
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  margin-bottom: 35px;
+
+  color: #e3e9f1;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.7),
+    0 0 18px rgba(167,190,215,.7);
+}
+
+.story {
+  text-align: center;
+  font-size: 18px;
+  line-height: 2;
+  color: #edf2f7;
+  max-width: 780px;
+  margin: auto;
+}
+
+/* =========================
+   GALERÍA
+========================= */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.photo-frame {
+  min-height: 450px;
+  border: 1px solid rgba(224,232,241,.75);
+  border-radius: 18px;
+  padding: 8px;
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.18), rgba(128,155,186,.12));
+
+  box-shadow:
+    0 0 15px rgba(188,205,224,.2),
+    inset 0 0 20px rgba(255,255,255,.06);
+
+  overflow: hidden;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 12px;
+  background: #06152e;
+}
+
+/* =========================
+   DATOS DEL EVENTO
+========================= */
+
+.event-card {
+  max-width: 720px;
+  margin: auto;
+
+  padding: 35px 25px;
+
+  text-align: center;
+
+  border: 1px solid rgba(218,228,239,.4);
+  border-radius: 25px;
+
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.08), rgba(58,93,130,.12));
+
+  box-shadow:
+    0 0 30px rgba(109,143,181,.12);
+}
+
+.event-date {
+  font-size: 30px;
+  color: #f1f4f8;
+  margin-bottom: 15px;
+}
+
+.event-time {
+  font-size: 21px;
+  color: #cbd6e4;
+  line-height: 1.8;
+}
+
+.event-place {
+  margin-top: 25px;
+  font-size: 19px;
+  line-height: 1.7;
+  color: #eef2f7;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+
+  padding: 13px 23px;
+
+  border: 1px solid rgba(229,236,244,.7);
+  border-radius: 30px;
+
+  color: #fff;
+
+  background: rgba(255,255,255,.08);
+
+  letter-spacing: 1px;
+
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.16);
+  box-shadow: 0 0 18px rgba(211,225,240,.25);
+}
+
+/* =========================
+   DRESS CODE
+========================= */
+
+.dress {
+  text-align: center;
+  max-width: 720px;
+  margin: auto;
+}
+
+.dress-main {
+  font-size: 25px;
+  color: #e6ebf1;
+  margin-bottom: 20px;
+}
+
+.dress-text {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #e4eaf1;
+}
+
+/* =========================
+   CUENTA REGRESIVA
+========================= */
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+
+  max-width: 650px;
+  margin: auto;
+}
+
+.count-box {
+  padding: 22px 8px;
+
+  border: 1px solid rgba(220,229,239,.35);
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.06);
+
+  text-align: center;
+}
+
+.count-number {
+  display: block;
+  font-size: 34px;
+  color: #fff;
+}
+
+.count-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #bdc9d8;
+}
+
+/* =========================
+   REGALO
+========================= */
+
+.alias-box {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.alias {
+  margin: 25px auto;
+
+  display: inline-block;
+
+  padding: 18px 25px;
+
+  border: 1px solid rgba(226,234,243,.45);
+  border-radius: 15px;
+
+  font-size: 22px;
+  letter-spacing: 2px;
+
+  color: #fff;
+
+  background: rgba(255,255,255,.07);
+}
+
+.copy-btn {
+  cursor: pointer;
+
+  border: 1px solid rgba(229,237,245,.7);
+  background: transparent;
+  color: #fff;
+
+  padding: 12px 25px;
+
+  border-radius: 25px;
+
+  font-family: Georgia, serif;
+
+  transition: .3s;
+}
+
+.copy-btn:hover {
+  background: rgba(255,255,255,.12);
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.confirm {
+  text-align: center;
+}
+
+.whatsapp {
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding: 16px 30px;
+
+  border-radius: 35px;
+
+  background: linear-gradient(135deg, #183f70, #315f91);
+
+  border: 1px solid rgba(235,242,249,.6);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 0 18px rgba(111,153,199,.25);
+
+  transition: .3s;
+}
+
+.whatsapp:hover {
+  transform: scale(1.04);
+}
+
+/* =========================
+   MÚSICA
+========================= */
+
+.music-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+
+  z-index: 9000;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.7);
+
+  background: rgba(6,21,46,.8);
+
+  color: #fff;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  box-shadow: 0 0 15px rgba(180,204,229,.3);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 45px 20px;
+  text-align: center;
+
+  color: #aebdce;
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  background: #030d20;
+
+  border-top: 1px solid rgba(214,224,235,.12);
+}
+
+/* =========================
+   ANIMACIÓN SCROLL
+========================= */
+
+.fade {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 650px) {
+
+  .opening-content {
+    padding: 20px;
+  }
+
+  .opening-name {
+    font-size: 72px;
+  }
+
+  .opening-title {
+    letter-spacing: 5px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-frame {
+    min-height: 400px;
+  }
+
+  .photo-frame img {
+    min-height: 380px;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .story {
+    font-size: 17px;
+  }
+
+  section {
+    padding: 65px 18px;
+  }
+}
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     PANTALLA DE APERTURA
-===================================================== -->
+<!-- =========================
+     APERTURA
+========================= -->
 
 <div class="opening-screen" id="openingScreen">
 
-    <span class="opening-butterfly ob1">🦋</span>
-    <span class="opening-butterfly ob2">🦋</span>
-    <span class="opening-butterfly ob3">🦋</span>
-    <span class="opening-butterfly ob4">🦋</span>
+  <!-- MARIPOSAS -->
+  <div class="butterfly b1"><span></span></div>
+  <div class="butterfly b2"><span></span></div>
+  <div class="butterfly b3"><span></span></div>
+  <div class="butterfly b4"><span></span></div>
+  <div class="butterfly b5"><span></span></div>
+  <div class="butterfly b6"><span></span></div>
+  <div class="butterfly b7"><span></span></div>
+  <div class="butterfly b8"><span></span></div>
 
-    <div class="opening-content">
+  <!-- DESTELLOS -->
+  <div class="sparkle s1"></div>
+  <div class="sparkle s2"></div>
+  <div class="sparkle s3"></div>
+  <div class="sparkle s4"></div>
+  <div class="sparkle s5"></div>
+  <div class="sparkle s6"></div>
 
-        <div class="opening-crown">
-            ♕
-        </div>
+  <div class="opening-content">
 
-        <p class="opening-small">
-            Estás invitado a celebrar
-        </p>
+    <div class="crown">♕</div>
 
-        <h1 class="opening-name">
-            Morena
-        </h1>
-
-        <p class="opening-sub">
-            MIS 15 AÑOS
-        </p>
-
-        <button
-            class="opening-button"
-            id="openInvitation"
-        >
-            ✨ Abrir invitación ✨
-        </button>
-
+    <div class="opening-small">
+      Una noche para recordar
     </div>
+
+    <div class="opening-name">
+      Morena
+    </div>
+
+    <div class="opening-title">
+      MIS 15 AÑOS
+    </div>
+
+    <button class="open-button" id="openInvitation">
+      ABRIR INVITACIÓN
+    </button>
+
+  </div>
 
 </div>
 
 
-<!-- =====================================================
-     PORTADA
-===================================================== -->
+<!-- =========================
+     MÚSICA
+========================= -->
 
-<section class="hero">
+<audio id="backgroundMusic" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-    <span class="butterfly blue bf1">🦋</span>
-    <span class="butterfly silver bf2">🦋</span>
-    <span class="butterfly blue bf3">🦋</span>
-    <span class="butterfly silver bf4">🦋</span>
-    <span class="butterfly white bf5">🦋</span>
-    <span class="butterfly blue bf6">🦋</span>
-    <span class="butterfly silver bf7">🦋</span>
-    <span class="butterfly white bf8">🦋</span>
-
-    <span class="sparkle sp1">✦</span>
-    <span class="sparkle sp2">✧</span>
-    <span class="sparkle sp3">✦</span>
-    <span class="sparkle sp4">✧</span>
-
-    <div class="container">
-
-        <div class="hero-content">
-
-            <div class="crown">
-                ♕
-            </div>
-
-            <p class="small-title">
-                Mis 15 años
-            </p>
-
-            <h1>
-                Morena
-            </h1>
-
-            <h2>
-                15 AÑOS
-            </h2>
-
-            <p class="hero-date">
-                14 · 11 · 2026
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+<button class="music-button" id="musicButton" aria-label="Controlar música">
+  ♪
+</button>
 
 
-<!-- =====================================================
-     HISTORIA
-===================================================== -->
+<!-- =========================
+     INVITACIÓN
+========================= -->
 
-<section class="story">
+<main id="invitation">
 
-    <span class="butterfly silver bf1">🦋</span>
-    <span class="butterfly blue bf4">🦋</span>
+  <!-- HERO -->
 
-    <div class="container fade">
+  <section class="hero">
 
-        <h2 class="decorative-title">
-            Érase una vez...
-        </h2>
+    <div class="butterfly b1"><span></span></div>
+    <div class="butterfly b3"><span></span></div>
+    <div class="butterfly b5"><span></span></div>
+    <div class="butterfly b7"><span></span></div>
 
-        <div class="story-box">
+    <div class="sparkle s1"></div>
+    <div class="sparkle s3"></div>
+    <div class="sparkle s5"></div>
 
-            <p class="story-text">
+    <div class="hero-content">
 
-                Érase una vez una pequeña princesa que llegó a nuestras vidas
-                para enseñarnos el significado del amor más puro.
+      <div class="hero-small">
+        MIS 15 AÑOS
+      </div>
 
-                <br><br>
+      <div class="hero-name">
+        Morena
+      </div>
 
-                Han pasado quince años llenos de momentos, sonrisas,
-                aprendizajes y sueños...
+      <div class="hero-title">
+        QUINCE
+      </div>
 
-                <br><br>
-
-                Y hoy aquella niña abre las puertas de una nueva etapa,
-                llevando en su corazón todos los recuerdos que la han
-                convertido en quien es.
-
-                <br><br>
-
-                Hoy queremos celebrar este momento tan especial
-                y compartirlo con vos.
-
-            </p>
-
-        </div>
+      <div class="hero-date">
+        14 · 11 · 2026
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-     GALERÍA
-===================================================== -->
+  <!-- HISTORIA -->
 
-<section class="gallery">
+  <section class="fade">
 
-    <span class="butterfly blue bf2">🦋</span>
-    <span class="butterfly silver bf5">🦋</span>
+    <div class="section-inner">
 
-    <div class="container fade">
+      <h2 class="section-title">
+        Érase una vez...
+      </h2>
 
-        <h2 class="decorative-title">
-            Morena
-        </h2>
+      <p class="story">
+        Érase una vez una pequeña princesa que llegó a nuestras vidas
+        para enseñarnos el significado del amor más puro.
+        <br><br>
 
-        <div class="gallery-grid">
+        Han pasado quince años llenos de momentos, sonrisas,
+        aprendizajes y sueños... y hoy aquella niña abre las puertas
+        de una nueva etapa, llevando en su corazón todos los recuerdos
+        que la han convertido en quien es.
+        <br><br>
 
-            <div class="photo-frame">
-
-                <img
-                    src="morena1.jpg"
-                    alt="Morena"
-                >
-
-            </div>
-
-            <div class="photo-frame">
-
-                <img
-                    src="morena2.jpg"
-                    alt="Morena"
-                >
-
-            </div>
-
-        </div>
+        Y queremos compartir este momento tan especial con vos.
+      </p>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-     EVENTO
-===================================================== -->
+  <!-- FOTOS -->
 
-<section class="event">
+  <section class="fade">
 
-    <span class="butterfly silver bf3">🦋</span>
+    <div class="section-inner">
 
-    <div class="container fade">
+      <h2 class="section-title">
+        Momentos de Morena
+      </h2>
 
-        <h2 class="decorative-title">
-            Te esperamos
-        </h2>
+      <div class="gallery">
 
-        <div class="event-card">
-
-            <div class="event-item">
-
-                <span>
-                    Comenzamos
-                </span>
-
-                <strong>
-                    Sábado 14 de noviembre
-                    <br>
-                    21:00 hs
-                </strong>
-
-            </div>
-
-
-            <div class="event-item">
-
-                <span>
-                    Continuamos
-                </span>
-
-                <strong>
-                    Domingo 15 de noviembre
-                    <br>
-                    Hasta las 17:00 hs
-                </strong>
-
-            </div>
-
-
-            <div class="event-item">
-
-                <span>
-                    Opcional
-                </span>
-
-                <strong>
-                    Podés quedarte a disfrutar
-                    del día siguiente.
-                </strong>
-
-            </div>
-
+        <div class="photo-frame">
+          <img src="morena1.jpg" alt="Morena">
         </div>
+
+        <div class="photo-frame">
+          <img src="morena2.jpg" alt="Morena">
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-     UBICACIÓN
-===================================================== -->
+  <!-- EVENTO -->
 
-<section class="location">
+  <section class="fade">
 
-    <span class="butterfly silver bf1">🦋</span>
-    <span class="butterfly blue bf4">🦋</span>
+    <div class="section-inner">
 
-    <div class="container fade">
+      <h2 class="section-title">
+        El gran día
+      </h2>
 
-        <h2 class="decorative-title">
-            ¿Dónde nos encontramos?
-        </h2>
+      <div class="event-card">
 
-        <p class="location-name">
-            La Querencia
-        </p>
+        <div class="event-date">
+          Sábado 14 de noviembre
+        </div>
 
-        <p class="location-text">
+        <div class="event-time">
+          21:00 hs
+        </div>
 
-            Juan Mantovani e/ 1439 y 1443
+        <div class="event-place">
 
-            <br>
-
-            Villa Brown · Florencio Varela
-
-        </p>
-
-        <div class="map-buttons">
-
-            <a
-                class="map-button"
-                href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
-                target="_blank"
-            >
-                📍 Google Maps
-            </a>
-
-            <a
-                class="map-button"
-                href="https://www.waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
-                target="_blank"
-            >
-                🚗 Waze
-            </a>
+          Juan Mantovani e/ 1439 y 1443<br>
+          “La Querencia”<br>
+          Villa Brown · Florencio Varela
 
         </div>
 
-    </div>
+        <div class="buttons">
 
-</section>
+          <a
+            class="btn"
+            href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
+            target="_blank">
+            📍 Google Maps
+          </a>
 
-
-<!-- =====================================================
-     DRESS CODE
-===================================================== -->
-
-<section class="dresscode">
-
-    <span class="butterfly blue bf2">🦋</span>
-
-    <div class="container fade">
-
-        <h2 class="decorative-title">
-            Dress code
-        </h2>
-
-        <div class="dress-box">
-
-            <p>
-
-                Te esperamos con un look
-                <strong>elegante y fresco</strong>,
-                ideal para disfrutar de una tarde especial
-                al aire libre.
-
-            </p>
-
-            <p class="dress-important">
-
-                🩱 Traer traje de baño y toalla.
-
-                <br><br>
-
-                🧉 Si te quedás al otro día,
-                no olvides traer tu set de mate.
-
-            </p>
-
-            <p class="dress-important">
-
-                Lo más importante es compartir
-                este día con vos. 🤍
-
-            </p>
+          <a
+            class="btn"
+            href="https://www.waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
+            target="_blank">
+            🚗 Waze
+          </a>
 
         </div>
 
+      </div>
+
     </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-     CONTADOR
-===================================================== -->
+  <!-- SEGUNDO DÍA -->
 
-<section class="countdown">
+  <section class="fade">
 
-    <span class="butterfly silver bf1">🦋</span>
-    <span class="butterfly white bf4">🦋</span>
+    <div class="section-inner">
 
-    <div class="container fade">
+      <h2 class="section-title">
+        Domingo 15
+      </h2>
 
-        <h2 class="decorative-title">
-            Falta cada vez menos...
-        </h2>
+      <div class="event-card">
+
+        <div class="event-date">
+          Hasta las 17:00 hs
+        </div>
+
+        <div class="event-time">
+          Si querés, podés quedarte a disfrutar el día siguiente.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DRESS CODE -->
+
+  <section class="fade">
+
+    <div class="section-inner">
+
+      <h2 class="section-title">
+        Dress Code
+      </h2>
+
+      <div class="dress">
+
+        <div class="dress-main">
+          Elegante · Fresco · Especial
+        </div>
+
+        <div class="dress-text">
+
+          Te esperamos con un look elegante y fresco.
+          <br><br>
+
+          Traer traje de baño y toalla para disfrutar
+          de una tarde especial al aire libre.
+          <br><br>
+
+          Si te quedás al otro día, no olvides traer
+          tu set de mate y traje de baño.
+          <br><br>
+
+          Lo más importante es compartir este día con vos. 🤍
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CUENTA REGRESIVA -->
+
+  <section class="fade">
+
+    <div class="section-inner">
+
+      <h2 class="section-title">
+        Falta muy poquito
+      </h2>
+
+      <div class="countdown">
+
+        <div class="count-box">
+          <span class="count-number" id="days">00</span>
+          <span class="count-label">DÍAS</span>
+        </div>
+
+        <div class="count-box">
+          <span class="count-number" id="hours">00</span>
+          <span class="count-label">HORAS</span>
+        </div>
+
+        <div class="count-box">
+          <span class="count-number" id="minutes">00</span>
+          <span class="count-label">MINUTOS</span>
+        </div>
+
+        <div class="count-box">
+          <span class="count-number" id="seconds">00</span>
+          <span class="count-label">SEGUNDOS</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REGALO -->
+
+  <section class="fade">
+
+    <div class="section-inner">
+
+      <h2 class="section-title">
+        Si querés regalarme algo...
+      </h2>
+
+      <div class="alias-box">
 
         <p>
-            Para comenzar a celebrar juntos.
+          Te dejo mi alias para que puedas hacerlo de manera sencilla.
         </p>
 
-        <div class="countdown-box">
-
-            <div class="time-box">
-
-                <strong id="days">
-                    0
-                </strong>
-
-                <span>
-                    Días
-                </span>
-
-            </div>
-
-            <div class="time-box">
-
-                <strong id="hours">
-                    0
-                </strong>
-
-                <span>
-                    Horas
-                </span>
-
-            </div>
-
-            <div class="time-box">
-
-                <strong id="minutes">
-                    0
-                </strong>
-
-                <span>
-                    Minutos
-                </span>
-
-            </div>
-
-            <div class="time-box">
-
-                <strong id="seconds">
-                    0
-                </strong>
-
-                <span>
-                    Segundos
-                </span>
-
-            </div>
-
+        <div class="alias">
+          morena0702.mp
         </div>
+
+        <p>
+          A nombre de<br>
+          <strong>Morena Abril Novillo</strong>
+        </p>
+
+        <br>
+
+        <button class="copy-btn" id="copyAlias">
+          COPIAR ALIAS
+        </button>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-     REGALO
-===================================================== -->
+  <!-- CONFIRMACIÓN -->
 
-<section class="gift">
+  <section class="fade">
 
-    <span class="butterfly blue bf3">🦋</span>
+    <div class="section-inner">
 
-    <div class="container fade">
+      <h2 class="section-title">
+        ¿Nos acompañás?
+      </h2>
 
-        <h2 class="decorative-title">
-            Si querés regalarme algo...
-        </h2>
+      <div class="confirm">
 
-        <p class="gift-text">
-
-            Tu presencia es el regalo más importante.
-
-            <br>
-
-            Pero si querés hacerme un presente,
-            te dejo mi alias:
-
-        </p>
-
-        <div class="alias-box">
-
-            <p class="alias-label">
-                Alias
-            </p>
-
-            <div class="alias">
-                morena0702.mp
-            </div>
-
-            <p>
-                A nombre de
-                <strong>Morena Abril Novillo</strong>
-            </p>
-
-            <button
-                class="copy-button"
-                id="copyAlias"
-            >
-                Copiar alias
-            </button>
-
-            <span
-                class="copy-message"
-                id="copyMessage"
-            ></span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONFIRMACIÓN
-===================================================== -->
-
-<section class="rsvp">
-
-    <span class="butterfly silver bf2">🦋</span>
-    <span class="butterfly blue bf4">🦋</span>
-
-    <div class="container fade">
-
-        <h2 class="decorative-title">
-            ¿Nos acompañás?
-        </h2>
-
-        <p class="rsvp-text">
-
-            Confirmá tu asistencia para que podamos
-            preparar todo para este día tan especial.
-
+        <p>
+          Confirmá tu asistencia para que podamos esperarte
+          y compartir juntos esta noche tan especial.
         </p>
 
         <a
-            class="rsvp-button"
-            href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%99%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os."
-            target="_blank"
-        >
+          class="whatsapp"
+          href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%99%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os."
+          target="_blank">
 
-            💬 Confirmar asistencia por WhatsApp
+          CONFIRMAR POR WHATSAPP
 
         </a>
 
-        <p class="rsvp-number">
-            WhatsApp: 11 5163-4135
+        <p style="margin-top:18px; font-size:14px; opacity:.8;">
+          11 5163-4135
         </p>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+  <!-- FOOTER -->
 
-<footer>
+  <footer>
 
-    <p>
-        Morena · Mis 15 años
-    </p>
+    <div>
+      Ivory Diseños Digitales · @ivory.dd
+    </div>
 
-    <p class="brand">
-        Diseñamos el comienzo de momentos inolvidables.
-    </p>
+    <div>
+      Diseñamos el comienzo de momentos inolvidables.
+    </div>
 
-    <p class="brand">
-        Ivory Diseños Digitales · @ivory.dd
-    </p>
+  </footer>
 
-</footer>
-
-
-<!-- =====================================================
-     MÚSICA
-===================================================== -->
-
-<audio
-    id="backgroundMusic"
-    loop
->
-    <source
-        src="musica.mp3"
-        type="audio/mpeg"
-    >
-</audio>
-
-
-<div class="music-control">
-
-    <button id="musicButton">
-        ▶ Música
-    </button>
-
-</div>
+</main>
 
 
 <script>
 
-/* =====================================================
+/* =========================
    APERTURA + MÚSICA
-===================================================== */
+========================= */
 
-const openingScreen =
-    document.getElementById("openingScreen");
+const openingScreen = document.getElementById("openingScreen");
+const openInvitation = document.getElementById("openInvitation");
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
 
-const openInvitation =
-    document.getElementById("openInvitation");
+openInvitation.addEventListener("click", async () => {
 
-const music =
-    document.getElementById("backgroundMusic");
+  try {
+    await music.play();
+    musicButton.textContent = "♫";
+  } catch (error) {
+    console.log("La música necesita interacción del usuario.");
+  }
 
-const musicButton =
-    document.getElementById("musicButton");
+  openingScreen.style.opacity = "0";
+  openingScreen.style.transition = "opacity 1s ease";
 
+  setTimeout(() => {
+    openingScreen.style.display = "none";
+    document.body.style.overflow = "auto";
+  }, 1000);
 
-openInvitation.addEventListener(
-    "click",
-    function() {
-
-        /*
-        El clic del usuario permite
-        reproducir el audio en celulares.
-        */
-
-        music.volume = 0.7;
-
-        music.play()
-            .then(function() {
-
-                musicButton.textContent =
-                    "🔊 Música";
-
-            })
-            .catch(function() {
-
-                musicButton.textContent =
-                    "▶ Música";
-
-            });
+});
 
 
-        openingScreen.classList.add("hide");
-
-        setTimeout(function() {
-
-            document.body.style.overflowY =
-                "auto";
-
-        }, 1200);
-
-    }
-);
-
-
-/* =====================================================
+/* =========================
    BOTÓN DE MÚSICA
-===================================================== */
+========================= */
 
-musicButton.addEventListener(
-    "click",
-    function() {
+musicButton.addEventListener("click", async () => {
 
-        if (music.paused) {
+  if (music.paused) {
 
-            music.play()
-                .then(function() {
-
-                    musicButton.textContent =
-                        "🔊 Música";
-
-                });
-
-        } else {
-
-            music.pause();
-
-            musicButton.textContent =
-                "🔇 Música";
-
-        }
-
+    try {
+      await music.play();
+      musicButton.textContent = "♫";
+    } catch (error) {
+      console.log(error);
     }
+
+  } else {
+
+    music.pause();
+    musicButton.textContent = "♪";
+
+  }
+
+});
+
+
+/* =========================
+   ANIMACIÓN AL HACER SCROLL
+========================= */
+
+const fadeElements = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+
+    });
+
+  },
+  {
+    threshold: 0.15
+  }
 );
 
-
-/* =====================================================
-   ANIMACIONES
-===================================================== */
-
-const elements =
-    document.querySelectorAll(".fade");
+fadeElements.forEach(element => {
+  observer.observe(element);
+});
 
 
-const observer =
-    new IntersectionObserver(
+/* =========================
+   CUENTA REGRESIVA
+========================= */
 
-        function(entries) {
-
-            entries.forEach(
-                function(entry) {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList
-                            .add("visible");
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: 0.15
-        }
-
-    );
-
-
-elements.forEach(
-    function(element) {
-
-        observer.observe(element);
-
-    }
-);
-
-
-/* =====================================================
-   CONTADOR
-===================================================== */
-
-const eventDate =
-    new Date(
-        "November 14, 2026 21:00:00"
-    ).getTime();
-
+const eventDate = new Date("2026-11-14T21:00:00-03:00").getTime();
 
 function updateCountdown() {
 
-    const now =
-        new Date().getTime();
+  const now = new Date().getTime();
 
-    const distance =
-        eventDate - now;
+  const distance = eventDate - now;
 
+  if (distance <= 0) {
 
-    const days =
-        Math.floor(
-            distance /
-            (1000 * 60 * 60 * 24)
-        );
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
 
+    return;
+  }
 
-    const hours =
-        Math.floor(
-            (distance %
-            (1000 * 60 * 60 * 24)) /
-            (1000 * 60 * 60)
-        );
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24))
+    / (1000 * 60 * 60)
+  );
 
-    const minutes =
-        Math.floor(
-            (distance %
-            (1000 * 60 * 60)) /
-            (1000 * 60)
-        );
+  const minutes = Math.floor(
+    (distance % (1000 * 60 * 60))
+    / (1000 * 60)
+  );
 
+  const seconds = Math.floor(
+    (distance % (1000 * 60))
+    / 1000
+  );
 
-    const seconds =
-        Math.floor(
-            (distance %
-            (1000 * 60)) /
-            1000
-        );
+  document.getElementById("days").textContent =
+    String(days).padStart(2, "0");
 
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2, "0");
 
-    if (distance > 0) {
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2, "0");
 
-        document.getElementById(
-            "days"
-        ).textContent = days;
-
-        document.getElementById(
-            "hours"
-        ).textContent = hours;
-
-        document.getElementById(
-            "minutes"
-        ).textContent = minutes;
-
-        document.getElementById(
-            "seconds"
-        ).textContent = seconds;
-
-    }
-
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2, "0");
 }
-
 
 updateCountdown();
 
-setInterval(
-    updateCountdown,
-    1000
-);
+setInterval(updateCountdown, 1000);
 
 
-/* =====================================================
+/* =========================
    COPIAR ALIAS
-===================================================== */
+========================= */
 
-const copyButton =
-    document.getElementById(
-        "copyAlias"
-    );
+const copyAlias = document.getElementById("copyAlias");
 
-const copyMessage =
-    document.getElementById(
-        "copyMessage"
-    );
+copyAlias.addEventListener("click", async () => {
 
+  try {
 
-copyButton.addEventListener(
-    "click",
-    function() {
+    await navigator.clipboard.writeText("morena0702.mp");
 
-        navigator.clipboard
-            .writeText(
-                "morena0702.mp"
-            )
+    copyAlias.textContent = "ALIAS COPIADO ✓";
 
-            .then(
-                function() {
+    setTimeout(() => {
+      copyAlias.textContent = "COPIAR ALIAS";
+    }, 2000);
 
-                    copyMessage.textContent =
-                        "✓ Alias copiado";
+  } catch (error) {
 
-                    setTimeout(
-                        function() {
+    alert("Alias: morena0702.mp");
 
-                            copyMessage
-                                .textContent =
-                                "";
+  }
 
-                        },
-                        2500
-                    );
-
-                }
-            )
-
-            .catch(
-                function() {
-
-                    copyMessage.textContent =
-                        "Alias: morena0702.mp";
-
-                }
-            );
-
-    }
-);
+});
 
 
-/* =====================================================
-   BLOQUEO INICIAL DEL SCROLL
-===================================================== */
+/* =========================
+   BLOQUEAR SCROLL EN APERTURA
+========================= */
 
-document.body.style.overflowY =
-    "hidden";
+document.body.style.overflow = "hidden";
 
 </script>
 
 </body>
 </html>
-```

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071a38">
+<meta name="theme-color" content="#06152e">
 
 <title>Morena · Mis 15 años</title>
 
 <style>
+
+/* =====================================================
+   BASE
+===================================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,6 +31,7 @@ body {
   overflow-x: hidden;
 }
 
+
 /* =====================================================
    APERTURA
 ===================================================== */
@@ -33,21 +40,23 @@ body {
   position: fixed;
   inset: 0;
   z-index: 9999;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
   overflow: hidden;
 
   background:
     radial-gradient(
       circle at 50% 45%,
-      rgba(54, 111, 181, .65),
+      rgba(54,111,181,.65),
       transparent 38%
     ),
     radial-gradient(
       circle at 15% 20%,
-      rgba(213, 222, 235, .16),
+      rgba(213,222,235,.16),
       transparent 20%
     ),
     linear-gradient(
@@ -60,24 +69,28 @@ body {
 
 .opening-content {
   position: relative;
-  z-index: 50;
+  z-index: 100;
+
   width: 90%;
   max-width: 650px;
 }
 
 .crown {
   font-size: 48px;
+
   color: #edf2f8;
 
   text-shadow:
-    0 0 5px #ffffff,
+    0 0 5px #fff,
     0 0 15px #d7e0ea,
     0 0 35px #8ea9c9;
 
-  animation: crownGlow 2.5s ease-in-out infinite alternate;
+  animation:
+    crownGlow 2.5s ease-in-out infinite alternate;
 }
 
 @keyframes crownGlow {
+
   from {
     transform: scale(1);
     filter: brightness(.9);
@@ -85,39 +98,49 @@ body {
 
   to {
     transform: scale(1.08);
-    filter: brightness(1.35);
+    filter: brightness(1.4);
   }
+
 }
 
 .opening-small {
+
   margin-top: 10px;
+
   font-size: 14px;
   letter-spacing: 5px;
+
   color: #dfe7f1;
+
   text-transform: uppercase;
 }
 
 .opening-name {
+
   margin-top: 15px;
 
-  font-size: clamp(70px, 18vw, 135px);
+  font-size: clamp(70px,18vw,135px);
+
   font-style: italic;
   font-weight: normal;
+
   line-height: .9;
 
-  color: #ffffff;
+  color: white;
 
   text-shadow:
-    0 0 3px #ffffff,
-    0 0 9px #ffffff,
+    0 0 3px #fff,
+    0 0 9px #fff,
     0 0 20px #d5dfeb,
     0 0 40px #7d9fc6;
 }
 
 .opening-title {
+
   margin-top: 25px;
 
-  font-size: clamp(23px, 6vw, 40px);
+  font-size: clamp(23px,6vw,40px);
+
   letter-spacing: 8px;
 
   color: #e3eaf2;
@@ -128,6 +151,7 @@ body {
 }
 
 .open-button {
+
   margin-top: 38px;
 
   padding: 15px 35px;
@@ -145,6 +169,7 @@ body {
   color: white;
 
   font-family: Georgia, serif;
+
   font-size: 15px;
   letter-spacing: 3px;
 
@@ -158,6 +183,7 @@ body {
 }
 
 .open-button:hover {
+
   transform: scale(1.07);
 
   box-shadow:
@@ -167,11 +193,13 @@ body {
 
 
 /* =====================================================
-   MARIPOSAS ILUSTRADAS
+   MARIPOSAS
 ===================================================== */
 
 .butterfly {
+
   position: absolute;
+
   width: 90px;
   height: 90px;
 
@@ -185,125 +213,232 @@ body {
 }
 
 .butterfly svg {
+
   width: 100%;
   height: 100%;
+
   overflow: visible;
 }
 
 .butterfly.small {
+
   width: 55px;
   height: 55px;
 }
 
 .butterfly.large {
+
   width: 125px;
   height: 125px;
 }
 
-/* posiciones */
+
+/* =====================================================
+   POSICIONES
+===================================================== */
 
 .butterfly-1 {
+
   left: 4%;
   top: 10%;
+
   animation-delay: -2s;
 }
 
 .butterfly-2 {
+
   right: 7%;
   top: 12%;
+
   animation-delay: -7s;
 }
 
 .butterfly-3 {
+
   left: 13%;
   top: 42%;
+
   animation-delay: -4s;
 }
 
 .butterfly-4 {
+
   right: 10%;
   top: 38%;
+
   animation-delay: -9s;
 }
 
 .butterfly-5 {
+
   left: 3%;
   bottom: 8%;
+
   animation-delay: -6s;
 }
 
 .butterfly-6 {
+
   right: 3%;
   bottom: 10%;
+
   animation-delay: -1s;
 }
 
 .butterfly-7 {
+
   left: 42%;
   top: 8%;
+
   animation-delay: -11s;
 }
 
 .butterfly-8 {
+
   right: 35%;
   bottom: 7%;
+
   animation-delay: -5s;
 }
+
+
+/* MÁS MARIPOSAS */
+
+.butterfly-9 {
+
+  left: 25%;
+  top: 20%;
+
+  animation-delay: -3s;
+  transform: scale(.65);
+}
+
+.butterfly-10 {
+
+  right: 25%;
+  top: 30%;
+
+  animation-delay: -8s;
+  transform: scale(.75);
+}
+
+.butterfly-11 {
+
+  left: 32%;
+  bottom: 18%;
+
+  animation-delay: -10s;
+  transform: scale(.55);
+}
+
+.butterfly-12 {
+
+  right: 17%;
+  bottom: 28%;
+
+  animation-delay: -2s;
+  transform: scale(.6);
+}
+
+.butterfly-13 {
+
+  left: 6%;
+  top: 68%;
+
+  animation-delay: -12s;
+  transform: scale(.5);
+}
+
+.butterfly-14 {
+
+  right: 4%;
+  top: 72%;
+
+  animation-delay: -5s;
+  transform: scale(.55);
+}
+
 
 @keyframes butterflyMove {
 
   0% {
+
     transform:
-      translate(0, 20px)
+      translate(0,20px)
       rotate(-8deg);
+
   }
 
   25% {
+
     transform:
-      translate(35px, -30px)
+      translate(35px,-30px)
       rotate(7deg);
+
   }
 
   50% {
+
     transform:
-      translate(-20px, -65px)
+      translate(-20px,-65px)
       rotate(-5deg);
+
   }
 
   75% {
+
     transform:
-      translate(40px, -35px)
+      translate(40px,-35px)
       rotate(8deg);
+
   }
 
   100% {
+
     transform:
-      translate(0, 20px)
+      translate(0,20px)
       rotate(-8deg);
+
   }
+
 }
+
 
 @keyframes butterflyGlow {
 
   from {
+
     filter:
-      drop-shadow(0 0 3px rgba(255,255,255,.5))
-      drop-shadow(0 0 5px rgba(68,126,190,.4));
+      drop-shadow(
+        0 0 3px rgba(255,255,255,.5)
+      )
+      drop-shadow(
+        0 0 5px rgba(68,126,190,.4)
+      );
+
   }
 
   to {
+
     filter:
-      drop-shadow(0 0 7px rgba(255,255,255,.9))
-      drop-shadow(0 0 18px rgba(84,145,214,.8));
+      drop-shadow(
+        0 0 7px rgba(255,255,255,.95)
+      )
+      drop-shadow(
+        0 0 20px rgba(84,145,214,.85)
+      );
+
   }
+
 }
 
 
 /* =====================================================
-   DESTELLOS
+   DESTELLOS MÁGICOS
 ===================================================== */
 
 .sparkle {
+
   position: absolute;
 
   width: 4px;
@@ -315,28 +450,49 @@ body {
 
   box-shadow:
     0 0 5px white,
-    0 0 13px #c9d8e8;
+    0 0 13px #c9d8e8,
+    0 0 22px rgba(120,170,220,.8);
 
-  animation: sparkle 2s infinite alternate;
+  animation:
+    sparkle 2s infinite alternate;
+
+  z-index: 8;
 }
 
-.s1 { left: 18%; top: 25%; }
-.s2 { left: 72%; top: 25%; animation-delay: .7s; }
-.s3 { left: 32%; top: 72%; animation-delay: 1.2s; }
-.s4 { left: 90%; top: 70%; animation-delay: .4s; }
-.s5 { left: 10%; top: 60%; animation-delay: 1.7s; }
-.s6 { left: 58%; top: 15%; animation-delay: .9s; }
+.sparkle.big {
+
+  width: 6px;
+  height: 6px;
+
+  box-shadow:
+    0 0 7px white,
+    0 0 18px #dce8f5,
+    0 0 30px #75a8dc;
+}
+
+.s1 { left:18%; top:25%; }
+.s2 { left:72%; top:25%; animation-delay:.7s; }
+.s3 { left:32%; top:72%; animation-delay:1.2s; }
+.s4 { left:90%; top:70%; animation-delay:.4s; }
+.s5 { left:10%; top:60%; animation-delay:1.7s; }
+.s6 { left:58%; top:15%; animation-delay:.9s; }
 
 @keyframes sparkle {
+
   from {
+
     transform: scale(.3);
     opacity: .2;
+
   }
 
   to {
+
     transform: scale(1.8);
     opacity: 1;
+
   }
+
 }
 
 
@@ -345,11 +501,13 @@ body {
 ===================================================== */
 
 .hero {
+
   min-height: 100vh;
 
   position: relative;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
@@ -358,11 +516,13 @@ body {
   overflow: hidden;
 
   background:
+
     radial-gradient(
       circle at center,
       rgba(44,91,148,.7),
       transparent 45%
     ),
+
     linear-gradient(
       160deg,
       #06152e,
@@ -372,22 +532,32 @@ body {
 }
 
 .hero-content {
+
   position: relative;
+
   z-index: 30;
+
   padding: 30px;
 }
 
 .hero-small {
+
   font-size: 15px;
+
   letter-spacing: 6px;
+
   color: #dbe4ef;
+
   margin-bottom: 20px;
 }
 
 .hero-name {
-  font-size: clamp(75px, 20vw, 150px);
+
+  font-size: clamp(75px,20vw,150px);
+
   font-style: italic;
   font-weight: normal;
+
   line-height: .85;
 
   color: white;
@@ -399,23 +569,12 @@ body {
     0 0 45px rgba(161,190,222,.8);
 }
 
-.hero-title {
-  margin-top: 25px;
-
-  font-size: clamp(26px, 7vw, 52px);
-  letter-spacing: 10px;
-
-  color: #e0e7f0;
-
-  text-shadow:
-    0 0 7px white,
-    0 0 20px #aebed1;
-}
-
 .hero-date {
+
   margin-top: 30px;
 
   font-size: 17px;
+
   letter-spacing: 4px;
 
   color: white;
@@ -427,25 +586,37 @@ body {
 ===================================================== */
 
 section {
+
   position: relative;
+
   overflow: hidden;
 
   padding: 80px 20px;
 }
 
 .section-inner {
+
   width: 100%;
+
   max-width: 900px;
+
   margin: auto;
+
+  position: relative;
+
+  z-index: 20;
 }
 
 .section-title {
+
   margin-bottom: 35px;
 
   text-align: center;
 
   font-size: 32px;
+
   font-weight: normal;
+
   letter-spacing: 4px;
 
   color: #e3e9f1;
@@ -456,12 +627,15 @@ section {
 }
 
 .story {
+
   max-width: 780px;
+
   margin: auto;
 
   text-align: center;
 
   font-size: 18px;
+
   line-height: 2;
 
   color: #edf2f7;
@@ -473,50 +647,133 @@ section {
 ===================================================== */
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
 
-  gap: 22px;
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 25px;
 
   max-width: 850px;
+
   margin: auto;
 }
 
 .photo-frame {
+
+  position: relative;
+
   min-height: 450px;
 
-  padding: 8px;
+  padding: 0;
 
-  border: 1px solid rgba(224,232,241,.75);
+  border: none;
+
   border-radius: 18px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.18),
-      rgba(128,155,186,.12)
-    );
+  background: transparent;
 
-  box-shadow:
-    0 0 15px rgba(188,205,224,.2),
-    inset 0 0 20px rgba(255,255,255,.06);
+  box-shadow: none;
 
-  overflow: hidden;
+  overflow: visible;
 }
 
 .photo-frame img {
+
   width: 100%;
+
   height: 100%;
+
   min-height: 430px;
 
   display: block;
 
   object-fit: contain;
+
   object-position: center;
 
-  border-radius: 12px;
+  border-radius: 14px;
 
-  background: #06152e;
+  background: transparent;
+
+  position: relative;
+
+  z-index: 5;
+
+  filter:
+    drop-shadow(
+      0 8px 20px rgba(0,0,0,.35)
+    );
+}
+
+
+/* MARIPOSAS ALREDEDOR DE LAS FOTOS */
+
+.photo-butterfly {
+
+  position: absolute;
+
+  width: 55px;
+  height: 55px;
+
+  z-index: 10;
+
+  pointer-events: none;
+
+  animation:
+    photoButterfly 8s ease-in-out infinite,
+    butterflyGlow 2.8s ease-in-out infinite alternate;
+}
+
+.photo-butterfly svg {
+
+  width: 100%;
+  height: 100%;
+}
+
+.pb1 {
+  left: -20px;
+  top: 8%;
+}
+
+.pb2 {
+  right: -20px;
+  bottom: 8%;
+  animation-delay: -3s;
+}
+
+.pb3 {
+  right: 4%;
+  top: 5%;
+  width: 45px;
+  height: 45px;
+  animation-delay: -5s;
+}
+
+.pb4 {
+  left: 0;
+  bottom: 5%;
+  width: 42px;
+  height: 42px;
+  animation-delay: -1s;
+}
+
+@keyframes photoButterfly {
+
+  0% {
+    transform: translate(0,0) rotate(-7deg);
+  }
+
+  50% {
+    transform: translate(18px,-25px) rotate(8deg);
+  }
+
+  100% {
+    transform: translate(0,0) rotate(-7deg);
+  }
+
 }
 
 
@@ -525,7 +782,9 @@ section {
 ===================================================== */
 
 .event-card {
+
   max-width: 720px;
+
   margin: auto;
 
   padding: 35px 25px;
@@ -533,6 +792,7 @@ section {
   text-align: center;
 
   border: 1px solid rgba(218,228,239,.4);
+
   border-radius: 25px;
 
   background:
@@ -547,23 +807,29 @@ section {
 }
 
 .event-date {
+
   font-size: 30px;
+
   color: #f1f4f8;
 
   margin-bottom: 15px;
 }
 
 .event-time {
+
   font-size: 21px;
+
   line-height: 1.8;
 
   color: #cbd6e4;
 }
 
 .event-place {
+
   margin-top: 25px;
 
   font-size: 19px;
+
   line-height: 1.7;
 
   color: #eef2f7;
@@ -575,7 +841,9 @@ section {
 ===================================================== */
 
 .buttons {
+
   display: flex;
+
   flex-wrap: wrap;
 
   justify-content: center;
@@ -586,11 +854,13 @@ section {
 }
 
 .btn {
+
   display: inline-block;
 
   padding: 13px 23px;
 
   border: 1px solid rgba(229,236,244,.7);
+
   border-radius: 30px;
 
   color: white;
@@ -605,6 +875,7 @@ section {
 }
 
 .btn:hover {
+
   transform: translateY(-3px);
 
   background: rgba(255,255,255,.16);
@@ -615,17 +886,96 @@ section {
 
 
 /* =====================================================
+   IMPORTANTE
+===================================================== */
+
+.important-section {
+
+  text-align: center;
+
+  padding-top: 55px;
+  padding-bottom: 65px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(45,92,148,.25),
+      transparent 55%
+    );
+}
+
+.important-crown {
+
+  font-size: 58px;
+
+  color: #f4f7fb;
+
+  margin-bottom: 20px;
+
+  text-shadow:
+    0 0 5px white,
+    0 0 12px #dce5ef,
+    0 0 25px #8daed0,
+    0 0 45px #5d8fc4;
+
+  animation:
+    crownGlow 2s ease-in-out infinite alternate;
+}
+
+.important-title {
+
+  font-size: 14px;
+
+  letter-spacing: 5px;
+
+  color: #d6e0eb;
+
+  margin-bottom: 18px;
+
+  text-transform: uppercase;
+}
+
+.important-text {
+
+  max-width: 650px;
+
+  margin: auto;
+
+  font-size: 20px;
+
+  line-height: 1.7;
+
+  color: white;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.25);
+}
+
+.important-text strong {
+
+  color: #8fc5ff;
+
+  text-shadow:
+    0 0 8px #5c9ddd,
+    0 0 18px rgba(107,168,229,.7);
+}
+
+
+/* =====================================================
    DRESS CODE
 ===================================================== */
 
 .dress {
+
   max-width: 720px;
+
   margin: auto;
 
   text-align: center;
 }
 
 .dress-main {
+
   margin-bottom: 20px;
 
   font-size: 25px;
@@ -634,10 +984,37 @@ section {
 }
 
 .dress-text {
+
   font-size: 18px;
+
   line-height: 1.9;
 
   color: #e4eaf1;
+}
+
+.mate-important {
+
+  margin-top: 28px;
+
+  padding: 17px 20px;
+
+  border-top: 1px solid rgba(215,226,239,.3);
+
+  border-bottom: 1px solid rgba(215,226,239,.3);
+
+  color: #edf3f9;
+
+  font-size: 18px;
+
+  letter-spacing: .5px;
+}
+
+.mate-important strong {
+
+  color: #fff;
+
+  text-shadow:
+    0 0 7px rgba(255,255,255,.5);
 }
 
 
@@ -646,20 +1023,24 @@ section {
 ===================================================== */
 
 .countdown {
+
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
 
   gap: 12px;
 
   max-width: 650px;
+
   margin: auto;
 }
 
 .count-box {
+
   padding: 22px 8px;
 
   border: 1px solid rgba(220,229,239,.35);
+
   border-radius: 16px;
 
   background: rgba(255,255,255,.06);
@@ -668,6 +1049,7 @@ section {
 }
 
 .count-number {
+
   display: block;
 
   font-size: 34px;
@@ -676,7 +1058,9 @@ section {
 }
 
 .count-label {
+
   font-size: 11px;
+
   letter-spacing: 2px;
 
   color: #bdc9d8;
@@ -688,13 +1072,16 @@ section {
 ===================================================== */
 
 .alias-box {
+
   max-width: 600px;
+
   margin: auto;
 
   text-align: center;
 }
 
 .alias {
+
   display: inline-block;
 
   margin: 25px auto;
@@ -702,9 +1089,11 @@ section {
   padding: 18px 25px;
 
   border: 1px solid rgba(226,234,243,.45);
+
   border-radius: 15px;
 
   font-size: 22px;
+
   letter-spacing: 2px;
 
   color: white;
@@ -713,9 +1102,11 @@ section {
 }
 
 .copy-btn {
+
   padding: 12px 25px;
 
   border: 1px solid rgba(229,237,245,.7);
+
   border-radius: 25px;
 
   background: transparent;
@@ -730,6 +1121,7 @@ section {
 }
 
 .copy-btn:hover {
+
   background: rgba(255,255,255,.12);
 }
 
@@ -739,10 +1131,12 @@ section {
 ===================================================== */
 
 .confirm {
+
   text-align: center;
 }
 
 .whatsapp {
+
   display: inline-block;
 
   margin-top: 20px;
@@ -773,6 +1167,7 @@ section {
 }
 
 .whatsapp:hover {
+
   transform: scale(1.04);
 }
 
@@ -782,6 +1177,7 @@ section {
 ===================================================== */
 
 .music-button {
+
   position: fixed;
 
   right: 18px;
@@ -814,6 +1210,7 @@ section {
 ===================================================== */
 
 footer {
+
   padding: 45px 20px;
 
   text-align: center;
@@ -821,11 +1218,13 @@ footer {
   color: #aebdce;
 
   font-size: 13px;
+
   line-height: 1.8;
 
   background: #030d20;
 
-  border-top: 1px solid rgba(214,224,235,.12);
+  border-top:
+    1px solid rgba(214,224,235,.12);
 }
 
 
@@ -834,6 +1233,7 @@ footer {
 ===================================================== */
 
 .fade {
+
   opacity: 0;
 
   transform: translateY(25px);
@@ -842,6 +1242,7 @@ footer {
 }
 
 .fade.show {
+
   opacity: 1;
 
   transform: translateY(0);
@@ -852,7 +1253,7 @@ footer {
    MOBILE
 ===================================================== */
 
-@media (max-width: 650px) {
+@media (max-width:650px) {
 
   .opening-name {
     font-size: 75px;
@@ -885,7 +1286,7 @@ footer {
   }
 
   .countdown {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
   }
 
   .story {
@@ -895,9 +1296,16 @@ footer {
   section {
     padding: 65px 18px;
   }
+
+  .important-text {
+    font-size: 18px;
+  }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
@@ -906,10 +1314,12 @@ footer {
      APERTURA
 ===================================================== -->
 
-<div class="opening-screen" id="openingScreen">
+<div
+  class="opening-screen"
+  id="openingScreen">
 
 
-<!-- MARIPOSA 1 -->
+<!-- MARIPOSA SVG -->
 
 <div class="butterfly butterfly-1">
 
@@ -917,23 +1327,22 @@ footer {
 
 <defs>
 
-<linearGradient id="blueWing1" x1="0" y1="0" x2="1" y2="1">
+<linearGradient
+  id="blueWing1"
+  x1="0"
+  y1="0"
+  x2="1"
+  y2="1">
+
 <stop offset="0%" stop-color="#5fa9ff"/>
 <stop offset="35%" stop-color="#1763bd"/>
 <stop offset="70%" stop-color="#0a3471"/>
 <stop offset="100%" stop-color="#041b46"/>
-</linearGradient>
 
-<linearGradient id="silverWing1" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#ffffff"/>
-<stop offset="40%" stop-color="#dce5ef"/>
-<stop offset="70%" stop-color="#9eafc2"/>
-<stop offset="100%" stop-color="#526b88"/>
 </linearGradient>
 
 </defs>
 
-<!-- ala izquierda -->
 <path
 d="M58 59
 C43 18 7 7 8 34
@@ -944,7 +1353,6 @@ fill="url(#blueWing1)"
 stroke="#e8f0f8"
 stroke-width="2"/>
 
-<!-- ala derecha -->
 <path
 d="M62 59
 C77 18 113 7 112 34
@@ -955,30 +1363,41 @@ fill="url(#blueWing1)"
 stroke="#e8f0f8"
 stroke-width="2"/>
 
-<!-- detalles plateados -->
 <path
 d="M22 34 C32 31 42 40 50 57"
 fill="none"
-stroke="url(#silverWing1)"
+stroke="#dce7f2"
 stroke-width="4"
 stroke-linecap="round"/>
 
 <path
 d="M98 34 C88 31 78 40 70 57"
 fill="none"
-stroke="url(#silverWing1)"
+stroke="#dce7f2"
 stroke-width="4"
 stroke-linecap="round"/>
 
 <circle cx="27" cy="48" r="4" fill="#fff"/>
 <circle cx="93" cy="48" r="4" fill="#fff"/>
 
-<!-- cuerpo -->
-<ellipse cx="60" cy="65" rx="4" ry="24" fill="#dfe7ef"/>
+<ellipse
+cx="60"
+cy="65"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
 
-<!-- antenas -->
-<path d="M58 44 Q49 31 43 30" fill="none" stroke="#dfe7ef" stroke-width="2"/>
-<path d="M62 44 Q71 31 77 30" fill="none" stroke="#dfe7ef" stroke-width="2"/>
+<path
+d="M58 44 Q49 31 43 30"
+fill="none"
+stroke="#dfe7ef"
+stroke-width="2"/>
+
+<path
+d="M62 44 Q71 31 77 30"
+fill="none"
+stroke="#dfe7ef"
+stroke-width="2"/>
 
 </svg>
 
@@ -993,11 +1412,18 @@ stroke-linecap="round"/>
 
 <defs>
 
-<linearGradient id="blueWing2" x1="0" y1="0" x2="1" y2="1">
+<linearGradient
+id="blueWing2"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
 <stop offset="0%" stop-color="#78bdff"/>
 <stop offset="30%" stop-color="#2474d0"/>
 <stop offset="65%" stop-color="#10478c"/>
 <stop offset="100%" stop-color="#051d4b"/>
+
 </linearGradient>
 
 </defs>
@@ -1029,10 +1455,12 @@ stroke-width="3"/>
 <circle cx="29" cy="53" r="3" fill="#fff"/>
 <circle cx="91" cy="53" r="3" fill="#fff"/>
 
-<ellipse cx="60" cy="66" rx="4" ry="24" fill="#e7edf4"/>
-
-<path d="M58 45 Q50 31 44 30" fill="none" stroke="#e7edf4" stroke-width="2"/>
-<path d="M62 45 Q70 31 76 30" fill="none" stroke="#e7edf4" stroke-width="2"/>
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#e7edf4"/>
 
 </svg>
 
@@ -1045,26 +1473,15 @@ stroke-width="3"/>
 
 <svg viewBox="0 0 120 120">
 
-<defs>
-
-<linearGradient id="blueWing3" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#a9d6ff"/>
-<stop offset="30%" stop-color="#3988df"/>
-<stop offset="70%" stop-color="#124c94"/>
-<stop offset="100%" stop-color="#061f4c"/>
-</linearGradient>
-
-</defs>
-
 <path
 d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
-fill="url(#blueWing3)"
+fill="#2474d0"
 stroke="#ffffff"
 stroke-width="2"/>
 
 <path
 d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
-fill="url(#blueWing3)"
+fill="#2474d0"
 stroke="#ffffff"
 stroke-width="2"/>
 
@@ -1080,7 +1497,12 @@ fill="none"
 stroke="#dce7f2"
 stroke-width="3"/>
 
-<ellipse cx="60" cy="66" rx="4" ry="24" fill="#e7edf4"/>
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#e7edf4"/>
 
 </svg>
 
@@ -1095,11 +1517,18 @@ stroke-width="3"/>
 
 <defs>
 
-<linearGradient id="blueWing4" x1="0" y1="0" x2="1" y2="1">
+<linearGradient
+id="blueWing4"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
 <stop offset="0%" stop-color="#6bb4ff"/>
 <stop offset="35%" stop-color="#1765c3"/>
 <stop offset="75%" stop-color="#092e67"/>
 <stop offset="100%" stop-color="#03183b"/>
+
 </linearGradient>
 
 </defs>
@@ -1116,8 +1545,8 @@ fill="url(#blueWing4)"
 stroke="#eaf1f8"
 stroke-width="2"/>
 
-<circle cx="27" cy="47" r="4" fill="#ffffff"/>
-<circle cx="93" cy="47" r="4" fill="#ffffff"/>
+<circle cx="27" cy="47" r="4" fill="#fff"/>
+<circle cx="93" cy="47" r="4" fill="#fff"/>
 
 <path
 d="M22 34 Q37 31 50 55"
@@ -1131,7 +1560,12 @@ fill="none"
 stroke="#cbd9e8"
 stroke-width="3"/>
 
-<ellipse cx="60" cy="65" rx="4" ry="24" fill="#eef3f8"/>
+<ellipse
+cx="60"
+cy="65"
+rx="4"
+ry="24"
+fill="#eef3f8"/>
 
 </svg>
 
@@ -1144,27 +1578,16 @@ stroke-width="3"/>
 
 <svg viewBox="0 0 120 120">
 
-<defs>
-
-<linearGradient id="blueWing5" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#80c5ff"/>
-<stop offset="35%" stop-color="#1d6dca"/>
-<stop offset="70%" stop-color="#0c3d7e"/>
-<stop offset="100%" stop-color="#031b43"/>
-</linearGradient>
-
-</defs>
-
 <path
 d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
-fill="url(#blueWing5)"
-stroke="#ffffff"
+fill="#1d6dca"
+stroke="#fff"
 stroke-width="2"/>
 
 <path
 d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
-fill="url(#blueWing5)"
-stroke="#ffffff"
+fill="#1d6dca"
+stroke="#fff"
 stroke-width="2"/>
 
 <path
@@ -1182,7 +1605,12 @@ stroke-width="4"/>
 <circle cx="28" cy="51" r="4" fill="#fff"/>
 <circle cx="92" cy="51" r="4" fill="#fff"/>
 
-<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
 
 </svg>
 
@@ -1195,30 +1623,24 @@ stroke-width="4"/>
 
 <svg viewBox="0 0 120 120">
 
-<defs>
-
-<linearGradient id="blueWing6" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#91ceff"/>
-<stop offset="40%" stop-color="#317fd4"/>
-<stop offset="75%" stop-color="#124b91"/>
-<stop offset="100%" stop-color="#051e49"/>
-</linearGradient>
-
-</defs>
-
 <path
 d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
-fill="url(#blueWing6)"
+fill="#317fd4"
 stroke="#f5f8fb"
 stroke-width="2"/>
 
 <path
 d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
-fill="url(#blueWing6)"
+fill="#317fd4"
 stroke="#f5f8fb"
 stroke-width="2"/>
 
-<ellipse cx="60" cy="66" rx="4" ry="24" fill="#eef3f7"/>
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#eef3f7"/>
 
 </svg>
 
@@ -1231,25 +1653,15 @@ stroke-width="2"/>
 
 <svg viewBox="0 0 120 120">
 
-<defs>
-
-<linearGradient id="blueWing7" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#6eb8ff"/>
-<stop offset="40%" stop-color="#206fc9"/>
-<stop offset="100%" stop-color="#062352"/>
-</linearGradient>
-
-</defs>
-
 <path
 d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
-fill="url(#blueWing7)"
+fill="#206fc9"
 stroke="#ffffff"
 stroke-width="2"/>
 
 <path
 d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
-fill="url(#blueWing7)"
+fill="#206fc9"
 stroke="#ffffff"
 stroke-width="2"/>
 
@@ -1265,7 +1677,12 @@ fill="none"
 stroke="#dce6f0"
 stroke-width="3"/>
 
-<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
 
 </svg>
 
@@ -1278,36 +1695,65 @@ stroke-width="3"/>
 
 <svg viewBox="0 0 120 120">
 
-<defs>
-
-<linearGradient id="blueWing8" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#75bcff"/>
-<stop offset="35%" stop-color="#1d6ac7"/>
-<stop offset="70%" stop-color="#0b3a78"/>
-<stop offset="100%" stop-color="#031b40"/>
-</linearGradient>
-
-</defs>
-
 <path
 d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
-fill="url(#blueWing8)"
+fill="#1d6ac7"
 stroke="#f4f7fa"
 stroke-width="2"/>
 
 <path
 d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
-fill="url(#blueWing8)"
+fill="#1d6ac7"
 stroke="#f4f7fa"
 stroke-width="2"/>
 
-<circle cx="27" cy="48" r="4" fill="#ffffff"/>
-<circle cx="93" cy="48" r="4" fill="#ffffff"/>
+<circle cx="27" cy="48" r="4" fill="#fff"/>
+<circle cx="93" cy="48" r="4" fill="#fff"/>
 
-<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf3f8"/>
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf3f8"/>
 
 </svg>
 
+</div>
+
+
+<!-- MÁS MARIPOSAS -->
+
+<div class="butterfly butterfly-9 small">
+<svg viewBox="0 0 120 120">
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#3988df" stroke="#fff" stroke-width="2"/>
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#3988df" stroke="#fff" stroke-width="2"/>
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+</svg>
+</div>
+
+<div class="butterfly butterfly-10 small">
+<svg viewBox="0 0 120 120">
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#1765c3" stroke="#fff" stroke-width="2"/>
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#1765c3" stroke="#fff" stroke-width="2"/>
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+</svg>
+</div>
+
+<div class="butterfly butterfly-11 small">
+<svg viewBox="0 0 120 120">
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#2474d0" stroke="#fff" stroke-width="2"/>
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#2474d0" stroke="#fff" stroke-width="2"/>
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+</svg>
+</div>
+
+<div class="butterfly butterfly-12 small">
+<svg viewBox="0 0 120 120">
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#317fd4" stroke="#fff" stroke-width="2"/>
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#317fd4" stroke="#fff" stroke-width="2"/>
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+</svg>
 </div>
 
 
@@ -1320,12 +1766,18 @@ stroke-width="2"/>
 <div class="sparkle s5"></div>
 <div class="sparkle s6"></div>
 
+<div class="sparkle big" style="left:40%;top:35%;"></div>
+<div class="sparkle big" style="left:82%;top:52%;animation-delay:1s;"></div>
+<div class="sparkle big" style="left:22%;top:78%;animation-delay:.5s;"></div>
 
-<!-- CONTENIDO APERTURA -->
+
+<!-- CONTENIDO -->
 
 <div class="opening-content">
 
-  <div class="crown">♕</div>
+  <div class="crown">
+    ♕
+  </div>
 
   <div class="opening-small">
     Una noche para recordar
@@ -1353,17 +1805,23 @@ stroke-width="2"/>
 
 
 <!-- =====================================================
-     MÚSICA
+     AUDIO
 ===================================================== -->
 
-<audio id="backgroundMusic" loop>
-  <source src="musica.mp3" type="audio/mpeg">
+<audio
+  id="backgroundMusic"
+  loop>
+
+  <source
+    src="musica.mp3"
+    type="audio/mpeg">
+
 </audio>
+
 
 <button
   class="music-button"
-  id="musicButton"
-  aria-label="Controlar música">
+  id="musicButton">
 
   ♪
 
@@ -1377,475 +1835,868 @@ stroke-width="2"/>
 <main id="invitation">
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
-  <!-- mariposas decorativas -->
 
-  <div class="butterfly butterfly-3 small">
-    <svg viewBox="0 0 120 120">
+<div class="butterfly butterfly-3 small">
 
-      <path
-      d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
-      fill="#1767c4"
-      stroke="#ffffff"
-      stroke-width="2"/>
+<svg viewBox="0 0 120 120">
 
-      <path
-      d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
-      fill="#1767c4"
-      stroke="#ffffff"
-      stroke-width="2"/>
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
 
-      <ellipse
-      cx="60"
-      cy="66"
-      rx="4"
-      ry="24"
-      fill="#e7edf4"/>
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
 
-    </svg>
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="butterfly butterfly-6 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#317fd4"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#317fd4"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="butterfly butterfly-10 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="sparkle big" style="left:20%;top:20%;"></div>
+<div class="sparkle big" style="right:15%;top:30%;animation-delay:.8s;"></div>
+<div class="sparkle" style="left:75%;bottom:20%;"></div>
+
+
+<div class="hero-content">
+
+  <div class="hero-small">
+    MIS 15 AÑOS
   </div>
 
-
-  <div class="butterfly butterfly-6 small">
-
-    <svg viewBox="0 0 120 120">
-
-      <path
-      d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
-      fill="#317fd4"
-      stroke="#ffffff"
-      stroke-width="2"/>
-
-      <path
-      d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
-      fill="#317fd4"
-      stroke="#ffffff"
-      stroke-width="2"/>
-
-      <ellipse
-      cx="60"
-      cy="66"
-      rx="4"
-      ry="24"
-      fill="#edf2f7"/>
-
-    </svg>
-
+  <div class="hero-name">
+    Morena
   </div>
 
-
-  <div class="hero-content">
-
-    <div class="hero-small">
-      MIS 15 AÑOS
-    </div>
-
-    <div class="hero-name">
-      Morena
-    </div>
-
-    <div class="hero-title">
-      QUINCE
-    </div>
-
-    <div class="hero-date">
-      14 · 11 · 2026
-    </div>
-
+  <div class="hero-date">
+    14 · 11 · 2026
   </div>
+
+</div>
 
 </section>
 
 
-<!-- HISTORIA -->
+<!-- =====================================================
+     HISTORIA
+===================================================== -->
 
 <section class="fade">
 
-  <div class="section-inner">
+<div class="section-inner">
 
-    <h2 class="section-title">
-      Érase una vez...
-    </h2>
+<h2 class="section-title">
+  Érase una vez...
+</h2>
 
-    <p class="story">
+<p class="story">
 
-      Érase una vez una pequeña princesa que llegó a nuestras vidas
-      para enseñarnos el significado del amor más puro.
+Érase una vez una pequeña princesa que llegó a nuestras vidas
+para enseñarnos el significado del amor más puro.
 
-      <br><br>
+<br><br>
 
-      Han pasado quince años llenos de momentos, sonrisas,
-      aprendizajes y sueños... y hoy aquella niña abre las puertas
-      de una nueva etapa, llevando en su corazón todos los recuerdos
-      que la han convertido en quien es.
+Han pasado quince años llenos de momentos, sonrisas,
+aprendizajes y sueños... y hoy aquella niña abre las puertas
+de una nueva etapa, llevando en su corazón todos los recuerdos
+que la han convertido en quien es.
 
-      <br><br>
+<br><br>
 
-      Y queremos compartir este momento tan especial con vos.
+Y queremos compartir este momento tan especial con vos.
 
-    </p>
+</p>
 
-  </div>
+</div>
+
+
+<!-- MARIPOSAS -->
+
+<div class="butterfly butterfly-9 small">
+
+<svg viewBox="0 0 120 120">
+
+<path d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z" fill="#3988df" stroke="#fff" stroke-width="2"/>
+
+<path d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z" fill="#3988df" stroke="#fff" stroke-width="2"/>
+
+<ellipse cx="60" cy="66" rx="4" ry="24" fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+<div class="sparkle big" style="left:12%;top:20%;"></div>
+<div class="sparkle" style="right:15%;top:65%;"></div>
 
 </section>
 
 
-<!-- GALERÍA -->
+<!-- =====================================================
+     GALERÍA
+===================================================== -->
 
 <section class="fade">
 
-  <div class="section-inner">
+<div class="section-inner">
 
-    <h2 class="section-title">
-      Momentos de Morena
-    </h2>
+<h2 class="section-title">
+  Momentos de Morena
+</h2>
 
-    <div class="gallery">
 
-      <div class="photo-frame">
+<div class="gallery">
 
-        <img
-          src="morena1.jpg"
-          alt="Morena">
 
-      </div>
+<!-- FOTO 1 -->
 
-      <div class="photo-frame">
+<div class="photo-frame">
 
-        <img
-          src="morena2.jpg"
-          alt="Morena">
+<img
+src="morena1.jpg"
+alt="Morena">
 
-      </div>
 
-    </div>
+<div class="photo-butterfly pb1">
 
-  </div>
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="photo-butterfly pb2">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+</div>
+
+
+<!-- FOTO 2 -->
+
+<div class="photo-frame">
+
+<img
+src="morena2.jpg"
+alt="Morena">
+
+
+<div class="photo-butterfly pb3">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#3988df"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#3988df"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="photo-butterfly pb4">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#206fc9"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#206fc9"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="sparkle big" style="left:18%;top:15%;"></div>
+<div class="sparkle" style="right:18%;bottom:15%;"></div>
 
 </section>
 
 
-<!-- EVENTO -->
+<!-- =====================================================
+     EVENTO
+===================================================== -->
 
 <section class="fade">
 
-  <div class="section-inner">
+<div class="section-inner">
 
-    <h2 class="section-title">
-      El gran día
-    </h2>
+<h2 class="section-title">
+  El gran día
+</h2>
 
-    <div class="event-card">
+<div class="event-card">
 
-      <div class="event-date">
-        Sábado 14 de noviembre
-      </div>
+<div class="event-date">
+  Sábado 14 de noviembre
+</div>
 
-      <div class="event-time">
-        21:00 hs
-      </div>
+<div class="event-time">
+  21:00 hs
+</div>
 
-      <div class="event-place">
+<div class="event-place">
 
-        Juan Mantovani e/ 1439 y 1443
-        <br>
+Juan Mantovani e/ 1439 y 1443
+<br>
 
-        “La Querencia”
-        <br>
+“La Querencia”
+<br>
 
-        Villa Brown · Florencio Varela
+Villa Brown · Florencio Varela
 
-      </div>
+</div>
 
-      <div class="buttons">
+<div class="buttons">
 
-        <a
-          class="btn"
-          href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
-          target="_blank">
+<a
+class="btn"
+href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
+target="_blank">
 
-          📍 Google Maps
+📍 Google Maps
 
-        </a>
+</a>
 
-        <a
-          class="btn"
-          href="https://www.waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
-          target="_blank">
+<a
+class="btn"
+href="https://www.waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
+target="_blank">
 
-          🚗 Waze
+🚗 Waze
 
-        </a>
+</a>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
-<!-- DOMINGO -->
+<!-- =====================================================
+     DOMINGO
+===================================================== -->
 
 <section class="fade">
 
-  <div class="section-inner">
+<div class="section-inner">
 
-    <h2 class="section-title">
-      Domingo 15
-    </h2>
+<h2 class="section-title">
+  Domingo 15
+</h2>
 
-    <div class="event-card">
+<div class="event-card">
 
-      <div class="event-date">
-        Hasta las 17:00 hs
-      </div>
+<!-- PRIMERO LA FRASE -->
 
-      <div class="event-time">
+<div class="event-time">
 
-        Si querés, podés quedarte a disfrutar
-        el día siguiente.
+Si querés, podés quedarte a disfrutar
+el día siguiente.
 
-      </div>
+</div>
 
-    </div>
+<br>
 
-  </div>
+<!-- DESPUÉS EL HORARIO -->
+
+<div class="event-date">
+
+Hasta las 17:00 hs
+
+</div>
+
+</div>
+
+</div>
+
+<div class="butterfly butterfly-11 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
 
 </section>
 
 
-<!-- DRESS CODE -->
+<!-- =====================================================
+     IMPORTANTE
+===================================================== -->
+
+<section class="important-section fade">
+
+<div class="butterfly butterfly-12 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#317fd4"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#317fd4"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
+
+
+<div class="important-crown">
+  ♕
+</div>
+
+<div class="important-title">
+  IMPORTANTE
+</div>
+
+<div class="important-text">
+
+El color
+<strong>azul</strong>
+está reservado exclusivamente
+para la cumpleañera.
+
+</div>
+
+<div class="sparkle big" style="left:25%;top:30%;"></div>
+<div class="sparkle big" style="right:25%;top:30%;animation-delay:.8s;"></div>
+
+</section>
+
+
+<!-- =====================================================
+     DRESS CODE
+===================================================== -->
 
 <section class="fade">
 
-  <div class="section-inner">
+<div class="section-inner">
 
-    <h2 class="section-title">
-      Dress Code
-    </h2>
+<h2 class="section-title">
+  Dress Code
+</h2>
 
-    <div class="dress">
+<div class="dress">
 
-      <div class="dress-main">
-        Elegante · Fresco · Especial
-      </div>
+<div class="dress-main">
 
-      <div class="dress-text">
+Elegante · Fresco · Especial
 
-        Te esperamos con un look elegante y fresco.
+</div>
 
-        <br><br>
+<div class="dress-text">
 
-        Traer traje de baño y toalla para disfrutar
-        de una tarde especial al aire libre.
+Te esperamos con un look elegante y fresco.
 
-        <br><br>
+<br><br>
 
-        Si te quedás al otro día, no olvides traer
-        tu set de mate y traje de baño.
+Traer traje de baño y toalla para disfrutar
+de una tarde especial al aire libre.
 
-        <br><br>
+<br><br>
 
-        Lo más importante es compartir este día con vos. 🤍
+Lo más importante es compartir este día con vos.
 
-      </div>
+</div>
 
-    </div>
 
-  </div>
+<!-- MATE IMPORTANTE -->
+
+<div class="mate-important">
+
+<strong>
+IMPORTANTE:
+</strong>
+
+<br>
+
+Traer set de mate y traje de baño
+si te quedás al otro día.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="butterfly butterfly-13 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#3988df"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#3988df"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
 
 </section>
 
 
-<!-- CUENTA REGRESIVA -->
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
 
 <section class="fade">
 
-  <div class="section-inner">
+<div class="section-inner">
 
-    <h2 class="section-title">
-      Falta muy poquito
-    </h2>
+<h2 class="section-title">
+  Falta muy poquito
+</h2>
 
-    <div class="countdown">
+<div class="countdown">
 
-      <div class="count-box">
-        <span
-          class="count-number"
-          id="days">
-          00
-        </span>
+<div class="count-box">
 
-        <span class="count-label">
-          DÍAS
-        </span>
-      </div>
+<span
+class="count-number"
+id="days">
 
+00
 
-      <div class="count-box">
+</span>
 
-        <span
-          class="count-number"
-          id="hours">
-          00
-        </span>
+<span class="count-label">
+DÍAS
+</span>
 
-        <span class="count-label">
-          HORAS
-        </span>
-
-      </div>
+</div>
 
 
-      <div class="count-box">
+<div class="count-box">
 
-        <span
-          class="count-number"
-          id="minutes">
-          00
-        </span>
+<span
+class="count-number"
+id="hours">
 
-        <span class="count-label">
-          MINUTOS
-        </span>
+00
 
-      </div>
+</span>
+
+<span class="count-label">
+HORAS
+</span>
+
+</div>
 
 
-      <div class="count-box">
+<div class="count-box">
 
-        <span
-          class="count-number"
-          id="seconds">
-          00
-        </span>
+<span
+class="count-number"
+id="minutes">
 
-        <span class="count-label">
-          SEGUNDOS
-        </span>
+00
 
-      </div>
+</span>
 
-    </div>
+<span class="count-label">
+MINUTOS
+</span>
 
-  </div>
+</div>
+
+
+<div class="count-box">
+
+<span
+class="count-number"
+id="seconds">
+
+00
+
+</span>
+
+<span class="count-label">
+SEGUNDOS
+</span>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- REGALO -->
+<!-- =====================================================
+     REGALO
+===================================================== -->
 
 <section class="fade">
 
-  <div class="section-inner">
+<div class="section-inner">
 
-    <h2 class="section-title">
-      Si querés regalarme algo...
-    </h2>
+<h2 class="section-title">
+  Si querés regalarme algo...
+</h2>
 
-    <div class="alias-box">
+<div class="alias-box">
 
-      <p>
-        Te dejo mi alias para que puedas hacerlo
-        de manera sencilla.
-      </p>
+<p>
 
-      <div class="alias">
-        morena0702.mp
-      </div>
+Te dejo mi alias para que puedas hacerlo
+de manera sencilla.
 
-      <p>
+</p>
 
-        A nombre de
-        <br>
+<div class="alias">
 
-        <strong>
-          Morena Abril Novillo
-        </strong>
+morena0702.mp
 
-      </p>
+</div>
 
-      <br>
+<p>
 
-      <button
-        class="copy-btn"
-        id="copyAlias">
+A nombre de
+<br>
 
-        COPIAR ALIAS
+<strong>
+Morena Abril Novillo
+</strong>
 
-      </button>
+</p>
 
-    </div>
+<br>
 
-  </div>
+<button
+class="copy-btn"
+id="copyAlias">
+
+COPIAR ALIAS
+
+</button>
+
+</div>
+
+</div>
+
+<div class="butterfly butterfly-14 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#1765c3"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
 
 </section>
 
 
-<!-- CONFIRMACIÓN -->
+<!-- =====================================================
+     CONFIRMACIÓN
+===================================================== -->
 
 <section class="fade">
 
-  <div class="section-inner">
+<div class="section-inner">
 
-    <h2 class="section-title">
-      ¿Nos acompañás?
-    </h2>
+<h2 class="section-title">
+  ¿Nos acompañás?
+</h2>
 
-    <div class="confirm">
+<div class="confirm">
 
-      <p>
+<p>
 
-        Confirmá tu asistencia para que podamos esperarte
-        y compartir juntos esta noche tan especial.
+Confirmá tu asistencia para que podamos esperarte
+y compartir juntos esta noche tan especial.
 
-      </p>
+</p>
 
-      <a
-        class="whatsapp"
-        href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%99%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os."
-        target="_blank">
+<a
+class="whatsapp"
+href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%99%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os."
+target="_blank">
 
-        CONFIRMAR POR WHATSAPP
+CONFIRMAR POR WHATSAPP
 
-      </a>
+</a>
 
-      <p
-        style="
-          margin-top:18px;
-          font-size:14px;
-          opacity:.8;
-        ">
+<p
+style="
+margin-top:18px;
+font-size:14px;
+opacity:.8;
+">
 
-        11 5163-4135
+11 5163-4135
 
-      </p>
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
+
+<div class="butterfly butterfly-4 small">
+
+<svg viewBox="0 0 120 120">
+
+<path
+d="M58 59 C39 18 4 11 9 39 C11 53 25 62 46 68 C24 59 10 72 20 88 C31 101 48 87 59 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<path
+d="M62 59 C81 18 116 11 111 39 C109 53 95 62 74 68 C96 59 110 72 100 88 C89 101 72 87 61 69Z"
+fill="#2474d0"
+stroke="#fff"
+stroke-width="2"/>
+
+<ellipse
+cx="60"
+cy="66"
+rx="4"
+ry="24"
+fill="#edf2f7"/>
+
+</svg>
+
+</div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-  <div>
-    Ivory Diseños Digitales · @ivory.dd
-  </div>
+<div>
+Ivory Diseños Digitales · @ivory.dd
+</div>
 
-  <div>
-    Diseñamos el comienzo de momentos inolvidables.
-  </div>
+<div>
+Diseñamos el comienzo de momentos inolvidables.
+</div>
 
 </footer>
+
 
 </main>
 
@@ -1856,203 +2707,215 @@ stroke-width="2"/>
 
 <script>
 
-/* APERTURA + MÚSICA */
+
+/* =====================================================
+   APERTURA + MÚSICA
+===================================================== */
 
 const openingScreen =
-  document.getElementById("openingScreen");
+document.getElementById("openingScreen");
 
 const openInvitation =
-  document.getElementById("openInvitation");
+document.getElementById("openInvitation");
 
 const music =
-  document.getElementById("backgroundMusic");
+document.getElementById("backgroundMusic");
 
 const musicButton =
-  document.getElementById("musicButton");
+document.getElementById("musicButton");
 
 
-openInvitation.addEventListener("click", async () => {
+openInvitation.addEventListener(
+"click",
+async () => {
 
-  try {
+try {
 
-    await music.play();
+await music.play();
 
-    musicButton.textContent = "♫";
+musicButton.textContent = "♫";
 
-  } catch (error) {
+} catch(error) {
 
-    console.log(
-      "La música necesita interacción del usuario."
-    );
+console.log(
+"La música necesita interacción del usuario."
+);
 
-  }
+}
 
-  openingScreen.style.opacity = "0";
+openingScreen.style.opacity = "0";
 
-  openingScreen.style.transition =
-    "opacity 1s ease";
+openingScreen.style.transition =
+"opacity 1s ease";
 
-  setTimeout(() => {
+setTimeout(() => {
 
-    openingScreen.style.display = "none";
+openingScreen.style.display = "none";
 
-    document.body.style.overflow = "auto";
+document.body.style.overflow = "auto";
 
-  }, 1000);
-
-});
-
-
-/* CONTROL DE MÚSICA */
-
-musicButton.addEventListener("click", async () => {
-
-  if (music.paused) {
-
-    try {
-
-      await music.play();
-
-      musicButton.textContent = "♫";
-
-    } catch (error) {
-
-      console.log(error);
-
-    }
-
-  } else {
-
-    music.pause();
-
-    musicButton.textContent = "♪";
-
-  }
+},1000);
 
 });
 
 
-/* ANIMACIÓN AL HACER SCROLL */
+/* =====================================================
+   BOTÓN MÚSICA
+===================================================== */
+
+musicButton.addEventListener(
+"click",
+async () => {
+
+if(music.paused) {
+
+try {
+
+await music.play();
+
+musicButton.textContent = "♫";
+
+} catch(error) {
+
+console.log(error);
+
+}
+
+} else {
+
+music.pause();
+
+musicButton.textContent = "♪";
+
+}
+
+});
+
+
+/* =====================================================
+   ANIMACIÓN SCROLL
+===================================================== */
 
 const fadeElements =
-  document.querySelectorAll(".fade");
-
+document.querySelectorAll(".fade");
 
 const observer =
-  new IntersectionObserver(
+new IntersectionObserver(
 
-    entries => {
+entries => {
 
-      entries.forEach(entry => {
+entries.forEach(entry => {
 
-        if (entry.isIntersecting) {
+if(entry.isIntersecting) {
 
-          entry.target.classList.add("show");
+entry.target.classList.add("show");
 
-        }
+}
 
-      });
+});
 
-    },
+},
 
-    {
-      threshold: 0.15
-    }
+{
+threshold:.15
+}
 
-  );
-
+);
 
 fadeElements.forEach(element => {
 
-  observer.observe(element);
+observer.observe(element);
 
 });
 
 
-/* CUENTA REGRESIVA */
+/* =====================================================
+   CUENTA REGRESIVA
+===================================================== */
 
 const eventDate =
-  new Date(
-    "2026-11-14T21:00:00-03:00"
-  ).getTime();
+new Date(
+"2026-11-14T21:00:00-03:00"
+).getTime();
 
 
-function updateCountdown() {
+function updateCountdown(){
 
-  const now =
-    new Date().getTime();
+const now =
+new Date().getTime();
 
-  const distance =
-    eventDate - now;
-
-
-  if (distance <= 0) {
-
-    document.getElementById("days")
-      .textContent = "00";
-
-    document.getElementById("hours")
-      .textContent = "00";
-
-    document.getElementById("minutes")
-      .textContent = "00";
-
-    document.getElementById("seconds")
-      .textContent = "00";
-
-    return;
-  }
+const distance =
+eventDate - now;
 
 
-  const days =
-    Math.floor(
-      distance /
-      (1000 * 60 * 60 * 24)
-    );
+if(distance <= 0){
+
+document.getElementById("days")
+.textContent="00";
+
+document.getElementById("hours")
+.textContent="00";
+
+document.getElementById("minutes")
+.textContent="00";
+
+document.getElementById("seconds")
+.textContent="00";
+
+return;
+
+}
 
 
-  const hours =
-    Math.floor(
-      (distance %
-      (1000 * 60 * 60 * 24)) /
-      (1000 * 60 * 60)
-    );
+const days =
+Math.floor(
+distance /
+(1000*60*60*24)
+);
 
 
-  const minutes =
-    Math.floor(
-      (distance %
-      (1000 * 60 * 60)) /
-      (1000 * 60)
-    );
+const hours =
+Math.floor(
+(distance %
+(1000*60*60*24)) /
+(1000*60*60)
+);
 
 
-  const seconds =
-    Math.floor(
-      (distance %
-      (1000 * 60)) /
-      1000
-    );
+const minutes =
+Math.floor(
+(distance %
+(1000*60*60)) /
+(1000*60)
+);
 
 
-  document.getElementById("days")
-    .textContent =
-    String(days).padStart(2, "0");
+const seconds =
+Math.floor(
+(distance %
+(1000*60)) /
+1000
+);
 
 
-  document.getElementById("hours")
-    .textContent =
-    String(hours).padStart(2, "0");
+document.getElementById("days")
+.textContent =
+String(days).padStart(2,"0");
 
 
-  document.getElementById("minutes")
-    .textContent =
-    String(minutes).padStart(2, "0");
+document.getElementById("hours")
+.textContent =
+String(hours).padStart(2,"0");
 
 
-  document.getElementById("seconds")
-    .textContent =
-    String(seconds).padStart(2, "0");
+document.getElementById("minutes")
+.textContent =
+String(minutes).padStart(2,"0");
+
+
+document.getElementById("seconds")
+.textContent =
+String(seconds).padStart(2,"0");
 
 }
 
@@ -2060,55 +2923,59 @@ function updateCountdown() {
 updateCountdown();
 
 setInterval(
-  updateCountdown,
-  1000
+updateCountdown,
+1000
 );
 
 
-/* COPIAR ALIAS */
+/* =====================================================
+   COPIAR ALIAS
+===================================================== */
 
 const copyAlias =
-  document.getElementById("copyAlias");
+document.getElementById("copyAlias");
 
 
 copyAlias.addEventListener(
-  "click",
-  async () => {
+"click",
+async () => {
 
-    try {
+try {
 
-      await navigator.clipboard.writeText(
-        "morena0702.mp"
-      );
-
-      copyAlias.textContent =
-        "ALIAS COPIADO ✓";
-
-
-      setTimeout(() => {
-
-        copyAlias.textContent =
-          "COPIAR ALIAS";
-
-      }, 2000);
-
-
-    } catch (error) {
-
-      alert(
-        "Alias: morena0702.mp"
-      );
-
-    }
-
-  }
+await navigator.clipboard.writeText(
+"morena0702.mp"
 );
 
+copyAlias.textContent =
+"ALIAS COPIADO ✓";
 
-/* BLOQUEAR SCROLL EN APERTURA */
+
+setTimeout(() => {
+
+copyAlias.textContent =
+"COPIAR ALIAS";
+
+},2000);
+
+
+} catch(error) {
+
+alert(
+"Alias: morena0702.mp"
+);
+
+}
+
+});
+
+
+/* =====================================================
+   BLOQUEAR SCROLL AL INICIO
+===================================================== */
 
 document.body.style.overflow =
-  "hidden";
+"hidden";
+
 
 </script>
 

@@ -1,521 +1,884 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Morena · Mis 15 años</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Georgia, "Times New Roman", serif;
-            background: #f8eef3;
-            color: #543c4a;
-            overflow-x: hidden;
-        }
-
-        section {
-            width: 100%;
-            min-height: 100vh;
-            padding: 70px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-        }
-
-        /* BOTÓN MÚSICA */
-
-        .music-control {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 9999;
-        }
-
-        .music-control button {
-            border: none;
-            background: #76556a;
-            color: white;
-            padding: 12px 18px;
-            border-radius: 30px;
-            font-family: Georgia, serif;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(80, 50, 70, 0.2);
-        }
-
-        /* PORTADA */
-
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            background:
-                linear-gradient(
-                    rgba(248, 238, 243, 0.68),
-                    rgba(248, 238, 243, 0.88)
-                ),
-                url("morena1.jpg") center / cover no-repeat;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "🦋";
-            position: absolute;
-            top: 9%;
-            left: 8%;
-            font-size: 45px;
-            opacity: 0.55;
-            transform: rotate(-20deg);
-        }
-
-        .hero::after {
-            content: "🦋";
-            position: absolute;
-            bottom: 12%;
-            right: 8%;
-            font-size: 42px;
-            opacity: 0.45;
-            transform: rotate(20deg);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            background: rgba(255, 250, 252, 0.68);
-            padding: 45px 25px;
-            border-radius: 30px;
-            max-width: 700px;
-        }
-
-        .small-title {
-            font-size: 16px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: #76556a;
-        }
-
-        .hero h1 {
-            font-size: clamp(58px, 13vw, 110px);
-            font-weight: normal;
-            color: #76506a;
-            margin-bottom: 8px;
-        }
-
-        .hero h2 {
-            font-size: clamp(23px, 5vw, 40px);
-            font-weight: normal;
-            letter-spacing: 6px;
-            color: #9a7188;
-        }
-
-        .date {
-            margin-top: 28px;
-            font-size: 21px;
-            letter-spacing: 3px;
-        }
-
-        .open-button,
-        .rsvp-button,
-        .map-button,
-        .copy-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 14px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            transition: 0.3s;
-            cursor: pointer;
-            font-family: Georgia, serif;
-        }
-
-        .open-button {
-            border: 1px solid #8e667d;
-            color: #76506a;
-            background: rgba(255,255,255,0.6);
-        }
-
-        .open-button:hover {
-            background: #76506a;
-            color: white;
-        }
-
-        /* TITULOS */
-
-        .decorative-title {
-            font-size: clamp(34px, 7vw, 58px);
-            font-weight: normal;
-            color: #76506a;
-            margin-bottom: 25px;
-        }
-
-        /* HISTORIA */
-
-        .story {
-            background: #fffafd;
-        }
-
-        .story-text {
-            max-width: 720px;
-            margin: auto;
-            font-size: 19px;
-            line-height: 1.9;
-        }
-
-        /* GALERÍA */
-
-        .gallery {
-            background: #f3e1ea;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 820px;
-            margin: 35px auto 0;
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 22px;
-            box-shadow: 0 12px 30px rgba(80, 50, 70, 0.16);
-        }
-
-        /* EVENTO */
-
-        .event {
-            background: #fffafd;
-        }
-
-        .event-card {
-            max-width: 650px;
-            margin: auto;
-            padding: 40px 25px;
-            border: 1px solid #dfc6d2;
-            border-radius: 28px;
-            background: rgba(255,255,255,0.6);
-        }
-
-        .event-item {
-            margin: 27px 0;
-        }
-
-        .event-item span {
-            display: block;
-            font-size: 13px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #9a7188;
-            margin-bottom: 8px;
-        }
-
-        .event-item strong {
-            display: block;
-            font-size: 23px;
-            font-weight: normal;
-            line-height: 1.5;
-        }
-
-        /* UBICACIÓN */
-
-        .location {
-            background: #f3e1ea;
-        }
-
-        .location-text {
-            font-size: 20px;
-            line-height: 1.7;
-            max-width: 650px;
-            margin: auto;
-        }
-
-        .map-buttons {
-            margin-top: 20px;
-        }
-
-        .map-button {
-            margin: 10px 5px;
-            background: #76506a;
-            color: white;
-        }
-
-        .map-button:hover {
-            background: #9a7188;
-        }
-
-        /* DRESS CODE */
-
-        .dresscode {
-            background: #fffafd;
-        }
-
-        .dress-box {
-            max-width: 700px;
-            margin: auto;
-            padding: 40px 25px;
-            border-radius: 28px;
-            background: #f5e8ee;
-        }
-
-        .dress-box p {
-            font-size: 19px;
-            line-height: 1.8;
-        }
-
-        .important {
-            margin-top: 25px;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        /* CONTADOR */
-
-        .countdown {
-            background: #ead3df;
-        }
-
-        .countdown-box {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 35px;
-        }
-
-        .time-box {
-            min-width: 95px;
-            padding: 20px 12px;
-            background: rgba(255,255,255,0.68);
-            border-radius: 18px;
-        }
-
-        .time-box strong {
-            display: block;
-            font-size: 32px;
-            font-weight: normal;
-            color: #76506a;
-        }
-
-        .time-box span {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* REGALO */
-
-        .gift {
-            background: #fffafd;
-        }
-
-        .gift-text {
-            max-width: 650px;
-            margin: auto;
-            font-size: 19px;
-            line-height: 1.8;
-        }
-
-        .alias-box {
-            margin: 30px auto;
-            max-width: 420px;
-            padding: 25px;
-            border: 1px solid #d9bdca;
-            border-radius: 20px;
-            background: #f6e9ef;
-        }
-
-        .alias {
-            font-size: 25px;
-            color: #76506a;
-            margin: 10px 0;
-            word-break: break-word;
-        }
-
-        .copy-button {
-            border: none;
-            background: #76506a;
-            color: white;
-            margin-top: 10px;
-        }
-
-        .copy-button:hover {
-            background: #9a7188;
-        }
-
-        #copyMessage {
-            display: block;
-            margin-top: 12px;
-            font-size: 14px;
-            color: #76506a;
-        }
-
-        /* CONFIRMACIÓN */
-
-        .rsvp {
-            background: #f3e1ea;
-        }
-
-        .rsvp p {
-            max-width: 650px;
-            margin: auto;
-            font-size: 19px;
-            line-height: 1.8;
-        }
-
-        .rsvp-button {
-            background: #76506a;
-            color: white;
-            font-size: 17px;
-        }
-
-        .rsvp-button:hover {
-            background: #9a7188;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 45px 20px;
-            text-align: center;
-            background: #76506a;
-            color: white;
-        }
-
-        footer p {
-            margin: 8px 0;
-        }
-
-        .brand {
-            font-size: 13px;
-            opacity: 0.85;
-        }
-
-        /* ANIMACIONES */
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* CELULAR */
-
-        @media (max-width: 600px) {
-
-            section {
-                padding: 60px 18px;
-            }
-
-            .hero-content {
-                padding: 35px 18px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid img {
-                height: 430px;
-            }
-
-            .story-text,
-            .dress-box p,
-            .gift-text,
-            .rsvp p,
-            .location-text {
-                font-size: 17px;
-            }
-
-            .event-item strong {
-                font-size: 20px;
-            }
-
-            .time-box {
-                min-width: 75px;
-            }
-
-            .time-box strong {
-                font-size: 27px;
-            }
-
-            .map-button {
-                display: block;
-                margin: 12px auto;
-                max-width: 260px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Morena · Mis 15 años</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #f8fbff;
+    color: #40536d;
+    overflow-x: hidden;
+}
+
+/* =========================
+   PALETA
+========================= */
+
+:root {
+    --azul: #4169A1;
+    --azul-medio: #5B82B8;
+    --azul-suave: #DCE8F6;
+    --azul-claro: #EEF4FB;
+    --plateado: #C7CBD3;
+    --plateado-claro: #F5F6F8;
+    --blanco: #FFFFFF;
+    --texto: #40536d;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.decorative-title {
+    font-size: clamp(36px, 7vw, 62px);
+    font-weight: normal;
+    color: var(--azul);
+    margin-bottom: 30px;
+}
+
+.decorative-title::after {
+    content: "✦";
+    display: block;
+    font-size: 18px;
+    color: var(--plateado);
+    margin-top: 10px;
+}
+
+/* =========================
+   MARIPOSAS
+========================= */
+
+.butterfly {
+    position: absolute;
+    color: var(--plateado);
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.b1 {
+    top: 8%;
+    left: 7%;
+    font-size: 38px;
+    transform: rotate(-20deg);
+}
+
+.b2 {
+    top: 17%;
+    right: 8%;
+    font-size: 27px;
+    transform: rotate(18deg);
+}
+
+.b3 {
+    bottom: 12%;
+    left: 9%;
+    font-size: 25px;
+    transform: rotate(15deg);
+}
+
+.b4 {
+    bottom: 8%;
+    right: 10%;
+    font-size: 42px;
+    transform: rotate(-18deg);
+}
+
+.b5 {
+    top: 48%;
+    left: 3%;
+    font-size: 19px;
+}
+
+.b6 {
+    top: 55%;
+    right: 4%;
+    font-size: 20px;
+}
+
+/* =========================
+   BRILLOS
+========================= */
+
+.sparkle {
+    position: absolute;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #ffffff,
+        0 0 12px #C7CBD3,
+        0 0 20px #ffffff;
+    animation: sparkle 3s infinite ease-in-out;
+}
+
+.s1 {
+    top: 20%;
+    left: 25%;
+}
+
+.s2 {
+    top: 32%;
+    right: 25%;
+    animation-delay: 1s;
+}
+
+.s3 {
+    bottom: 25%;
+    left: 20%;
+    animation-delay: 1.5s;
+}
+
+.s4 {
+    bottom: 20%;
+    right: 23%;
+    animation-delay: 2s;
+}
+
+@keyframes sparkle {
+
+    0%,100% {
+        opacity: .3;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+.hero {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.98),
+            rgba(220,232,246,.96)
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+}
+
+.crown {
+    font-size: 28px;
+    color: var(--plateado);
+    margin-bottom: 18px;
+    text-shadow: 0 0 12px white;
+}
+
+.small-title {
+    color: var(--azul);
+    font-size: 15px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 16vw, 135px);
+    font-weight: normal;
+    line-height: .95;
+
+    background: linear-gradient(
+        120deg,
+        #4169A1,
+        #7C9DCA,
+        #C7CBD3,
+        #FFFFFF,
+        #6C8FBE,
+        #4169A1
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    text-shadow: 0 5px 20px rgba(65,105,161,.12);
+}
+
+.hero h2 {
+    margin-top: 15px;
+    font-size: clamp(25px, 5vw, 45px);
+    letter-spacing: 10px;
+    font-weight: normal;
+    color: var(--azul);
+}
+
+.hero-date {
+    margin-top: 30px;
+    font-size: 21px;
+    letter-spacing: 4px;
+    color: #536a88;
+}
+
+.open-button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 34px;
+
+    color: white;
+    text-decoration: none;
+
+    background: linear-gradient(
+        135deg,
+        #4169A1,
+        #7899C4,
+        #4169A1
+    );
+
+    border-radius: 50px;
+
+    box-shadow:
+        0 8px 25px rgba(65,105,161,.25),
+        inset 0 1px 2px rgba(255,255,255,.7);
+
+    transition: .3s;
+}
+
+.open-button:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   HISTORIA
+========================= */
+
+.story {
+    background: #ffffff;
+}
+
+.story-box {
+    max-width: 760px;
+    margin: auto;
+    padding: 45px 30px;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #f1f6fc
+    );
+
+    border: 1px solid var(--plateado);
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 45px rgba(65,105,161,.08);
+}
+
+.story-text {
+    font-size: 19px;
+    line-height: 2;
+    color: var(--texto);
+}
+
+/* =========================
+   GALERÍA
+========================= */
+
+.gallery {
+    background: linear-gradient(
+        180deg,
+        #eaf2fb,
+        #ffffff
+    );
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+    max-width: 820px;
+    margin: 40px auto 0;
+}
+
+/*
+IMPORTANTE:
+contain evita que las fotos se corten.
+*/
+
+.photo-frame {
+    background: #ffffff;
+    border: 1px solid var(--plateado);
+    border-radius: 25px;
+    padding: 10px;
+
+    box-shadow:
+        0 15px 35px rgba(65,105,161,.12);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 500px;
+
+    object-fit: contain;
+
+    background: #f5f8fc;
+
+    border-radius: 18px;
+
+    display: block;
+}
+
+/* =========================
+   EVENTO
+========================= */
+
+.event {
+    background: #ffffff;
+}
+
+.event-card {
+    max-width: 680px;
+    margin: auto;
+
+    padding: 45px 25px;
+
+    background: linear-gradient(
+        145deg,
+        #f8fbff,
+        #e8f0f9
+    );
+
+    border: 1px solid var(--plateado);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 40px rgba(65,105,161,.08);
+}
+
+.event-item {
+    margin: 28px 0;
+}
+
+.event-item span {
+    display: block;
+    color: var(--azul-medio);
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.event-item strong {
+    display: block;
+    color: #40536d;
+    font-size: 23px;
+    line-height: 1.5;
+    font-weight: normal;
+}
+
+/* =========================
+   UBICACIÓN
+========================= */
+
+.location {
+    background: var(--azul);
+    color: white;
+}
+
+.location .decorative-title {
+    color: white;
+}
+
+.location .decorative-title::after {
+    color: var(--plateado-claro);
+}
+
+.location-text {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.location-name {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.map-buttons {
+    margin-top: 30px;
+}
+
+.map-button {
+    display: inline-block;
+    margin: 8px;
+    padding: 14px 25px;
+
+    border-radius: 50px;
+
+    background: white;
+    color: var(--azul);
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.map-button:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   DRESS CODE
+========================= */
+
+.dresscode {
+    background: #f7faff;
+}
+
+.dress-box {
+    max-width: 720px;
+    margin: auto;
+
+    padding: 45px 30px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    border: 1px solid var(--plateado);
+
+    box-shadow:
+        0 15px 40px rgba(65,105,161,.08);
+}
+
+.dress-box p {
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+.dress-important {
+    margin-top: 25px;
+    color: var(--azul);
+}
+
+/* =========================
+   CONTADOR
+========================= */
+
+.countdown {
+    background:
+        linear-gradient(
+            135deg,
+            #4169A1,
+            #5B82B8
+        );
+
+    color: white;
+}
+
+.countdown .decorative-title {
+    color: white;
+}
+
+.countdown .decorative-title::after {
+    color: #ffffff;
+}
+
+.countdown-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.time-box {
+    min-width: 100px;
+    padding: 22px 15px;
+
+    background: rgba(255,255,255,.95);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.08);
+}
+
+.time-box strong {
+    display: block;
+    font-size: 35px;
+    font-weight: normal;
+    color: var(--azul);
+}
+
+.time-box span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #63748a;
+}
+
+/* =========================
+   REGALO
+========================= */
+
+.gift {
+    background: white;
+}
+
+.gift-text {
+    max-width: 650px;
+    margin: auto;
+
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.alias-box {
+    max-width: 450px;
+    margin: 30px auto 0;
+
+    padding: 30px 20px;
+
+    background: linear-gradient(
+        145deg,
+        #f1f5fa,
+        #ffffff
+    );
+
+    border: 1px solid var(--plateado);
+
+    border-radius: 25px;
+}
+
+.alias-label {
+    color: #6b7e97;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.alias {
+    font-size: 27px;
+    color: var(--azul);
+    margin: 12px 0;
+}
+
+.copy-button {
+    border: none;
+    padding: 13px 25px;
+
+    border-radius: 40px;
+
+    background: var(--azul);
+    color: white;
+
+    font-family: Georgia, serif;
+    cursor: pointer;
+}
+
+.copy-message {
+    display: block;
+    margin-top: 12px;
+    color: var(--azul);
+    font-size: 14px;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.rsvp {
+    background:
+        linear-gradient(
+            180deg,
+            #edf4fb,
+            #ffffff
+        );
+}
+
+.rsvp-text {
+    max-width: 650px;
+    margin: auto;
+
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.rsvp-button {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 16px 30px;
+
+    border-radius: 50px;
+
+    background: var(--azul);
+    color: white;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 25px rgba(65,105,161,.22);
+}
+
+.rsvp-number {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #718096;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 45px 20px;
+
+    background: #355887;
+
+    color: white;
+
+    text-align: center;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+.brand {
+    font-size: 13px;
+    opacity: .85;
+}
+
+/* =========================
+   ANIMACIÓN
+========================= */
+
+.fade {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   MÚSICA
+========================= */
+
+.music-control {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 9999;
+}
+
+.music-control button {
+    border: 1px solid rgba(255,255,255,.7);
+
+    padding: 12px 18px;
+
+    border-radius: 40px;
+
+    background: rgba(65,105,161,.95);
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 20px rgba(65,105,161,.25);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:600px) {
+
+    section {
+        padding: 65px 17px;
+    }
+
+    .hero h2 {
+        letter-spacing: 6px;
+    }
+
+    .story-box,
+    .dress-box,
+    .event-card {
+        padding: 35px 20px;
+    }
+
+    .story-text,
+    .dress-box p,
+    .gift-text,
+    .rsvp-text,
+    .location-text {
+        font-size: 17px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /*
+    La foto se mantiene completa también
+    en celular.
+    */
+
+    .photo-frame img {
+        height: auto;
+        max-height: 620px;
+        object-fit: contain;
+    }
+
+    .event-item strong {
+        font-size: 20px;
+    }
+
+    .time-box {
+        min-width: 75px;
+    }
+
+    .time-box strong {
+        font-size: 28px;
+    }
+
+    .map-button {
+        display: block;
+        max-width: 270px;
+        margin: 12px auto;
+    }
+
+    .b1 {
+        left: 3%;
+    }
+
+    .b2 {
+        right: 3%;
+    }
+
+    .b3 {
+        left: 4%;
+    }
+
+    .b4 {
+        right: 4%;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- MÚSICA -->
-    <audio id="backgroundMusic" loop>
-        <source src="musica.mp3" type="audio/mpeg">
-    </audio>
 
-    <div class="music-control">
-        <button id="musicButton">▶ Música</button>
+<!-- =========================
+     PORTADA
+========================= -->
+
+<section class="hero">
+
+    <span class="butterfly b1">🦋</span>
+    <span class="butterfly b2">🦋</span>
+    <span class="butterfly b3">🦋</span>
+    <span class="butterfly b4">🦋</span>
+    <span class="butterfly b5">🦋</span>
+    <span class="butterfly b6">🦋</span>
+
+    <span class="sparkle s1">✦</span>
+    <span class="sparkle s2">✧</span>
+    <span class="sparkle s3">✦</span>
+    <span class="sparkle s4">✧</span>
+
+    <div class="container hero-content">
+
+        <div class="crown">♕</div>
+
+        <p class="small-title">
+            Mis 15 años
+        </p>
+
+        <h1>
+            Morena
+        </h1>
+
+        <h2>
+            15 AÑOS
+        </h2>
+
+        <p class="hero-date">
+            14 · 11 · 2026
+        </p>
+
+        <a href="#historia" class="open-button">
+            Abrir invitación
+        </a>
+
     </div>
 
-
-    <!-- PORTADA -->
-    <section class="hero">
-
-        <div class="container hero-content">
-
-            <p class="small-title">Mis 15 años</p>
-
-            <h1>Morena</h1>
-
-            <h2>15 AÑOS</h2>
-
-            <p class="date">
-                14 · 11 · 2026
-            </p>
-
-            <a href="#historia" class="open-button">
-                Abrir invitación
-            </a>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- HISTORIA -->
-    <section id="historia" class="story">
+<!-- =========================
+     HISTORIA
+========================= -->
 
-        <div class="container fade-in">
+<section id="historia" class="story">
 
-            <h2 class="decorative-title">
-                Érase una vez...
-            </h2>
+    <span class="butterfly b3">🦋</span>
+    <span class="sparkle s1">✦</span>
+
+    <div class="container fade">
+
+        <h2 class="decorative-title">
+            Érase una vez...
+        </h2>
+
+        <div class="story-box">
 
             <p class="story-text">
 
@@ -542,429 +905,605 @@
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- FOTOS -->
-    <section class="gallery">
+<!-- =========================
+     FOTOS
+========================= -->
 
-        <div class="container fade-in">
+<section class="gallery">
 
-            <h2 class="decorative-title">
-                Morena
-            </h2>
+    <span class="butterfly b1">🦋</span>
+    <span class="butterfly b4">🦋</span>
 
-            <div class="gallery-grid">
+    <div class="container fade">
 
+        <h2 class="decorative-title">
+            Morena
+        </h2>
+
+        <div class="gallery-grid">
+
+            <div class="photo-frame">
                 <img src="morena1.jpg" alt="Morena">
+            </div>
+
+            <div class="photo-frame">
                 <img src="morena2.jpg" alt="Morena">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EVENTO
+========================= -->
+
+<section class="event">
+
+    <span class="butterfly b2">🦋</span>
+    <span class="sparkle s2">✦</span>
+
+    <div class="container fade">
+
+        <h2 class="decorative-title">
+            Te esperamos
+        </h2>
+
+        <div class="event-card">
+
+            <div class="event-item">
+
+                <span>
+                    Comenzamos
+                </span>
+
+                <strong>
+                    Sábado 14 de noviembre
+                    <br>
+                    21:00 hs
+                </strong>
+
+            </div>
+
+
+            <div class="event-item">
+
+                <span>
+                    Continuamos
+                </span>
+
+                <strong>
+                    Domingo 15 de noviembre
+                    <br>
+                    Hasta las 17:00 hs
+                </strong>
+
+            </div>
+
+
+            <div class="event-item">
+
+                <span>
+                    Opcional
+                </span>
+
+                <strong>
+                    Podés quedarte a disfrutar
+                    del día siguiente.
+                </strong>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
+</section>
 
-    <!-- INFORMACIÓN DEL EVENTO -->
-    <section class="event">
 
-        <div class="container fade-in">
+<!-- =========================
+     UBICACIÓN
+========================= -->
 
-            <h2 class="decorative-title">
-                Te esperamos
-            </h2>
+<section class="location">
 
-            <div class="event-card">
+    <span class="butterfly b1">🦋</span>
+    <span class="butterfly b4">🦋</span>
 
-                <div class="event-item">
-                    <span>Comenzamos</span>
-                    <strong>
-                        Sábado 14 de noviembre
-                        <br>
-                        21:00 hs
-                    </strong>
-                </div>
+    <div class="container fade">
 
-                <div class="event-item">
-                    <span>Continuamos</span>
-                    <strong>
-                        Domingo 15 de noviembre
-                        <br>
-                        Hasta las 17:00 hs
-                    </strong>
-                </div>
+        <h2 class="decorative-title">
+            ¿Dónde nos encontramos?
+        </h2>
 
-                <div class="event-item">
-                    <span>Opcional</span>
-                    <strong>
-                        Podés quedarte a disfrutar
-                        del día siguiente.
-                    </strong>
-                </div>
+        <p class="location-name">
+            La Querencia
+        </p>
 
-            </div>
+        <p class="location-text">
 
-        </div>
+            Juan Mantovani e/ 1439 y 1443
 
-    </section>
+            <br>
 
+            Villa Brown · Florencio Varela
 
-    <!-- UBICACIÓN -->
-    <section class="location">
+        </p>
 
-        <div class="container fade-in">
-
-            <h2 class="decorative-title">
-                ¿Dónde nos encontramos?
-            </h2>
-
-            <p class="location-text">
-
-                <strong>La Querencia</strong>
-
-                <br>
-
-                Juan Mantovani e/ 1439 y 1443
-
-                <br>
-
-                Villa Brown · Florencio Varela
-
-            </p>
-
-            <div class="map-buttons">
-
-                <a
-                    class="map-button"
-                    href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
-                    target="_blank"
-                >
-                    📍 Google Maps
-                </a>
-
-                <a
-                    class="map-button"
-                    href="https://www.waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
-                    target="_blank"
-                >
-                    🚗 Waze
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DRESS CODE -->
-    <section class="dresscode">
-
-        <div class="container fade-in">
-
-            <h2 class="decorative-title">
-                Dress code
-            </h2>
-
-            <div class="dress-box">
-
-                <p>
-                    Te esperamos con un look
-                    <strong>elegante y fresco</strong>,
-                    ideal para disfrutar de una tarde especial
-                    al aire libre.
-                </p>
-
-                <p class="important">
-                    🩱 Traer traje de baño y toalla.
-                    <br><br>
-                    🧉 Si te quedás al otro día,
-                    no olvides traer tu set de mate.
-                </p>
-
-                <p class="important">
-                    Lo más importante es compartir
-                    este día con vos. 🤍
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTADOR -->
-    <section class="countdown">
-
-        <div class="container fade-in">
-
-            <h2 class="decorative-title">
-                Falta cada vez menos...
-            </h2>
-
-            <p>
-                Para comenzar a celebrar juntos.
-            </p>
-
-            <div class="countdown-box">
-
-                <div class="time-box">
-                    <strong id="days">0</strong>
-                    <span>Días</span>
-                </div>
-
-                <div class="time-box">
-                    <strong id="hours">0</strong>
-                    <span>Horas</span>
-                </div>
-
-                <div class="time-box">
-                    <strong id="minutes">0</strong>
-                    <span>Minutos</span>
-                </div>
-
-                <div class="time-box">
-                    <strong id="seconds">0</strong>
-                    <span>Segundos</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- REGALO -->
-    <section class="gift">
-
-        <div class="container fade-in">
-
-            <h2 class="decorative-title">
-                Si querés regalarme algo...
-            </h2>
-
-            <p class="gift-text">
-                Tu presencia es el regalo más importante.
-                Pero si querés hacerme un presente,
-                te dejo mi alias:
-            </p>
-
-            <div class="alias-box">
-
-                <p>Alias</p>
-
-                <div class="alias">
-                    morena0702.mp
-                </div>
-
-                <p>
-                    A nombre de
-                    <strong>Morena Abril Novillo</strong>
-                </p>
-
-                <button class="copy-button" id="copyAlias">
-                    Copiar alias
-                </button>
-
-                <span id="copyMessage"></span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONFIRMACIÓN -->
-    <section class="rsvp">
-
-        <div class="container fade-in">
-
-            <h2 class="decorative-title">
-                ¿Nos acompañás?
-            </h2>
-
-            <p>
-                Confirmá tu asistencia para que podamos
-                preparar todo para este día tan especial.
-            </p>
+        <div class="map-buttons">
 
             <a
-                class="rsvp-button"
-                href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%97%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os.%20"
+                class="map-button"
+                href="https://www.google.com/maps/search/?api=1&query=Juan+Mantovani+1439+1443+La+Querencia+Villa+Brown+Florencio+Varela"
                 target="_blank"
             >
-                💬 Confirmar asistencia por WhatsApp
+                📍 Google Maps
             </a>
 
-            <p style="margin-top:20px; font-size:15px;">
-                WhatsApp: 11 5163-4135
+            <a
+                class="map-button"
+                href="https://www.waze.com/ul?q=Juan%20Mantovani%201439%201443%20La%20Querencia%20Villa%20Brown%20Florencio%20Varela"
+                target="_blank"
+            >
+                🚗 Waze
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DRESS CODE
+========================= -->
+
+<section class="dresscode">
+
+    <span class="butterfly b2">🦋</span>
+
+    <div class="container fade">
+
+        <h2 class="decorative-title">
+            Dress code
+        </h2>
+
+        <div class="dress-box">
+
+            <p>
+                Te esperamos con un look
+                <strong>elegante y fresco</strong>,
+                ideal para disfrutar de una tarde especial
+                al aire libre.
+            </p>
+
+            <p class="dress-important">
+
+                🩱 Traer traje de baño y toalla.
+
+                <br><br>
+
+                🧉 Si te quedás al otro día,
+                no olvides traer tu set de mate.
+
+            </p>
+
+            <p class="dress-important">
+
+                Lo más importante es compartir
+                este día con vos. 🤍
+
             </p>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- FOOTER -->
-    <footer>
+<!-- =========================
+     CONTADOR
+========================= -->
+
+<section class="countdown">
+
+    <span class="butterfly b1">🦋</span>
+    <span class="butterfly b4">🦋</span>
+
+    <div class="container fade">
+
+        <h2 class="decorative-title">
+            Falta cada vez menos...
+        </h2>
 
         <p>
-            Morena · Mis 15 años
+            Para comenzar a celebrar juntos.
         </p>
 
-        <p class="brand">
-            Diseñamos el comienzo de momentos inolvidables.
+        <div class="countdown-box">
+
+            <div class="time-box">
+                <strong id="days">0</strong>
+                <span>Días</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="hours">0</strong>
+                <span>Horas</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">0</strong>
+                <span>Minutos</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">0</strong>
+                <span>Segundos</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     REGALO
+========================= -->
+
+<section class="gift">
+
+    <span class="butterfly b3">🦋</span>
+
+    <div class="container fade">
+
+        <h2 class="decorative-title">
+            Si querés regalarme algo...
+        </h2>
+
+        <p class="gift-text">
+
+            Tu presencia es el regalo más importante.
+
+            <br>
+
+            Pero si querés hacerme un presente,
+            te dejo mi alias:
+
         </p>
 
-        <p class="brand">
-            Ivory Diseños Digitales · @ivory.dd
+        <div class="alias-box">
+
+            <p class="alias-label">
+                Alias
+            </p>
+
+            <div class="alias">
+                morena0702.mp
+            </div>
+
+            <p>
+                A nombre de
+                <strong>Morena Abril Novillo</strong>
+            </p>
+
+            <button
+                class="copy-button"
+                id="copyAlias"
+            >
+                Copiar alias
+            </button>
+
+            <span
+                class="copy-message"
+                id="copyMessage"
+            ></span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONFIRMACIÓN
+========================= -->
+
+<section class="rsvp">
+
+    <span class="butterfly b1">🦋</span>
+    <span class="butterfly b4">🦋</span>
+
+    <div class="container fade">
+
+        <h2 class="decorative-title">
+            ¿Nos acompañás?
+        </h2>
+
+        <p class="rsvp-text">
+
+            Confirmá tu asistencia para que podamos
+            preparar todo para este día tan especial.
+
         </p>
 
-    </footer>
+        <a
+            class="rsvp-button"
+            href="https://wa.me/5491151634135?text=Hola%20Morena%20%F0%9F%92%99%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%2015%20a%C3%B1os."
+            target="_blank"
+        >
+            💬 Confirmar asistencia por WhatsApp
+        </a>
+
+        <p class="rsvp-number">
+            WhatsApp: 11 5163-4135
+        </p>
+
+    </div>
+
+</section>
 
 
-    <script>
+<!-- =========================
+     FOOTER
+========================= -->
 
-        /* ANIMACIONES */
+<footer>
 
-        const elements = document.querySelectorAll(".fade-in");
+    <p>
+        Morena · Mis 15 años
+    </p>
 
-        const observer = new IntersectionObserver(
-            function(entries) {
+    <p class="brand">
+        Diseñamos el comienzo de momentos inolvidables.
+    </p>
 
-                entries.forEach(function(entry) {
+    <p class="brand">
+        Ivory Diseños Digitales · @ivory.dd
+    </p>
 
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
+</footer>
 
-                });
 
-            },
-            {
-                threshold: 0.15
+<!-- =========================
+     MÚSICA
+========================= -->
+
+<audio id="backgroundMusic" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-control">
+
+    <button id="musicButton">
+        ▶ Música
+    </button>
+
+</div>
+
+
+<script>
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+const elements = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver(
+
+    function(entries) {
+
+        entries.forEach(function(entry) {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
             }
+
+        });
+
+    },
+
+    {
+        threshold: 0.15
+    }
+
+);
+
+elements.forEach(function(element) {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+const eventDate =
+    new Date("November 14, 2026 21:00:00").getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        eventDate - now;
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
         );
 
-        elements.forEach(function(element) {
-            observer.observe(element);
-        });
+
+    const hours =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
 
 
-        /* CONTADOR */
-
-        const eventDate = new Date(
-            "November 14, 2026 21:00:00"
-        ).getTime();
-
-        function updateCountdown() {
-
-            const now = new Date().getTime();
-
-            const distance = eventDate - now;
-
-            const days = Math.floor(
-                distance / (1000 * 60 * 60 * 24)
-            );
-
-            const hours = Math.floor(
-                (distance % (1000 * 60 * 60 * 24)) /
-                (1000 * 60 * 60)
-            );
-
-            const minutes = Math.floor(
-                (distance % (1000 * 60 * 60)) /
-                (1000 * 60)
-            );
-
-            const seconds = Math.floor(
-                (distance % (1000 * 60)) /
-                1000
-            );
-
-            if (distance > 0) {
-
-                document.getElementById("days").textContent = days;
-                document.getElementById("hours").textContent = hours;
-                document.getElementById("minutes").textContent = minutes;
-                document.getElementById("seconds").textContent = seconds;
-
-            } else {
-
-                document.getElementById("days").textContent = "0";
-                document.getElementById("hours").textContent = "0";
-                document.getElementById("minutes").textContent = "0";
-                document.getElementById("seconds").textContent = "0";
-
-            }
-
-        }
-
-        updateCountdown();
-
-        setInterval(updateCountdown, 1000);
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
 
 
-        /* MÚSICA */
-
-        const music = document.getElementById("backgroundMusic");
-        const musicButton = document.getElementById("musicButton");
-
-        musicButton.addEventListener("click", function() {
-
-            if (music.paused) {
-
-                music.play()
-                    .then(function() {
-                        musicButton.textContent = "🔊 Música";
-                    })
-                    .catch(function() {
-                        musicButton.textContent = "▶ Música";
-                    });
-
-            } else {
-
-                music.pause();
-
-                musicButton.textContent = "🔇 Música";
-
-            }
-
-        });
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000 * 60)) /
+            1000
+        );
 
 
-        /* COPIAR ALIAS */
+    if (distance > 0) {
 
-        const copyButton = document.getElementById("copyAlias");
-        const copyMessage = document.getElementById("copyMessage");
+        document.getElementById("days").textContent =
+            days;
 
-        copyButton.addEventListener("click", function() {
+        document.getElementById("hours").textContent =
+            hours;
 
-            navigator.clipboard.writeText("morena0702.mp")
+        document.getElementById("minutes").textContent =
+            minutes;
+
+        document.getElementById("seconds").textContent =
+            seconds;
+
+    } else {
+
+        document.getElementById("days").textContent =
+            "0";
+
+        document.getElementById("hours").textContent =
+            "0";
+
+        document.getElementById("minutes").textContent =
+            "0";
+
+        document.getElementById("seconds").textContent =
+            "0";
+
+    }
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+
+/* =========================
+   MÚSICA
+========================= */
+
+const music =
+    document.getElementById("backgroundMusic");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+musicButton.addEventListener(
+    "click",
+    function() {
+
+        if (music.paused) {
+
+            music.play()
                 .then(function() {
 
-                    copyMessage.textContent =
-                        "✓ Alias copiado";
-
-                    setTimeout(function() {
-                        copyMessage.textContent = "";
-                    }, 2500);
+                    musicButton.textContent =
+                        "🔊 Música";
 
                 })
                 .catch(function() {
 
-                    copyMessage.textContent =
-                        "Alias: morena0702.mp";
+                    musicButton.textContent =
+                        "▶ Música";
 
                 });
 
-        });
+        } else {
 
-    </script>
+            music.pause();
+
+            musicButton.textContent =
+                "🔇 Música";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   COPIAR ALIAS
+========================= */
+
+const copyButton =
+    document.getElementById("copyAlias");
+
+const copyMessage =
+    document.getElementById("copyMessage");
+
+
+copyButton.addEventListener(
+    "click",
+    function() {
+
+        navigator.clipboard
+            .writeText("morena0702.mp")
+
+            .then(function() {
+
+                copyMessage.textContent =
+                    "✓ Alias copiado";
+
+                setTimeout(function() {
+
+                    copyMessage.textContent = "";
+
+                }, 2500);
+
+            })
+
+            .catch(function() {
+
+                copyMessage.textContent =
+                    "Alias: morena0702.mp";
+
+            });
+
+    }
+);
+
+</script>
 
 </body>
 </html>
+```
